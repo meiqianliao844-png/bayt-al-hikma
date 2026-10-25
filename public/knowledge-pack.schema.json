@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "智慧宫每日知识包 v1",
+  "title": "智慧宫每日知识包 v1 · 可选深度词汇档案",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "id", "title", "knowledge", "questions"],
@@ -109,6 +109,19 @@
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 10000
+                },
+                "context": {
+                  "type": "string",
+                  "maxLength": 10000
+                },
+                "variety": {
+                  "type": "string",
+                  "maxLength": 10000
+                },
+                "audioUrl": {
+                  "type": "string",
+                  "pattern": "^https://",
+                  "maxLength": 10000
                 }
               }
             }
@@ -116,22 +129,384 @@
           "verb": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["past", "present", "masdar"],
             "properties": {
+              "note": {
+                "type": "string",
+                "maxLength": 10000
+              },
               "past": {
                 "type": "string",
-                "minLength": 1,
                 "maxLength": 10000
               },
               "present": {
                 "type": "string",
-                "minLength": 1,
+                "maxLength": 10000
+              },
+              "imperative": {
+                "type": "string",
                 "maxLength": 10000
               },
               "masdar": {
                 "type": "string",
-                "minLength": 1,
                 "maxLength": 10000
+              },
+              "activeParticiple": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "passiveParticiple": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "applicable": {
+                "type": "boolean"
+              },
+              "conjugations": {
+                "type": "array",
+                "maxItems": 500,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "pronoun": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "past": {
+                      "type": "string",
+                      "maxLength": 10000
+                    },
+                    "present": {
+                      "type": "string",
+                      "maxLength": 10000
+                    },
+                    "imperative": {
+                      "type": "string",
+                      "maxLength": 10000
+                    },
+                    "note": {
+                      "type": "string",
+                      "maxLength": 10000
+                    }
+                  },
+                  "required": ["pronoun"]
+                }
+              }
+            }
+          },
+          "vocabulary": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "partOfSpeech": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "transliteration": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "variety": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "noun": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "applicable": {
+                    "type": "boolean"
+                  },
+                  "note": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "singular": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "dual": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "gender": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "masculine": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "feminine": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "plurals": {
+                    "type": "array",
+                    "maxItems": 500,
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "arabic": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 10000
+                        },
+                        "kind": {
+                          "enum": [
+                            "sound-masculine",
+                            "sound-feminine",
+                            "broken",
+                            "other"
+                          ]
+                        },
+                        "note": {
+                          "type": "string",
+                          "maxLength": 10000
+                        }
+                      },
+                      "required": ["arabic", "kind"]
+                    }
+                  },
+                  "derivatives": {
+                    "type": "array",
+                    "maxItems": 500,
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "arabic": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 10000
+                        },
+                        "chinese": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 10000
+                        },
+                        "knowledgeId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 10000
+                        },
+                        "partOfSpeech": {
+                          "type": "string",
+                          "maxLength": 10000
+                        },
+                        "commonness": {
+                          "enum": ["common", "rare"]
+                        },
+                        "note": {
+                          "type": "string",
+                          "maxLength": 10000
+                        }
+                      },
+                      "required": ["arabic", "chinese"]
+                    }
+                  }
+                }
+              },
+              "family": {
+                "type": "array",
+                "maxItems": 500,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "arabic": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "chinese": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "knowledgeId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "partOfSpeech": {
+                      "type": "string",
+                      "maxLength": 10000
+                    },
+                    "commonness": {
+                      "enum": ["common", "rare"]
+                    },
+                    "note": {
+                      "type": "string",
+                      "maxLength": 10000
+                    }
+                  },
+                  "required": ["arabic", "chinese"]
+                }
+              },
+              "relations": {
+                "type": "array",
+                "maxItems": 500,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "arabic": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "chinese": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "knowledgeId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "relation": {
+                      "enum": [
+                        "synonym",
+                        "near-synonym",
+                        "related",
+                        "antonym",
+                        "semantic-opposite"
+                      ]
+                    },
+                    "distinction": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "variety": {
+                      "type": "string",
+                      "maxLength": 10000
+                    }
+                  },
+                  "required": ["arabic", "chinese", "relation", "distinction"]
+                }
+              },
+              "phrases": {
+                "type": "array",
+                "maxItems": 500,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "arabic": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "chinese": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "knowledgeId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "kind": {
+                      "enum": ["verb-preposition", "phrase", "idiom"]
+                    },
+                    "note": {
+                      "type": "string",
+                      "maxLength": 10000
+                    }
+                  },
+                  "required": ["arabic", "chinese", "kind"]
+                }
+              },
+              "contrasts": {
+                "type": "array",
+                "maxItems": 500,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "arabic": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "chinese": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "interchangeable": {
+                      "type": "string",
+                      "maxLength": 10000
+                    },
+                    "notInterchangeable": {
+                      "type": "string",
+                      "maxLength": 10000
+                    }
+                  },
+                  "required": ["arabic", "chinese"]
+                }
+              },
+              "usage": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "register": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "frequency": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "interpretation": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "note": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "mistakes": {
+                    "type": "array",
+                    "maxItems": 500,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    }
+                  }
+                }
+              },
+              "sources": {
+                "type": "array",
+                "maxItems": 500,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 10000
+                    },
+                    "url": {
+                      "type": "string",
+                      "pattern": "^https://",
+                      "maxLength": 10000
+                    },
+                    "note": {
+                      "type": "string",
+                      "maxLength": 10000
+                    }
+                  },
+                  "required": ["label"]
+                }
               }
             }
           }
@@ -187,7 +562,13 @@
               "preposition",
               "grammar",
               "synonym",
-              "interpretation"
+              "interpretation",
+              "conjugation",
+              "noun-number",
+              "root",
+              "derivation",
+              "antonym",
+              "context-fill"
             ]
           },
           "options": {
@@ -207,9 +588,77 @@
               "minLength": 1,
               "maxLength": 10000
             }
+          },
+          "grading": {
+            "enum": ["choice", "exact", "self"]
+          },
+          "acceptedAnswers": {
+            "type": "array",
+            "maxItems": 500,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 10000
+            }
           }
-        }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "grading": {
+                  "const": "choice"
+                }
+              },
+              "required": ["grading"]
+            },
+            "then": {
+              "required": ["options"]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "grading": {
+                  "const": "exact"
+                }
+              },
+              "required": ["grading"]
+            },
+            "then": {
+              "properties": {
+                "type": {
+                  "enum": [
+                    "conjugation",
+                    "noun-number",
+                    "root",
+                    "preposition",
+                    "context-fill",
+                    "zh-fill"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "enum": ["ar-zh", "interpretation", "grammar"]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "grading": {
+                  "const": "self"
+                }
+              }
+            }
+          }
+        ]
       }
     }
-  }
+  },
+  "description": "向后兼容的 v1 扩展。原有必填字段不变；新增词汇字段均可省略或逐步补充。空字符串表示暂缺，applicable:false 明确表示不适用。"
 }

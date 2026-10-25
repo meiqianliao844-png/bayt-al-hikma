@@ -13,6 +13,8 @@ import {
   Menu,
 } from "lucide-react";
 import { AudioTools } from "./Audio";
+import { VocabularyProfile } from "./VocabularyProfile";
+import { questionLabels } from "./vocabulary";
 import {
   type State,
   type Knowledge,
@@ -28,19 +30,12 @@ import {
   removeKnowledge,
   normalize,
   shuffle,
+  gradingMode,
+  checkAnswer,
 } from "./core";
 import "@fontsource/amiri/arabic-400.css";
 import "./style.css";
-const labels: Record<string, string> = {
-  "zh-ar": "中文选阿语",
-  "ar-choice": "阿语选中文",
-  "zh-fill": "中译阿填空",
-  "ar-zh": "阿译中",
-  preposition: "介词与搭配",
-  grammar: "语法纠错",
-  synonym: "近义词辨析",
-  interpretation: "口译情景",
-};
+const labels = questionLabels;
 let startupError = "";
 let loaded: State;
 try {
@@ -107,6 +102,7 @@ function App() {
             k.meaning,
             k.root,
             k.category,
+            JSON.stringify(k.vocabulary || {}),
             ...(k.collocations || []),
           ].join(" "),
         )
@@ -430,6 +426,8 @@ function App() {
               <Practice
                 key={practice.map((q) => q.id).join(",")}
                 questions={practice}
+                knowledge={s.knowledge}
+                open={setDetail}
                 submit={(q, a, c) => commit(recordAnswer(s, q, a, c))}
                 finish={() => setPractice(null)}
               />
@@ -566,6 +564,9 @@ function App() {
                   <a href="./examples/starter.json" download>
                     下载示例知识包
                   </a>
+                  <a href="./examples/vocabulary.json" download>
+                    深度词汇示例（10 类练习）
+                  </a>
                   <a href="./knowledge-pack.schema.json" download>
                     JSON Schema
                   </a>
@@ -628,7 +629,7 @@ function App() {
                     onChange={(e) => setUpdate(e.target.checked)}
                   />{" "}
                   更新相同 ID
-                  的知识与题目（保留已有复习记录，请确认题目语义未改变）
+                  的知识与题目（知识按字段补充，保留未提供内容与复习记录；题目整条更新）
                 </label>
                 <div className="preview-list">
                   {pack.knowledge.map((k) => (
@@ -711,37 +712,17 @@ function App() {
           </h2>
           <h2>{detail.meaning}</h2>
           <AudioTools text={detail.arabic} url={detail.audioUrl} />
-          <dl>
-            {[
-              ["词根", detail.root],
-              ["构词形式", detail.form],
-              [
-                "动词变化",
-                detail.verb
-                  ? `${detail.verb.past} ← ${detail.verb.present} ← ${detail.verb.masdar}`
-                  : "不适用 / 未录入",
-              ],
-              ["常见搭配", detail.collocations?.join(" · ")],
-              ["语法说明", detail.grammar],
-              ["易混词辨析", detail.confusion],
-              ["使用场景与口译提示", detail.scenario],
-              ["停顿与连读", detail.pauseNote],
-            ].map(([a, b]) => (
-              <React.Fragment key={a}>
-                <dt>{a}</dt>
-                <dd dir="auto">{b || "尚未补充"}</dd>
-              </React.Fragment>
-            ))}
-          </dl>
-          {detail.examples?.map((ex, i) => (
-            <div className="example" key={i}>
-              <p className="arabic" dir="rtl" lang="ar">
-                {ex.arabic}
-              </p>
-              <p>{ex.chinese}</p>
-              <AudioTools text={ex.arabic} />
-            </div>
-          ))}
+          <VocabularyProfile
+            key={detail.id}
+            k={detail}
+            knowledge={s.knowledge}
+            questions={s.questions}
+            open={setDetail}
+            practice={(qs) => {
+              start(qs);
+              setDetail(null);
+            }}
+          />
           <div className="button-row">
             <button
               onClick={() => {
@@ -953,14 +934,25 @@ function Editor({
   cancel: () => void;
 }) {
   const [k, set] = useState(initial);
-  const [examples, setExamples] = useState(initial.examples || []);
+  const [examples, setExamples] = useState<NonNullable<Knowledge["examples"]>>(
+    initial.examples || [],
+  );
   const [error, setError] = useState("");
+  const [vocabularyJSON, setVocabularyJSON] = useState(
+    initial.vocabulary ? JSON.stringify(initial.vocabulary, null, 2) : "",
+  );
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
         try {
-          const next = { ...k, examples };
+          const next = {
+            ...k,
+            examples,
+            vocabulary: vocabularyJSON.trim()
+              ? JSON.parse(vocabularyJSON)
+              : undefined,
+          };
           parsePack({
             schemaVersion: 1,
             id: "edit",
@@ -1034,18 +1026,28 @@ function Editor({
         />
       </label>
       <fieldset>
-        <legend>动词变化（可选，填写时需三项齐全）</legend>
-        {(["past", "present", "masdar"] as const).map((key, i) => (
+        <legend>动词变化（可选，可逐步补充）</legend>
+        {(
+          [
+            "past",
+            "present",
+            "imperative",
+            "masdar",
+            "activeParticiple",
+            "passiveParticiple",
+          ] as const
+        ).map((key, i) => (
           <label className="field" key={key}>
-            {["过去式", "现在式", "动名词"][i]}
+            {
+              ["过去式", "现在式", "命令式", "动名词", "主动分词", "被动分词"][
+                i
+              ]
+            }
             <input
               dir="rtl"
               value={k.verb?.[key] || ""}
               onChange={(e) => {
                 const verb = {
-                  past: "",
-                  present: "",
-                  masdar: "",
                   ...k.verb,
                   [key]: e.target.value,
                 };
@@ -1058,6 +1060,26 @@ function Editor({
           </label>
         ))}
       </fieldset>
+      <details className="editor-enrichment">
+        <summary>深度词汇档案 · 逐步补充</summary>
+        <p className="muted">
+          可填词性、音译、名词变化、词族、近反义词、中文搭配与使用提示。只填写已确认资料。不适用的形态使用
+          applicable: false；其他未知字段可省略。
+        </p>
+        <a href="./examples/vocabulary.json" download>
+          下载完整字段示例
+        </a>
+        <label className="field">
+          深度词汇档案 JSON（仅 vocabulary 对象）
+          <textarea
+            rows={14}
+            spellCheck={false}
+            value={vocabularyJSON}
+            onChange={(e) => setVocabularyJSON(e.target.value)}
+            placeholder={'{"partOfSpeech":"动词","variety":"现代标准阿拉伯语"}'}
+          />
+        </label>
+      </details>
       <fieldset>
         <legend>双语例句</legend>
         {examples.map((ex, i) => (
@@ -1092,6 +1114,32 @@ function Editor({
                 }
               />
             </label>
+            <label className="field">
+              例句 {i + 1} · 语境
+              <input
+                value={ex.context || ""}
+                onChange={(e) =>
+                  setExamples(
+                    examples.map((x, n) =>
+                      n === i ? { ...x, context: e.target.value } : x,
+                    ),
+                  )
+                }
+              />
+            </label>
+            <label className="field">
+              例句 {i + 1} · 语言变体
+              <input
+                value={ex.variety || ""}
+                onChange={(e) =>
+                  setExamples(
+                    examples.map((x, n) =>
+                      n === i ? { ...x, variety: e.target.value } : x,
+                    ),
+                  )
+                }
+              />
+            </label>
             <button
               type="button"
               onClick={() => setExamples(examples.filter((_, n) => n !== i))}
@@ -1121,11 +1169,15 @@ function Editor({
 }
 function Practice({
   questions,
+  knowledge,
+  open,
   submit,
   finish,
 }: {
   questions: Question[];
-  submit: (q: Question, a: string, c: boolean) => void;
+  knowledge: Knowledge[];
+  open: (k: Knowledge) => void;
+  submit: (q: Question, a: string, c: boolean) => boolean;
   finish: () => void;
 }) {
   const [index, setIndex] = useState(0);
@@ -1150,14 +1202,15 @@ function Practice({
         <button onClick={finish}>返回练习选择</button>
       </div>
     );
-  const objective = ["zh-ar", "ar-choice", "preposition", "synonym"].includes(
-    q.type,
-  );
+  const mode = gradingMode(q);
+  const objective = mode !== "self";
+  const knowledgePoint = knowledge.find((k) => k.id === q.knowledgeId);
   function grade(c: boolean) {
-    if (graded !== null) return;
-    submit(q, answer, c);
+    if (graded !== null) return false;
+    if (!submit(q, answer, c)) return false;
     setGraded(c);
     if (c) setScore((n) => n + 1);
+    return true;
   }
   return (
     <section className="practice panel">
@@ -1169,7 +1222,17 @@ function Practice({
       </div>
       <progress value={index} max={questions.length} />
       <h2 dir="auto">{q.prompt}</h2>
-      {objective ? (
+      {knowledgePoint && (
+        <button className="text-button" onClick={() => open(knowledgePoint)}>
+          关联知识：{knowledgePoint.meaning}
+        </button>
+      )}
+      {mode === "exact" && (
+        <p className="muted">
+          限定形式填空：忽略标符和多余空格，接受题目列出的其他答案；开放翻译请使用自评题。
+        </p>
+      )}
+      {mode === "choice" ? (
         <div className="answers">
           {options.map((a) => (
             <button
@@ -1199,8 +1262,8 @@ function Practice({
           className="primary"
           disabled={!answer.trim()}
           onClick={() => {
+            if (objective && !grade(checkAnswer(q, answer))) return;
             setShown(true);
-            if (objective) grade(answer === q.answer);
           }}
         >
           {objective ? "提交答案" : "查看参考答案与评分要点"}
