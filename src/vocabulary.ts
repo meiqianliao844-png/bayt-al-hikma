@@ -73,7 +73,7 @@ export type Vocabulary = {
 export const questionLabels: Record<string, string> = {
   "zh-ar": "中文选阿语",
   "ar-choice": "阿语选中文",
-  "zh-fill": "中译阿填空",
+  "zh-fill": "中译阿选择",
   "ar-zh": "阿译中",
   preposition: "介词与搭配",
   grammar: "语法纠错",

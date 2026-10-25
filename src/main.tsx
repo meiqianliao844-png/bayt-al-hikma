@@ -13,6 +13,9 @@ import {
   Menu,
 } from "lucide-react";
 import { AudioTools } from "./Audio";
+import { WordStudy } from "./WordStudy";
+import { Annotation } from "./Annotation";
+import { choiceOnly, saveAnnotation } from "./study";
 import { VocabularyProfile } from "./VocabularyProfile";
 import { questionLabels } from "./vocabulary";
 import {
@@ -30,12 +33,9 @@ import {
   removeKnowledge,
   normalize,
   shuffle,
-  gradingMode,
-  checkAnswer,
   bundledCollections,
   installBundledPacks,
 } from "./core";
-import "@fontsource/amiri/arabic-400.css";
 import "./style.css";
 const labels = questionLabels;
 let startupError = "";
@@ -116,7 +116,7 @@ function App() {
       (!fav || s.favorites.includes(k.id)),
   );
   function start(q: Question[]) {
-    setPractice(shuffle(q));
+    setPractice(shuffle(choiceOnly(q, s.knowledge, s.questions)));
     setPage("practice");
   }
   async function read(file: File | undefined, restore = false) {
@@ -167,6 +167,7 @@ function App() {
           {[
             ["home", "学习庭院", Sun],
             ["library", "每日知识库", BookOpen],
+            ["words", "背单词", BookOpen],
             ["practice", "智慧试炼", Feather],
             ["review", "错题与复习", RotateCcw],
             ["import", "知识包与备份", Upload],
@@ -206,6 +207,7 @@ function App() {
                 {
                   home: "学习庭院",
                   library: "每日知识库",
+                  words: "背单词",
                   practice: "智慧试炼",
                   review: "错题与复习",
                   import: "知识包与备份",
@@ -250,6 +252,7 @@ function App() {
               >
                 开始今日学习 <ArrowUpRight size={17} />
               </button>
+              <button onClick={() => setPage("words")}>开始背单词 →</button>
               <div className="hero-art">
                 <span>۞</span>
                 <b lang="ar" dir="rtl">
@@ -322,6 +325,28 @@ function App() {
                 查看我的复习计划 →
               </button>
             </section>
+          </>
+        )}
+        {page === "words" && (
+          <>
+            <Title
+              eyebrow="WORD BY WORD"
+              title="背单词"
+              text="看阿语，回想意思，再翻面。每天一点，慢慢记牢。"
+            />
+            <WordStudy
+              state={s}
+              save={commit}
+              note={(id, text) => commit(saveAnnotation(s, id, text))}
+              star={(id) =>
+                commit({
+                  ...s,
+                  favorites: s.favorites.includes(id)
+                    ? s.favorites.filter((x) => x !== id)
+                    : [...s.favorites, id],
+                })
+              }
+            />
           </>
         )}
         {page === "library" && (
@@ -514,7 +539,7 @@ function App() {
                 <div className="panel">
                   <h2>今天，练一点新的</h2>
                   <p>
-                    选择题自动批改；开放式题目提供参考答案与评分要点，由你自评。
+                    所有练习都点选作答，自动批改；不需要手动输入。翻译题选择资料对应的参考表达。
                   </p>
                   <button
                     className="primary"
@@ -800,6 +825,11 @@ function App() {
           </h2>
           <h2>{detail.meaning}</h2>
           <AudioTools text={detail.arabic} url={detail.audioUrl} />
+          <Annotation
+            id={detail.id}
+            value={s.annotations?.[detail.id] || ""}
+            save={(id, text) => commit(saveAnnotation(s, id, text))}
+          />
           <VocabularyProfile
             key={detail.id}
             k={detail}
@@ -1290,8 +1320,6 @@ function Practice({
         <button onClick={finish}>返回练习选择</button>
       </div>
     );
-  const mode = gradingMode(q);
-  const objective = mode !== "self";
   const knowledgePoint = knowledge.find((k) => k.id === q.knowledgeId);
   function grade(c: boolean) {
     if (graded !== null) return false;
@@ -1315,57 +1343,34 @@ function Practice({
           关联知识：{knowledgePoint.meaning}
         </button>
       )}
-      {mode === "exact" && (
-        <p className="muted">
-          限定形式填空：忽略标符和多余空格，接受题目列出的其他答案；开放翻译请使用自评题。
-        </p>
-      )}
-      {mode === "choice" ? (
-        <div className="answers">
-          {options.map((a) => (
-            <button
-              key={a}
-              disabled={shown}
-              className={answer === a ? "selected" : ""}
-              dir="auto"
-              onClick={() => setAnswer(a)}
-            >
-              {a}
-            </button>
-          ))}
-        </div>
-      ) : (
-        <textarea
-          aria-label="你的答案"
-          rows={4}
-          placeholder="写下你的表达，再对照参考答案自评…"
-          dir="auto"
-          value={answer}
-          disabled={shown}
-          onChange={(e) => setAnswer(e.target.value)}
-        />
-      )}{" "}
+      <div className="answers">
+        {options.map((a) => (
+          <button
+            key={a}
+            disabled={shown}
+            className={answer === a ? "selected" : ""}
+            dir="auto"
+            onClick={() => setAnswer(a)}
+          >
+            {a}
+          </button>
+        ))}
+      </div>
       {!shown && (
         <button
           className="primary"
           disabled={!answer.trim()}
           onClick={() => {
-            if (objective && !grade(checkAnswer(q, answer))) return;
+            if (!grade(answer === q.answer)) return;
             setShown(true);
           }}
         >
-          {objective ? "提交答案" : "查看参考答案与评分要点"}
+          提交答案
         </button>
       )}
       {shown && (
         <div className="feedback">
-          <h3>
-            {graded === null
-              ? "请根据以下要点自评"
-              : graded
-                ? "✓ 已掌握"
-                : "继续巩固，下次会更熟悉"}
-          </h3>
+          <h3>{graded ? "✓ 已掌握" : "继续巩固，下次会更熟悉"}</h3>
           <p dir="auto">参考答案：{q.answer}</p>
           <p>{q.explanation}</p>
           {q.rubric && (
@@ -1374,12 +1379,6 @@ function Practice({
                 <li key={x}>{x}</li>
               ))}
             </ul>
-          )}
-          {!objective && graded === null && (
-            <div>
-              <button onClick={() => grade(true)}>达到要点，已掌握</button>
-              <button onClick={() => grade(false)}>仍需练习</button>
-            </div>
           )}
           {graded !== null && (
             <button

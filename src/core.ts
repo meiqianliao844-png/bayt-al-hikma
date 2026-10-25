@@ -1,4 +1,5 @@
 import Ajv from "ajv";
+import type { WordProgress } from "./study";
 import type { Vocabulary, VerbForms } from "./vocabulary";
 import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
@@ -60,6 +61,8 @@ export type Progress = {
 export type State = {
   version: 1;
   installedPacks?: string[];
+  wordProgress?: Record<string, WordProgress>;
+  annotations?: Record<string, string>;
   knowledge: Knowledge[];
   questions: Question[];
   favorites: string[];
@@ -309,6 +312,20 @@ export function removeKnowledge(s: State, id: string): State {
   return {
     ...s,
     knowledge: s.knowledge.filter((k) => k.id !== id),
+    ...(s.wordProgress
+      ? {
+          wordProgress: Object.fromEntries(
+            Object.entries(s.wordProgress).filter(([key]) => key !== id),
+          ),
+        }
+      : {}),
+    ...(s.annotations
+      ? {
+          annotations: Object.fromEntries(
+            Object.entries(s.annotations).filter(([key]) => key !== id),
+          ),
+        }
+      : {}),
     questions: s.questions.filter((q) => !removed.has(q.id)),
     favorites: s.favorites.filter((x) => x !== id),
     progress: Object.fromEntries(
@@ -343,6 +360,36 @@ export function parseBackup(data: unknown): State {
       !s.installedPacks.every((id) => typeof id === "string"))
   )
     throw new Error("备份知识包安装记录无效");
+  for (const [field, values] of [
+    ["wordProgress", s.wordProgress],
+    ["annotations", s.annotations],
+  ] as const) {
+    if (
+      values !== undefined &&
+      (!values || typeof values !== "object" || Array.isArray(values))
+    )
+      throw Error(`备份 ${field} 无效`);
+  }
+  for (const [id, p] of Object.entries(s.wordProgress || {}))
+    if (
+      !s.knowledge.some((k) => k.id === id) ||
+      !p ||
+      !Number.isInteger(p.stage) ||
+      p.stage < 0 ||
+      p.stage > 4 ||
+      !validDate(p.due) ||
+      !Number.isInteger(p.seen) ||
+      p.seen < 1 ||
+      typeof p.lastKnown !== "boolean"
+    )
+      throw Error("背词进度无效");
+  for (const [id, note] of Object.entries(s.annotations || {}))
+    if (
+      !s.knowledge.some((k) => k.id === id) ||
+      typeof note !== "string" ||
+      note.length > 20000
+    )
+      throw Error("批注数据无效");
   const ids = new Set(s.questions.map((q) => q.id));
   for (const [key, p] of Object.entries(s.progress)) {
     if (

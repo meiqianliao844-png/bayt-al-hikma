@@ -36,7 +36,7 @@ test("knowledge CRUD, favorites, RTL and reload persistence", async ({
     page.getByText("暂无匹配知识，可清除筛选或添加知识。"),
   ).toBeVisible();
 });
-test("objective grading records errors; open translation requires self-assessment", async ({
+test("objective grading records errors; translations also use choices", async ({
   page,
 }) => {
   await page.goto("/");
@@ -66,11 +66,21 @@ test("objective grading records errors; open translation requires self-assessmen
     .locator("..")
     .getByRole("button")
     .click();
-  await page.getByLabel("你的答案").fill("我的自然译文");
-  await page.getByRole("button", { name: "查看参考答案与评分要点" }).click();
-  await expect(page.getByText("请根据以下要点自评")).toBeVisible();
-  await page.getByRole("button", { name: "达到要点，已掌握" }).click();
+  const translationPrompt = await page.locator(".practice h2").innerText();
+  const translationAnswer = await page.evaluate(
+    (prompt) =>
+      JSON.parse(localStorage.getItem("hikma-v1")!).questions.find(
+        (q: { prompt: string }) => q.prompt === prompt,
+      ).answer,
+    translationPrompt,
+  );
+  await page
+    .locator(".answers")
+    .getByRole("button", { name: translationAnswer, exact: true })
+    .click();
+  await page.getByRole("button", { name: "提交答案", exact: true }).click();
   await expect(page.getByText("✓ 已掌握")).toBeVisible();
+  await expect(page.locator(".practice textarea")).toHaveCount(0);
   const data = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
