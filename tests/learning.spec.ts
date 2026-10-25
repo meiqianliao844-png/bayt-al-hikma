@@ -3,6 +3,15 @@ import { readFileSync } from "node:fs";
 const seed = JSON.parse(
   readFileSync(new URL("../src/seed.json", import.meta.url), "utf8"),
 ) as typeof import("../src/seed.json");
+const corpus = JSON.parse(
+  readFileSync(
+    new URL("../src/data/shared-future.json", import.meta.url),
+    "utf8",
+  ),
+);
+const choiceQuestions = [...seed.questions, ...corpus.questions];
+const samePrompt = (a: string, b: string) =>
+  a.replace(/\s+/g, " ").trim() === b.replace(/\s+/g, " ").trim();
 test("knowledge CRUD, favorites, RTL and reload persistence", async ({
   page,
 }) => {
@@ -47,14 +56,16 @@ test("objective grading records errors; translations also use choices", async ({
     .getByRole("button")
     .click();
   const qtext = await page.locator(".practice h2").innerText();
-  const q = seed.questions.find((q) => q.prompt === qtext)!;
+  const q = choiceQuestions.find((q) => samePrompt(q.prompt, qtext))!;
   await page.locator(".answers button").filter({ hasText: q.answer }).click();
   await page.getByRole("button", { name: "提交答案", exact: true }).click();
   await expect(page.getByText("✓ 已掌握")).toBeVisible();
   await page.getByRole("button", { name: "下一题 →" }).click();
   const nextText = await page.locator(".practice h2").innerText();
-  const next = seed.questions.find((q) => q.prompt === nextText)!;
-  const wrong = next.options!.find((x) => x !== next.answer)!;
+  const next = choiceQuestions.find((q) => samePrompt(q.prompt, nextText))!;
+  const wrong = (await page.locator(".answers button").allTextContents()).find(
+    (x) => x !== next.answer,
+  )!;
   await page.locator(".answers button").filter({ hasText: wrong }).click();
   await page.getByRole("button", { name: "提交答案", exact: true }).click();
   await expect(page.getByText("继续巩固，下次会更熟悉")).toBeVisible();
