@@ -59,7 +59,9 @@ export type Progress = {
   lastAnswer: string;
   lastCorrect: boolean;
 };
+export type JournalEntry = { text: string; mood: string; weather: string };
 export type State = {
+  journal?: Record<string, JournalEntry>;
   version: 1;
   installedPacks?: string[];
   wordProgress?: Record<string, WordProgress>;
@@ -375,6 +377,7 @@ export function parseBackup(data: unknown): State {
   for (const [field, values] of [
     ["wordProgress", s.wordProgress],
     ["annotations", s.annotations],
+    ["journal", s.journal],
   ] as const) {
     if (
       values !== undefined &&
@@ -402,6 +405,9 @@ export function parseBackup(data: unknown): State {
       note.length > 20000
     )
       throw Error("批注数据无效");
+  for (const [date, entry] of Object.entries(s.journal || {}))
+    if (!validDate(date) || !validJournalEntry(entry))
+      throw Error("每日小记数据无效");
   const ids = new Set(s.questions.map((q) => q.id));
   for (const [key, p] of Object.entries(s.progress)) {
     if (
@@ -465,4 +471,27 @@ export function shuffle<T>(items: T[]): T[] {
     [result[i], result[j]] = [result[j], result[i]];
   }
   return result;
+}
+
+export function validJournalEntry(value: unknown): value is JournalEntry {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const e = value as JournalEntry;
+  return (
+    typeof e.text === "string" &&
+    e.text.length <= 20000 &&
+    typeof e.mood === "string" &&
+    e.mood.length <= 40 &&
+    typeof e.weather === "string" &&
+    e.weather.length <= 40 &&
+    Boolean(e.text.trim() || e.mood || e.weather)
+  );
+}
+export function saveJournal(
+  s: State,
+  date: string,
+  entry: JournalEntry,
+): State {
+  if (!validDate(date) || !validJournalEntry(entry))
+    throw Error("请填写有效日期及小记内容、心情或天气");
+  return { ...s, journal: { ...s.journal, [date]: { ...entry } } };
 }
