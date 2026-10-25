@@ -1,0 +1,536 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-10-25-deep-vocabulary",
+  "title": "词根 ك ت ب · 深度词汇档案示例",
+  "knowledge": [
+    {
+      "date": "2026-10-25",
+      "category": "深度词汇",
+      "root": "ك ت ب",
+      "id": "lex-kataba",
+      "arabic": "كَتَبَ",
+      "meaning": "写；书写",
+      "form": "三辅音原形动词，第一式",
+      "grammar": "基本词形采用过去式第三人称阳性单数。动词可直接支配所写内容作宾语。",
+      "confusion": "写作与记录有交集，但并非所有“写”都能换成“记录”。",
+      "verb": {
+        "applicable": true,
+        "past": "كَتَبَ",
+        "present": "يَكْتُبُ",
+        "imperative": "اُكْتُبْ",
+        "masdar": "كِتَابَةٌ",
+        "activeParticiple": "كَاتِبٌ",
+        "passiveParticiple": "مَكْتُوبٌ",
+        "note": "词形均为现代标准阿拉伯语。现在式为直陈式；命令式只列第二人称。",
+        "conjugations": [
+          {
+            "pronoun": "أَنَا",
+            "past": "كَتَبْتُ",
+            "present": "أَكْتُبُ",
+            "note": "命令式不适用于此人称"
+          },
+          {
+            "pronoun": "أَنْتَ",
+            "past": "كَتَبْتَ",
+            "present": "تَكْتُبُ",
+            "imperative": "اُكْتُبْ"
+          },
+          {
+            "pronoun": "أَنْتِ",
+            "past": "كَتَبْتِ",
+            "present": "تَكْتُبِينَ",
+            "imperative": "اُكْتُبِي"
+          },
+          {
+            "pronoun": "هُوَ",
+            "past": "كَتَبَ",
+            "present": "يَكْتُبُ",
+            "note": "命令式不适用于此人称"
+          },
+          {
+            "pronoun": "هِيَ",
+            "past": "كَتَبَتْ",
+            "present": "تَكْتُبُ",
+            "note": "命令式不适用于此人称"
+          },
+          {
+            "pronoun": "نَحْنُ",
+            "past": "كَتَبْنَا",
+            "present": "نَكْتُبُ",
+            "note": "命令式不适用于此人称"
+          },
+          {
+            "pronoun": "أَنْتُمْ",
+            "past": "كَتَبْتُمْ",
+            "present": "تَكْتُبُونَ",
+            "imperative": "اُكْتُبُوا"
+          }
+        ]
+      },
+      "vocabulary": {
+        "partOfSpeech": "及物动词",
+        "transliteration": "kataba",
+        "variety": "现代标准阿拉伯语（MSA）",
+        "noun": {
+          "applicable": false,
+          "note": "本条为动词；名词及主动分词请查看词根词族中的独立档案。"
+        },
+        "family": [
+          {
+            "arabic": "كَتَبَ",
+            "chinese": "写",
+            "knowledgeId": "lex-kataba",
+            "partOfSpeech": "动词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كِتَابٌ",
+            "chinese": "书",
+            "knowledgeId": "lex-kitab",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كَاتِبٌ",
+            "chinese": "写作者；作家",
+            "knowledgeId": "lex-katib",
+            "partOfSpeech": "主动分词 / 名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كِتَابَةٌ",
+            "chinese": "写作；书写",
+            "partOfSpeech": "动名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "مَكْتَبٌ",
+            "chinese": "办公室；书桌",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "مَكْتَبَةٌ",
+            "chinese": "图书馆；书店（依语境）",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          }
+        ],
+        "relations": [
+          {
+            "arabic": "دَوَّنَ",
+            "chinese": "记录；记下",
+            "relation": "near-synonym",
+            "distinction": "强调将信息记录保存。记笔记时可与“写”有交集；写小说通常不能机械替换成记录小说。",
+            "variety": "现代标准阿拉伯语"
+          },
+          {
+            "arabic": "سَجَّلَ",
+            "chinese": "记录；登记；录制",
+            "relation": "related",
+            "distinction": "记录可以通过书写、录音或登记完成，所以不与“写”完全同义。",
+            "variety": "现代标准阿拉伯语"
+          },
+          {
+            "arabic": "مَحَا",
+            "chinese": "擦除；抹去",
+            "relation": "semantic-opposite",
+            "distinction": "在写下与擦去文字的具体情景中形成操作对立，不是“写”在所有意义上的严格反义词。",
+            "variety": "现代标准阿拉伯语"
+          }
+        ],
+        "phrases": [
+          {
+            "arabic": "كَتَبَ إِلَى",
+            "chinese": "给……写信 / 写去消息",
+            "kind": "verb-preposition",
+            "note": "إِلَى 引出收信人或消息接收者。"
+          },
+          {
+            "arabic": "كَتَبَ عَنْ",
+            "chinese": "写关于……的内容",
+            "kind": "verb-preposition",
+            "note": "عَنْ 引出写作主题。"
+          },
+          {
+            "arabic": "كَتَبَ بِالْعَرَبِيَّةِ",
+            "chinese": "用阿拉伯语写",
+            "kind": "phrase"
+          }
+        ],
+        "contrasts": [
+          {
+            "arabic": "كَتَبَ / دَوَّنَ",
+            "chinese": "写 / 记录",
+            "interchangeable": "在把笔记写下、记录信息的具体语境中可有交集，但语义侧重点不同。",
+            "notInterchangeable": "写小说强调创作，记录强调保存信息；不要脱离宾语与语境机械替换。"
+          }
+        ],
+        "usage": {
+          "register": "中性，可用于日常和正式文体",
+          "frequency": "常用（定性说明，无语料频率排名）",
+          "mistakes": [
+            "“给某人写信”可用 كَتَبَ إِلَى；“写关于某事的文章”用 كَتَبَ عَنْ，不要混淆介词。"
+          ],
+          "interpretation": "接待、新闻和工作沟通中可表达写信、写报告和书面记录。",
+          "note": "不自动生成弱动词、罕见派生式或方言变化。"
+        }
+      },
+      "examples": [
+        {
+          "arabic": "كَتَبْتُ لَكَ رِسَالَةً.",
+          "chinese": "我给你写了一封信。",
+          "context": "日常交流（标准语）",
+          "variety": "现代标准阿拉伯语；日常例句也使用标准语，不冒充方言"
+        },
+        {
+          "arabic": "كَتَبَ الصَّحَفِيُّ تَقْرِيرًا عَنِ الزِّيَارَةِ.",
+          "chinese": "记者写了一篇关于此次访问的报道。",
+          "context": "新闻",
+          "variety": "现代标准阿拉伯语；日常例句也使用标准语，不冒充方言"
+        },
+        {
+          "arabic": "كَتَبَ السَّفِيرُ رِسَالَةً إِلَى الْوَزِيرِ.",
+          "chinese": "大使给部长写了一封信。",
+          "context": "外交",
+          "variety": "现代标准阿拉伯语；日常例句也使用标准语，不冒充方言"
+        },
+        {
+          "arabic": "كَتَبَ الطَّالِبُ بَحْثًا عَنِ اللُّغَةِ الْعَرَبِيَّةِ.",
+          "chinese": "学生写了一篇关于阿拉伯语的论文。",
+          "context": "学术",
+          "variety": "现代标准阿拉伯语；日常例句也使用标准语，不冒充方言"
+        },
+        {
+          "arabic": "كَتَبَ الْمُتَرْجِمُ مُلَاحَظَاتٍ أَثْنَاءَ الْحِوَارِ.",
+          "chinese": "译员在对话过程中做了笔记。",
+          "context": "翻译工作",
+          "variety": "现代标准阿拉伯语；日常例句也使用标准语，不冒充方言"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "category": "深度词汇",
+      "root": "ك ت ب",
+      "id": "lex-kitab",
+      "arabic": "كِتَابٌ",
+      "meaning": "书；书籍",
+      "form": "名词，单数",
+      "verb": {
+        "applicable": false,
+        "note": "本条为名词，不列动词变位。"
+      },
+      "vocabulary": {
+        "partOfSpeech": "名词",
+        "transliteration": "kitāb(un)",
+        "variety": "现代标准阿拉伯语",
+        "noun": {
+          "applicable": true,
+          "singular": "كِتَابٌ",
+          "dual": "كِتَابَانِ",
+          "plurals": [
+            {
+              "arabic": "كُتُبٌ",
+              "kind": "broken"
+            }
+          ],
+          "gender": "语法阳性；不是具有自然性别的生物",
+          "feminine": "不适用",
+          "note": "此处单数、双数均为不定主格。双数宾格和属格为 كِتَابَيْنِ；不能把主格形式用于所有句法位置。",
+          "derivatives": [
+            {
+              "arabic": "كَاتِبٌ",
+              "chinese": "写作者；作家",
+              "knowledgeId": "lex-katib",
+              "partOfSpeech": "主动分词 / 名词",
+              "commonness": "common"
+            }
+          ]
+        },
+        "family": [
+          {
+            "arabic": "كَتَبَ",
+            "chinese": "写",
+            "knowledgeId": "lex-kataba",
+            "partOfSpeech": "动词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كِتَابٌ",
+            "chinese": "书",
+            "knowledgeId": "lex-kitab",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كَاتِبٌ",
+            "chinese": "写作者；作家",
+            "knowledgeId": "lex-katib",
+            "partOfSpeech": "主动分词 / 名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كِتَابَةٌ",
+            "chinese": "写作；书写",
+            "partOfSpeech": "动名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "مَكْتَبٌ",
+            "chinese": "办公室；书桌",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "مَكْتَبَةٌ",
+            "chinese": "图书馆；书店（依语境）",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          }
+        ],
+        "relations": [
+          {
+            "arabic": "مُؤَلَّفٌ",
+            "chinese": "著作",
+            "relation": "near-synonym",
+            "distinction": "强调创作或编著而成的作品；不保证与每种“书”的用法互换。"
+          },
+          {
+            "arabic": "مَجَلَّةٌ",
+            "chinese": "杂志",
+            "relation": "related",
+            "distinction": "同为出版物，但杂志不等于书；是相关词，不是近义词。"
+          }
+        ],
+        "usage": {
+          "register": "中性",
+          "frequency": "常用",
+          "note": "未收录严格反义词，不把“无知”等抽象概念强行列为“书”的反义词。"
+        }
+      },
+      "examples": [
+        {
+          "arabic": "هَذَا كِتَابٌ مُفِيدٌ.",
+          "chinese": "这是一本有用的书。",
+          "context": "日常交流（标准语）",
+          "variety": "现代标准阿拉伯语；日常例句也使用标准语，不冒充方言"
+        },
+        {
+          "arabic": "عَلَى الطَّاوِلَةِ كِتَابَانِ.",
+          "chinese": "桌上有两本书。",
+          "context": "双数主格",
+          "variety": "现代标准阿拉伯语；日常例句也使用标准语，不冒充方言"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "category": "深度词汇",
+      "root": "ك ت ب",
+      "id": "lex-katib",
+      "arabic": "كَاتِبٌ",
+      "meaning": "写作者；作家",
+      "form": "主动分词，فَاعِلٌ",
+      "verb": {
+        "applicable": false,
+        "note": "本条按名词 / 主动分词使用，动词变位见 كَتَبَ。"
+      },
+      "vocabulary": {
+        "partOfSpeech": "主动分词；作名词用",
+        "transliteration": "kātib(un)",
+        "variety": "现代标准阿拉伯语",
+        "noun": {
+          "applicable": true,
+          "singular": "كَاتِبٌ",
+          "dual": "كَاتِبَانِ",
+          "plurals": [
+            {
+              "arabic": "كُتَّابٌ",
+              "kind": "broken",
+              "note": "注意 تّ 的重音；不要误读成“书”的单数 كِتَابٌ。"
+            }
+          ],
+          "gender": "阳性，存在对应阴性形式",
+          "masculine": "كَاتِبٌ",
+          "feminine": "كَاتِبَةٌ",
+          "note": "列出的双数是主格；阴性规则复数为 كَاتِبَاتٌ。"
+        },
+        "family": [
+          {
+            "arabic": "كَتَبَ",
+            "chinese": "写",
+            "knowledgeId": "lex-kataba",
+            "partOfSpeech": "动词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كِتَابٌ",
+            "chinese": "书",
+            "knowledgeId": "lex-kitab",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كَاتِبٌ",
+            "chinese": "写作者；作家",
+            "knowledgeId": "lex-katib",
+            "partOfSpeech": "主动分词 / 名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "كِتَابَةٌ",
+            "chinese": "写作；书写",
+            "partOfSpeech": "动名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "مَكْتَبٌ",
+            "chinese": "办公室；书桌",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          },
+          {
+            "arabic": "مَكْتَبَةٌ",
+            "chinese": "图书馆；书店（依语境）",
+            "partOfSpeech": "名词",
+            "commonness": "common"
+          }
+        ],
+        "relations": [
+          {
+            "arabic": "مُؤَلِّفٌ",
+            "chinese": "作者；创作者",
+            "relation": "near-synonym",
+            "distinction": "写书的人可兼称作者和作家；创作者还可指音乐等作品的作者，不等同于所有书写者。"
+          }
+        ],
+        "contrasts": [
+          {
+            "arabic": "كَاتِبٌ / كِتَابٌ / كُتَّابٌ",
+            "chinese": "作家 / 书 / 作家们",
+            "notInterchangeable": "长元音位置与 ت 的重音不同，词义和语法数也不同。"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "arabic": "هِيَ كَاتِبَةٌ مَعْرُوفَةٌ.",
+          "chinese": "她是一位知名女作家。",
+          "context": "日常介绍（标准语）",
+          "variety": "现代标准阿拉伯语；日常例句也使用标准语，不冒充方言"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "lex-kataba-conjugation-01",
+      "knowledgeId": "lex-kataba",
+      "type": "conjugation",
+      "prompt": "把 كَتَبَ 改为“她写了”的过去式。",
+      "answer": "كَتَبَتْ",
+      "explanation": "过去式第三人称阴性单数在词尾加 تْ。",
+      "grading": "exact",
+      "acceptedAnswers": ["كتبت"]
+    },
+    {
+      "id": "lex-kitab-number-01",
+      "knowledgeId": "lex-kitab",
+      "type": "noun-number",
+      "prompt": "كِتَابٌ 的破碎复数是哪一个？",
+      "answer": "كُتُبٌ",
+      "explanation": "كُتُبٌ 为书的破碎复数；كُتَّابٌ 是作家们。",
+      "options": ["كُتُبٌ", "كُتَّابٌ", "كَاتِبٌ"]
+    },
+    {
+      "id": "lex-kataba-root-01",
+      "knowledgeId": "lex-kataba",
+      "type": "root",
+      "prompt": "识别 كَتَبَ 的词根。",
+      "answer": "ك ت ب",
+      "explanation": "三个根字母为 ك、ت、ب。",
+      "options": ["ك ت ب", "ق ت ب", "ك ب ر"]
+    },
+    {
+      "id": "lex-kataba-derivation-01",
+      "knowledgeId": "lex-kataba",
+      "type": "derivation",
+      "prompt": "كَتَبَ 的主动分词是哪一个？",
+      "answer": "كَاتِبٌ",
+      "explanation": "第一式常见主动分词采用 فَاعِلٌ；该词为 كَاتِبٌ。",
+      "options": ["كَاتِبٌ", "مَكْتُوبٌ", "كِتَابٌ"]
+    },
+    {
+      "id": "lex-kataba-synonym-01",
+      "knowledgeId": "lex-kataba",
+      "type": "synonym",
+      "prompt": "在“把信息记录下来”的语境中，哪个词与“写下”有近义交集？",
+      "answer": "دَوَّنَ",
+      "explanation": "دَوَّنَ 强调记录保存信息，但不在所有写作语境下替代 كَتَبَ。",
+      "options": ["دَوَّنَ", "مَحَا", "نَامَ"]
+    },
+    {
+      "id": "lex-kataba-opposite-01",
+      "knowledgeId": "lex-kataba",
+      "type": "antonym",
+      "prompt": "只考虑“写下文字 / 擦去文字”的操作对立，哪个词表示“擦去”？（非严格反义词）",
+      "answer": "مَحَا",
+      "explanation": "مَحَا 表示擦去，在这个具体情景中形成语义对立，不是 كَتَبَ 的通用反义词。",
+      "options": ["مَحَا", "دَوَّنَ", "كَتَبَ"]
+    },
+    {
+      "id": "lex-kataba-preposition-01",
+      "knowledgeId": "lex-kataba",
+      "type": "preposition",
+      "prompt": "选择表示“写信给部长”的介词：كَتَبَ رِسَالَةً ___ الْوَزِيرِ.",
+      "answer": "إِلَى",
+      "explanation": "إِلَى 引出信的接收者；عَنْ 引出写作主题。",
+      "options": ["إِلَى", "عَنْ", "مِنْ"]
+    },
+    {
+      "id": "lex-kataba-translate-01",
+      "knowledgeId": "lex-kataba",
+      "type": "zh-fill",
+      "prompt": "中译阿：学生写了一篇关于阿拉伯语的论文。",
+      "answer": "كَتَبَ الطَّالِبُ بَحْثًا عَنِ اللُّغَةِ الْعَرَبِيَّةِ.",
+      "explanation": "用 عَنْ 引出论文主题；主语主格，宾语宾格。参考答案并非唯一合法译文。",
+      "grading": "self",
+      "rubric": [
+        "完整表达学生、写论文和阿拉伯语主题。",
+        "检查格位、搭配和句意，不要求逐字一致。"
+      ]
+    },
+    {
+      "id": "lex-kataba-arzh-01",
+      "knowledgeId": "lex-kataba",
+      "type": "ar-zh",
+      "prompt": "كَتَبَ السَّفِيرُ رِسَالَةً إِلَى الْوَزِيرِ.",
+      "answer": "大使给部长写了一封信。",
+      "explanation": "السَّفِيرُ 是大使，الْوَزِيرِ 是部长。中文可自然调整词序。",
+      "rubric": ["译出大使、写信、部长三个要点。"]
+    },
+    {
+      "id": "lex-katib-context-01",
+      "knowledgeId": "lex-katib",
+      "type": "context-fill",
+      "prompt": "选择阴性形式：هِيَ ___ مَعْرُوفَةٌ.",
+      "answer": "كَاتِبَةٌ",
+      "explanation": "هِيَ 为阴性单数人称，كَاتِبَةٌ 和 مَعْرُوفَةٌ 均对应阴性。",
+      "options": ["كَاتِبَةٌ", "كَاتِبٌ", "كُتُبٌ"]
+    },
+    {
+      "id": "lex-kataba-correction-01",
+      "knowledgeId": "lex-kataba",
+      "type": "grammar",
+      "prompt": "纠正主谓性别不一致：كَتَبَ الطَّالِبَةُ رِسَالَةً.",
+      "answer": "كَتَبَتِ الطَّالِبَةُ رِسَالَةً.",
+      "explanation": "主语 الطَّالِبَةُ 为阴性。动词应用 كَتَبَتْ；连读定冠词时，为避免两个静符相连，词尾读 كَتَبَتِ الطَّالِبَةُ。停读或分写基本式可写 كَتَبَتْ。",
+      "grading": "self",
+      "rubric": [
+        "把动词改为阴性形式。",
+        "注意词尾连读时的辅助齐齿符，不按参考字符串机械判错。"
+      ]
+    }
+  ]
+}

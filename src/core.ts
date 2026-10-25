@@ -1,4 +1,5 @@
 import Ajv from "ajv";
+import type { Vocabulary, VerbForms } from "./vocabulary";
 import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
 export type Knowledge = {
@@ -9,9 +10,16 @@ export type Knowledge = {
   category: string;
   root?: string;
   form?: string;
-  verb?: { past: string; present: string; masdar: string };
+  verb?: VerbForms;
+  vocabulary?: Vocabulary;
   collocations?: string[];
-  examples?: { arabic: string; chinese: string }[];
+  examples?: {
+    arabic: string;
+    chinese: string;
+    context?: string;
+    variety?: string;
+    audioUrl?: string;
+  }[];
   grammar?: string;
   confusion?: string;
   scenario?: string;
@@ -27,6 +35,8 @@ export type Question = {
   explanation: string;
   options?: string[];
   rubric?: string[];
+  grading?: "choice" | "exact" | "self";
+  acceptedAnswers?: string[];
 };
 export type Pack = {
   schemaVersion: 1;
@@ -82,17 +92,41 @@ export function parsePack(data: unknown, existingIds: string[] = []): Pack {
   const ids = new Set([...existingIds, ...pack.knowledge.map((k) => k.id)]);
   for (const k of pack.knowledge) {
     if (!validDate(k.date)) throw new Error("学习日期无效");
-    if (k.audioUrl && !/^https:\/\//.test(k.audioUrl))
+    if (
+      [k.audioUrl, ...(k.examples || []).map((e) => e.audioUrl)].some(
+        (url) => url && !/^https:\/\//.test(url),
+      )
+    )
       throw new Error("真人音频必须使用 HTTPS 地址");
   }
   for (const q of pack.questions) {
     if (!ids.has(q.knowledgeId))
       throw new Error(`题目 ${q.id} 引用了不存在的知识点`);
     if (
-      ["zh-ar", "ar-choice", "preposition", "synonym"].includes(q.type) &&
+      gradingMode(q) === "choice" &&
       (!q.options || !q.options.includes(q.answer))
     )
       throw new Error(`题目 ${q.id} 必须包含选项及正确答案`);
+  }
+  for (const q of pack.questions) {
+    if (
+      ["ar-zh", "interpretation", "grammar"].includes(q.type) &&
+      q.grading &&
+      q.grading !== "self"
+    )
+      throw new Error(`题目 ${q.id} 为开放式题目，必须自评`);
+    if (
+      q.grading === "exact" &&
+      ![
+        "conjugation",
+        "noun-number",
+        "root",
+        "preposition",
+        "context-fill",
+        "zh-fill",
+      ].includes(q.type)
+    )
+      throw new Error(`题目 ${q.id} 不支持精确匹配评分`);
   }
   return pack;
 }
@@ -136,19 +170,86 @@ export function recordAnswer(
     ],
   };
 }
-export function mergePack(state: State, pack: Pack, update: boolean): State {
-  const merge = <T extends { id: string }>(a: T[], b: T[]) => {
-    const map = new Map(a.map((x) => [x.id, x]));
-    b.forEach((x) => {
-      if (update || !map.has(x.id)) map.set(x.id, x);
+// Only fields supplied by the new pack change. Empty arrays mean “no new
+// material”, not deletion. The editor remains the explicit replacement path.
+function enrich(old: unknown, incoming: unknown): unknown {
+  if (Array.isArray(old) && Array.isArray(incoming)) {
+    const key = (x: unknown): string => {
+      if (typeof x === "string") return x;
+      const o = x as Record<string, unknown>;
+      if (typeof o.arabic === "string")
+        return `${o.arabic}|${o.relation || o.kind || ""}`;
+      if (typeof o.pronoun === "string") return o.pronoun;
+      if (typeof o.label === "string") return o.label;
+      return JSON.stringify(x);
+    };
+    const map = new Map(old.map((x) => [key(x), x]));
+    incoming.forEach((x) => {
+      const k = key(x);
+      map.set(k, map.has(k) ? enrich(map.get(k), x) : x);
     });
     return [...map.values()];
-  };
+  }
+  if (
+    old &&
+    incoming &&
+    typeof old === "object" &&
+    typeof incoming === "object" &&
+    !Array.isArray(old) &&
+    !Array.isArray(incoming)
+  ) {
+    const out = { ...old } as Record<string, unknown>;
+    for (const [key, value] of Object.entries(incoming)) {
+      if (["__proto__", "prototype", "constructor"].includes(key)) continue;
+      out[key] = key in out ? enrich(out[key], value) : value;
+    }
+    return out;
+  }
+  return incoming;
+}
+export function mergePack(state: State, pack: Pack, update: boolean): State {
+  const knowledge = new Map(state.knowledge.map((k) => [k.id, k]));
+  for (const k of pack.knowledge) {
+    const old = knowledge.get(k.id);
+    if (!old || update)
+      knowledge.set(k.id, old ? (enrich(old, k) as Knowledge) : k);
+  }
+  const questions = new Map(state.questions.map((q) => [q.id, q]));
+  // Questions are atomic: merging choices would silently change grading.
+  for (const q of pack.questions)
+    if (update || !questions.has(q.id)) questions.set(q.id, q);
   return {
     ...state,
-    knowledge: merge(state.knowledge, pack.knowledge),
-    questions: merge(state.questions, pack.questions),
+    knowledge: [...knowledge.values()],
+    questions: [...questions.values()],
   };
+}
+export function gradingMode(q: Question): "choice" | "exact" | "self" {
+  if (q.grading) return q.grading;
+  if (["zh-ar", "ar-choice", "preposition", "synonym"].includes(q.type))
+    return "choice";
+  if (
+    [
+      "conjugation",
+      "noun-number",
+      "root",
+      "derivation",
+      "antonym",
+      "context-fill",
+    ].includes(q.type) &&
+    q.options
+  )
+    return "choice";
+  return "self";
+}
+export function checkAnswer(q: Question, answer: string): boolean {
+  const mode = gradingMode(q);
+  if (mode === "choice") return answer === q.answer;
+  if (mode === "exact")
+    return [q.answer, ...(q.acceptedAnswers || [])].some(
+      (a) => normalize(a) === normalize(answer),
+    );
+  throw new Error("开放式题目应对照参考答案自评");
 }
 export function removeKnowledge(s: State, id: string): State {
   const removed = new Set(

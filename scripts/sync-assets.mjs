@@ -8,3 +8,7 @@ copyFileSync(
   new URL("../src/seed.json", import.meta.url),
   new URL("../public/examples/starter.json", import.meta.url),
 );
+copyFileSync(
+  new URL("../src/vocabulary-sample.json", import.meta.url),
+  new URL("../public/examples/vocabulary.json", import.meta.url),
+);

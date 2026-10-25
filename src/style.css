@@ -1103,3 +1103,133 @@ span {
     max-width: 100%;
   }
 }
+
+/* Deep vocabulary profiles extend the existing cream / green / gold palette. */
+.vocabulary-profile {
+  margin: 24px 0;
+  min-width: 0;
+}
+.profile-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+.profile-tabs button {
+  font-size: 13px;
+  padding: 9px 12px;
+}
+.profile-tabs button[aria-selected="true"] {
+  color: #fffdf8;
+  background: var(--green);
+  border-color: var(--green);
+}
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+}
+.profile-field {
+  min-width: 0;
+}
+.profile-field dd {
+  margin: 6px 0 16px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.profile-field .arabic {
+  font-size: 26px;
+}
+.profile-entry {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  margin: 14px 0;
+  background: #fffdf8;
+  overflow-wrap: anywhere;
+}
+.lexeme-heading {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 14px 0;
+}
+.profile-link {
+  border-color: #d5dfd2;
+  background: #eef2e9;
+  padding: 4px 12px;
+}
+.profile-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.profile-table-wrap table {
+  border-collapse: collapse;
+  min-width: 540px;
+  width: 100%;
+}
+.profile-table-wrap th,
+.profile-table-wrap td {
+  border: 1px solid var(--line);
+  padding: 10px;
+  text-align: center;
+}
+.profile-table-wrap .arabic {
+  font-size: 24px;
+}
+.profile-table-wrap caption {
+  text-align: left;
+  margin: 10px 0;
+}
+.vocabulary-profile details {
+  border-top: 1px solid var(--line);
+  padding: 16px 0;
+}
+.vocabulary-profile summary {
+  cursor: pointer;
+  line-height: 1.9;
+}
+.vocabulary-profile [role="tabpanel"] {
+  min-height: 220px;
+}
+.editor-enrichment {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.editor-enrichment textarea {
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+}
+@media (max-width: 650px) {
+  .profile-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .profile-entry {
+    padding: 12px;
+  }
+  .profile-tabs button {
+    flex: 1 0 25%;
+    padding: 10px 6px;
+  }
+  .profile-table-wrap {
+    margin-inline: -4px;
+  }
+}
+.vocabulary-profile dl {
+  display: block;
+  margin: 20px 0;
+}
+.vocabulary-profile dl.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 650px) {
+  .vocabulary-profile dl.profile-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
