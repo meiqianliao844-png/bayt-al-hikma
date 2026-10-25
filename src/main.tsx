@@ -13,6 +13,7 @@ import {
   Menu,
 } from "lucide-react";
 import { AudioTools } from "./Audio";
+import { WordPlanSummary } from "./WordPlanSummary";
 import { WordStudy } from "./WordStudy";
 import { Annotation } from "./Annotation";
 import { choiceOnly, saveAnnotation, wordReviewPlan } from "./study";
@@ -301,6 +302,7 @@ function App() {
                 note={`已练习 ${Object.keys(s.progress).length} / ${s.questions.length} 题`}
               />
             </div>
+            <WordPlanSummary state={s} />
             <section className="section-title">
               <div>
                 <span className="eyebrow">YOUR DAILY COLLECTION</span>
@@ -350,6 +352,7 @@ function App() {
               title="背单词"
               text="看阿语，回想意思，再翻面。每天一点，慢慢记牢。"
             />
+            <WordPlanSummary state={s} />
             <WordStudy
               initialScope={wordScope}
               state={s}
@@ -433,7 +436,9 @@ function App() {
                   </span>
                   <h2>{collection.title}</h2>
                   <p>
-                    {collection.verbs} 组动词搭配 · {collection.terms} 条词汇 ·{" "}
+                    {collection.verbs > 0 &&
+                      `${collection.verbs} 组动词搭配 · `}
+                    {collection.terms} 条词汇 ·{" "}
                     {collection.pack.questions.length} 道练习。{collection.note}
                   </p>
                   {collection.reviewNotes.length > 0 && (
@@ -598,6 +603,7 @@ function App() {
               title="错题与间隔复习"
               text="复习计划与背单词同步：标记认识后按 1、3、7、14、30 天安排；再学一次则安排次日复习。选择题记录单独保留。"
             />
+            <WordPlanSummary state={s} />
             <div className="panel">
               <h2>今日待复习 · {dueWords.length} 张词卡</h2>
               <p>包含已到期和逾期的词卡。背词后会自动更新下次复习日期。</p>
