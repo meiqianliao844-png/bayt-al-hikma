@@ -1360,3 +1360,18 @@ span {
 .arabic {
   font-family: "Times New Roman", Times, serif;
 }
+.word-context {
+  margin: 22px 0;
+  text-align: start;
+}
+.word-context > h3 {
+  color: var(--green);
+  text-align: center;
+}
+.word-context .tag {
+  white-space: normal;
+  line-height: 1.8;
+}
+.word-context .audio-tools .button-row {
+  justify-content: flex-start;
+}
