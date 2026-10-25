@@ -88,8 +88,8 @@ test("installs the news collection on top of old data, groups by topic, and expo
   const saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(saved.knowledge).toHaveLength(113);
-  expect(saved.questions).toHaveLength(297);
+  expect(saved.knowledge).toHaveLength(221);
+  expect(saved.questions).toHaveLength(580);
   expect(saved.favorites).toContain("guard");
   expect(saved.favorites).toContain(news.knowledge[0].id);
   expect(saved.history).toEqual(old.history);
@@ -106,13 +106,11 @@ test("accepts the original portable file through explicit conversion and repeate
 }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "知识包与备份", exact: true }).click();
-  await page
-    .getByLabel("选择知识包", { exact: true })
-    .setInputFiles({
-      name: "portable.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(raw),
-    });
+  await page.getByLabel("选择知识包", { exact: true }).setInputFiles({
+    name: "portable.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(raw),
+  });
   await expect(page.getByRole("heading", { name: /导入预览/ })).toBeVisible();
   await expect(page.getByText(/106 个知识点，277/)).toBeVisible();
   await page.getByRole("button", { name: "确认导入", exact: true }).click();
@@ -122,6 +120,6 @@ test("accepts the original portable file through explicit conversion and repeate
   const saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(saved.knowledge).toHaveLength(113);
-  expect(saved.questions).toHaveLength(297);
+  expect(saved.knowledge).toHaveLength(221);
+  expect(saved.questions).toHaveLength(580);
 });

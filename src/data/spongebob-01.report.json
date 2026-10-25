@@ -1,0 +1,45 @@
+{
+  "sourceSchema": "wisdom-house-learning-pack-portable-v1",
+  "targetSchemaVersion": 1,
+  "namespace": "animation-20261024-4baaf852",
+  "sourceTitle": "智慧宫｜海绵宝宝：章鱼哥的单簧管01",
+  "counts": {
+    "verbs": 54,
+    "terms": 54,
+    "knowledge": 108,
+    "questions": 283
+  },
+  "notes": [
+    {
+      "sourceId": "sponge-v002",
+      "field": "masdar",
+      "note": "原字段混有中文词义说明，移入备注；不强配“找到”义的动名词。"
+    },
+    {
+      "sourceId": "sponge-v038",
+      "field": "lemma/collocation",
+      "note": "保留原包 مَلَكَ 词头，注明搭配使用 اِمْتَلَكَ，并链接独立档案。"
+    }
+  ],
+  "sourceNote": "动词例句为原创教学例句；个别原字幕疑似听写不准，需对照音频核实。非所有动词都有常用被动分词。此包为通用格式，导入前请匹配站点JSON Schema。",
+  "generation": "所有词形和例句来自输入；选择题干扰项取自本包已有释义，不推导新阿语形式。",
+  "sourceProfile": "animation-subtitles",
+  "sourceReviewNotes": [
+    {
+      "source": "أُرِيدُ آلَاتِي",
+      "note": "原字幕这里是复数“我的乐器们”，若语境只指一件单簧管，可能应为 آلَتِي；需听音核对。"
+    },
+    {
+      "source": "لَابُدَّ لَهُ أَنَّهُ الضَّغْطُ",
+      "note": "原字幕搭配不自然；更规范：لَا بُدَّ أَنَّهُ بِسَبَبِ الضَّغْطِ 或 لَا بُدَّ أَنَّ السَّبَبَ هُوَ الضَّغْطُ。"
+    },
+    {
+      "source": "لَا دَاعِيَ لِمُقَاطَعَتِي عَنِ الْعَمَلِ",
+      "note": "可理解，但更自然的说法是 لَا دَاعِيَ لِمُقَاطَعَتِي أَثْنَاءَ الْعَمَلِ。"
+    },
+    {
+      "source": "هُنَاكَ طَلَبٌ",
+      "note": "餐饮场景中表示“有订单”，不是抽象请求。"
+    }
+  ]
+}

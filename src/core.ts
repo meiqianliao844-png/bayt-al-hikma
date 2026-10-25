@@ -3,6 +3,8 @@ import type { Vocabulary, VerbForms } from "./vocabulary";
 import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
 import newsPack from "./data/azerbaijan-school-uniform.json";
+import spongePack from "./data/spongebob-01.json";
+import spongeReport from "./data/spongebob-01.report.json";
 import { isPortableNews, convertPortableNews } from "./portable-news.mjs";
 export type Knowledge = {
   id: string;
@@ -135,7 +137,7 @@ export function parsePack(data: unknown, existingIds: string[] = []): Pack {
   return pack;
 }
 export const initialState = (): State =>
-  installBundledNews({
+  installBundledPacks({
     version: 1,
     knowledge: seed.knowledge,
     questions: seed.questions,
@@ -257,6 +259,39 @@ export function checkAnswer(q: Question, answer: string): boolean {
   throw new Error("开放式题目应对照参考答案自评");
 }
 export const bundledNews = parsePack(newsPack);
+export const bundledSponge = parsePack(spongePack);
+export const bundledCollections = [
+  {
+    pack: bundledNews,
+    title: "阿塞拜疆校服新闻",
+    verbs: 51,
+    terms: 55,
+    viewLabel: "查看新闻专题",
+    download: "azerbaijan-school-uniform",
+    note: "例句为教学资料，新闻事实未独立核验。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
+  {
+    pack: bundledSponge,
+    title: "海绵宝宝01 · 章鱼哥的单簧管",
+    verbs: 54,
+    terms: 54,
+    viewLabel: "查看海绵宝宝01",
+    download: "spongebob-01",
+    note: "动画配音学习资料；例句为教学编写，个别字幕待核音。",
+    reviewNotes: spongeReport.sourceReviewNotes || [],
+  },
+];
+/** Install each collection once without replacing user edits or losing old schedules. */
+export function installBundledPacks(state: State): State {
+  return bundledCollections.reduce((current, { pack }) => {
+    if (current.installedPacks?.includes(pack.id)) return current;
+    return {
+      ...mergePack(current, pack, false),
+      installedPacks: [...(current.installedPacks || []), pack.id],
+    };
+  }, state);
+}
 /** Mark installation once, retaining both users' records and intentional deletions.
  * No save during load: a quota error must never replace the user's stored state. */
 export function installBundledNews(state: State): State {
@@ -350,7 +385,7 @@ export const localRepository: StudyRepository = {
   load() {
     const raw = localStorage.getItem("hikma-v1");
     return raw
-      ? installBundledNews(parseBackup(JSON.parse(raw)))
+      ? installBundledPacks(parseBackup(JSON.parse(raw)))
       : initialState();
   },
   save(s) {

@@ -4,6 +4,8 @@ export function convertPortableNews(data: unknown): {
   pack: Pack;
   report: {
     sourceSchema: string;
+    sourceProfile?: string;
+    sourceReviewNotes?: { source: string; note: string }[];
     targetSchemaVersion: number;
     namespace: string;
     sourceTitle: string;
