@@ -21,5 +21,7 @@
 - `npm run build`：TypeScript 与 Vite 生产构建通过；原 GitHub Pages 工作流保持原样。
 - 示例独立于首次初始化数据，原 `seed.json` 未修改；现有用户不会被重置。下载 Schema 与示例通过 `sync:assets` 同步。
 - 浏览器预览已观察到原首页和新版导入入口。深度示例文件上传检查遇到浏览器工具超时，随后预览会话丢失；恢复时浏览器策略阻止访问错误页。因此本轮不宣称完成新版词汇标签的浏览器实测或移动端完整端到端验证。
-- 新增 `tests/vocabulary.spec.ts`，覆盖桌面/手机视口下的档案标签、词族跳转、同 ID 更新、原记录保留与限定变位题批改；本轮未执行 Playwright 浏览器套件。维护者可在正常浏览器环境运行 `npm run test:e2e`。
+- 新增 `tests/vocabulary.spec.ts`，覆盖桌面/手机视口下的档案标签、词族跳转、同 ID 更新、原记录保留与限定变位题批改；本机未执行 Playwright 浏览器套件；PR 创建后，GitHub Actions 的 Validate 工作流已自动执行完整 `npm run test:e2e` 并成功。桌面和手机项目均包含新用例。
 - 正常/慢速朗读继续使用原音频组件；实际阿语音色及真人音频可用性由系统与资源提供方决定。本次没有合成或伪造音频文件。
+
+GitHub 自动验证结果：PR #2 的提交 `99078ed2b364e0de8b6e1fe1599e06e99a05c5e7` 对应 [Validate #3](https://github.com/meiqianliao844-png/bayt-al-hikma/actions/runs/40195299477) 已成功完成 npm ci、npm test、npm run build 与 npm run test:e2e。此结果补充本地交互预览的限制，不代表已验证用户设备的实际语音音色。
