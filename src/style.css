@@ -1233,3 +1233,40 @@ span {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+.news-collection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+.news-collection > div {
+  flex: 1 1 320px;
+}
+.news-collection h2 {
+  margin: 8px 0;
+}
+.news-collection p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.group-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0;
+}
+.group-toolbar label {
+  color: var(--muted);
+  font-size: 13px;
+}
+.group-toolbar select {
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fffdf8;
+  color: var(--green);
+}

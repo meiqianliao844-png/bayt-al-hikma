@@ -1,0 +1,41 @@
+{
+  "sourceSchema": "wisdom-house-learning-pack-portable-v1",
+  "targetSchemaVersion": 1,
+  "namespace": "news-20261025-4c99c03c",
+  "sourceTitle": "智慧宫｜阿塞拜疆校服规定新闻：动词搭配与术语",
+  "counts": {
+    "verbs": 51,
+    "terms": 55,
+    "knowledge": 106,
+    "questions": 277
+  },
+  "notes": [
+    {
+      "sourceId": "v031",
+      "field": "masdar",
+      "note": "原占位符已省略；显示待补充，不生成对应词形题。"
+    },
+    {
+      "sourceId": "v036",
+      "field": "usage_note",
+      "note": "原“双宾语框架”需区分直接宾语与介词补语；原文保留，卡片追加说明。"
+    },
+    {
+      "sourceId": "v042",
+      "field": "voice",
+      "note": "保留原资料的被动词头与存在句，不转换为主动 وَجَدَ。"
+    },
+    {
+      "sourceId": "v048",
+      "field": "masdar",
+      "note": "原占位符已省略；显示待补充，不生成对应词形题。"
+    },
+    {
+      "sourceId": "v048",
+      "field": "past/present",
+      "note": "将情态词头放入 present，past 留空，不推导过去式。"
+    }
+  ],
+  "sourceNote": "通用可移植 JSON，不保证与网站当前导入 Schema 直接兼容；可让 Codex 编写适配器。动词例句为新编教学例句；新闻事实未独立核验。",
+  "generation": "所有词形和例句来自输入；选择题干扰项取自本包已有释义，不推导新阿语形式。"
+}

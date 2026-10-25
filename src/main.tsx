@@ -32,6 +32,8 @@ import {
   shuffle,
   gradingMode,
   checkAnswer,
+  bundledNews,
+  installBundledNews,
 } from "./core";
 import "@fontsource/amiri/arabic-400.css";
 import "./style.css";
@@ -62,6 +64,7 @@ function App() {
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
   const [fav, setFav] = useState(false);
+  const [groupBy, setGroupBy] = useState<"date" | "category">("date");
   const [detail, setDetail] = useState<Knowledge | null>(null);
   const [editing, setEditing] = useState<Knowledge | null>(null);
   const [pack, setPack] = useState<Pack | null>(null);
@@ -121,7 +124,7 @@ function App() {
     try {
       if (file.size > 10 * 1024 * 1024) throw new Error("文件不能超过 10 MB");
       const data = JSON.parse(await file.text());
-      if (restore) setBackup(parseBackup(data));
+      if (restore) setBackup(installBundledNews(parseBackup(data)));
       else {
         setPack(
           parsePack(
@@ -376,21 +379,73 @@ function App() {
                 ＋ 添加知识
               </button>
             </div>
-            <p className="muted">共 {filtered.length} 个知识点</p>
-            {[...new Set(filtered.map((k) => k.date))]
-              .sort()
-              .reverse()
+            <div className="news-collection panel">
+              <div>
+                <span className="eyebrow">NEWS COLLECTION · 新闻专题</span>
+                <h2>阿塞拜疆校服新闻</h2>
+                <p>
+                  51 组动词搭配 · 55 条术语 · {bundledNews.questions.length}{" "}
+                  道练习。例句为教学资料，新闻事实未独立核验。
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  setSearch(bundledNews.title);
+                  setCategory("");
+                  setDate("");
+                  setFav(false);
+                  setGroupBy("category");
+                }}
+              >
+                查看新闻专题
+              </button>
+              <button
+                className="text-button"
+                onClick={() =>
+                  start(
+                    s.questions.filter((q) =>
+                      bundledNews.questions.some((n) => n.id === q.id),
+                    ),
+                  )
+                }
+              >
+                专题练习
+              </button>
+            </div>
+            <div className="group-toolbar">
+              <p className="muted">共 {filtered.length} 个知识点</p>
+              <label>
+                分组方式{" "}
+                <select
+                  aria-label="知识分组"
+                  value={groupBy}
+                  onChange={(e) =>
+                    setGroupBy(e.target.value as "date" | "category")
+                  }
+                >
+                  <option value="date">按日期</option>
+                  <option value="category">按新闻主题 / 分类</option>
+                </select>
+              </label>
+            </div>
+            {[...new Set(filtered.map((k) => k[groupBy]))]
+              .sort((a, b) =>
+                groupBy === "date"
+                  ? b.localeCompare(a)
+                  : a.localeCompare(b, "zh-CN"),
+              )
               .map((day) => (
                 <section className="day-group" key={day}>
                   <h2 className="day-title">
                     {day}
                     <span>
-                      {filtered.filter((k) => k.date === day).length} 个知识点
+                      {filtered.filter((k) => k[groupBy] === day).length}{" "}
+                      个知识点
                     </span>
                   </h2>
                   <div className="cards">
                     {filtered
-                      .filter((k) => k.date === day)
+                      .filter((k) => k[groupBy] === day)
                       .map((k) => (
                         <Card
                           key={k.id}
@@ -566,6 +621,15 @@ function App() {
                   </a>
                   <a href="./examples/vocabulary.json" download>
                     深度词汇示例（10 类练习）
+                  </a>
+                  <a href="./packs/azerbaijan-school-uniform.json" download>
+                    校服新闻 · 已转换知识包
+                  </a>
+                  <a
+                    href="./packs/azerbaijan-school-uniform.report.json"
+                    download
+                  >
+                    转换报告
                   </a>
                   <a href="./knowledge-pack.schema.json" download>
                     JSON Schema
