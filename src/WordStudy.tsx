@@ -7,17 +7,19 @@ import { Annotation } from "./Annotation";
 import { wordContext } from "./word-context";
 export function WordStudy({
   state,
+  initialScope = "all",
   save,
   note,
   star,
 }: {
   state: State;
+  initialScope?: string;
   save: (s: State) => boolean;
   note: (id: string, text: string) => boolean;
   star: (id: string) => void;
 }) {
   const [category, setCategory] = useState(""),
-    [scope, setScope] = useState("all"),
+    [scope, setScope] = useState(initialScope),
     [limit, setLimit] = useState(20),
     [queue, setQueue] = useState<string[] | null>(null),
     [index, setIndex] = useState(0),

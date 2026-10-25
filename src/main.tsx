@@ -15,7 +15,7 @@ import {
 import { AudioTools } from "./Audio";
 import { WordStudy } from "./WordStudy";
 import { Annotation } from "./Annotation";
-import { choiceOnly, saveAnnotation } from "./study";
+import { choiceOnly, saveAnnotation, wordReviewPlan } from "./study";
 import { VocabularyProfile } from "./VocabularyProfile";
 import { questionLabels } from "./vocabulary";
 import {
@@ -81,6 +81,13 @@ function App() {
       setNotice("保存失败：浏览器存储空间不足或不可用。请导出备份后重试。");
       return false;
     }
+  };
+  const [wordScope, setWordScope] = useState("all");
+  const plan = wordReviewPlan(s);
+  const dueWords = plan.filter((p) => p.overdue);
+  const openWordReview = () => {
+    setWordScope("due");
+    setPage("words");
   };
   const due = s.questions.filter(
     (q) => s.progress[q.id] && s.progress[q.id].due <= today(),
@@ -182,7 +189,9 @@ function App() {
             >
               {React.createElement(Icon as typeof Sun, { size: 19 })}
               {title as string}
-              {id === "review" && due.length > 0 && <em>{due.length}</em>}
+              {id === "review" && dueWords.length > 0 && (
+                <em>{dueWords.length}</em>
+              )}
             </button>
           ))}
         </nav>
@@ -248,7 +257,14 @@ function App() {
               </p>
               <button
                 className="primary"
-                onClick={() => start(due.length ? due : s.questions)}
+                onClick={
+                  dueWords.length
+                    ? openWordReview
+                    : () => {
+                        setWordScope("all");
+                        setPage("words");
+                      }
+                }
               >
                 开始今日学习 <ArrowUpRight size={17} />
               </button>
@@ -270,8 +286,8 @@ function App() {
                 note="每一词，都是新的视野"
               />
               <Stat
-                number={due.length}
-                label="今日待复习"
+                number={dueWords.length}
+                label="今日待复习词卡"
                 note="让记忆，在重逢中扎根"
               />
               <Stat
@@ -335,6 +351,7 @@ function App() {
               text="看阿语，回想意思，再翻面。每天一点，慢慢记牢。"
             />
             <WordStudy
+              initialScope={wordScope}
               state={s}
               save={commit}
               note={(id, text) => commit(saveAnnotation(s, id, text))}
@@ -579,10 +596,40 @@ function App() {
             <Title
               eyebrow="RETURN & REMEMBER"
               title="错题与间隔复习"
-              text="答对后依次进入 1、3、7、14、30 天间隔；答错则回到第 1 天。"
+              text="复习计划与背单词同步：标记认识后按 1、3、7、14、30 天安排；再学一次则安排次日复习。选择题记录单独保留。"
             />
             <div className="panel">
-              <h2>今日待复习 · {due.length} 题</h2>
+              <h2>今日待复习 · {dueWords.length} 张词卡</h2>
+              <p>包含已到期和逾期的词卡。背词后会自动更新下次复习日期。</p>
+              <button
+                className="primary"
+                disabled={!dueWords.length}
+                onClick={openWordReview}
+              >
+                开始背词复习
+              </button>
+            </div>
+            <h2>复习计划</h2>
+            {plan.length ? (
+              plan.map((p) => (
+                <div className="schedule" key={p.knowledge.id}>
+                  <span>
+                    <span lang="ar" dir="rtl">
+                      {p.knowledge.arabic}
+                    </span>{" "}
+                    · {p.knowledge.meaning}
+                  </span>
+                  <span>
+                    {p.due} · {p.overdue ? "待复习" : "已安排"} · 第{" "}
+                    {p.stage + 1} 阶段
+                  </span>
+                </div>
+              ))
+            ) : (
+              <Empty text="还没有背词记录。开始背单词并标记掌握情况后，这里会自动生成复习计划。" />
+            )}
+            <div className="panel">
+              <h2>选择题复习 · {due.length} 题</h2>
               <button
                 className="primary"
                 disabled={!due.length}
@@ -621,20 +668,6 @@ function App() {
             ) : (
               <Empty text="还没有错题，去智慧试炼检验一下自己的积累。" />
             )}
-            <h2>复习计划</h2>
-            {Object.entries(s.progress)
-              .filter(([, p]) => p.due > today())
-              .sort((a, b) => a[1].due.localeCompare(b[1].due))
-              .map(([id, p]) => (
-                <div className="schedule" key={id}>
-                  <span dir="auto">
-                    {s.questions.find((q) => q.id === id)?.prompt}
-                  </span>
-                  <span>
-                    {p.due} · 第 {p.stage + 1} 阶段
-                  </span>
-                </div>
-              ))}
           </>
         )}
         {page === "import" && (
