@@ -4,6 +4,7 @@ import { today, shuffle } from "./core";
 import { recordWord } from "./study";
 import { AudioTools } from "./Audio";
 import { Annotation } from "./Annotation";
+import { wordContext } from "./word-context";
 export function WordStudy({
   state,
   save,
@@ -35,6 +36,7 @@ export function WordStudy({
   const k = queue
     ? state.knowledge.find((k) => k.id === queue[index])
     : undefined;
+  const context = k ? wordContext(k, state.knowledge) : null;
   function rate(known: boolean) {
     if (!k || !queue) return;
     if (!save(recordWord(state, k.id, known))) return;
@@ -87,21 +89,46 @@ export function WordStudy({
         ) : (
           <div className="word-back">
             <h2>{k.meaning}</h2>
-            {k.verb && (
-              <p className="arabic" dir="rtl" lang="ar">
-                {[k.verb.past, k.verb.present, k.verb.masdar]
-                  .filter(Boolean)
-                  .join(" · ")}
-              </p>
-            )}
-            {k.examples?.slice(0, 1).map((e, i) => (
-              <div className="example" key={i}>
-                <p className="arabic" dir="rtl" lang="ar">
-                  {e.arabic}
+            <section className="word-context" aria-label="搭配与语境">
+              <h3>放回语境里记</h3>
+              {context?.phrases.map((p, i) => (
+                <div className="example" key={`phrase-${i}`}>
+                  <span className="tag">{p.label}</span>
+                  <p className="arabic" lang="ar" dir="rtl">
+                    {p.arabic}
+                  </p>
+                  {p.chinese && <p>{p.chinese}</p>}
+                  <AudioTools text={p.arabic} />
+                </div>
+              ))}
+              {context?.examples.map((e, i) => (
+                <div className="example" key={`example-${i}`}>
+                  <span className="tag">
+                    {e.context || "资料例句（是否文章原句未注明）"}
+                  </span>
+                  <p className="arabic" lang="ar" dir="rtl">
+                    {e.arabic}
+                  </p>
+                  <p>{e.chinese}</p>
+                  <AudioTools text={e.arabic} url={e.audioUrl} />
+                </div>
+              ))}
+              {!context?.phrases.length && !context?.examples.length && (
+                <p className="muted">
+                  原资料暂未收录这条词汇的搭配或原句，可在下方批注中补充。
                 </p>
-                <p>{e.chinese}</p>
-              </div>
-            ))}
+              )}
+            </section>
+            {k.verb && (
+              <details>
+                <summary>词形提示</summary>
+                <p className="arabic" dir="rtl" lang="ar">
+                  {[k.verb.past, k.verb.present, k.verb.masdar]
+                    .filter(Boolean)
+                    .join(" · ")}
+                </p>
+              </details>
+            )}
             <button onClick={() => star(k.id)}>
               {state.favorites.includes(k.id) ? "★ 已收藏" : "☆ 收藏这个词"}
             </button>
