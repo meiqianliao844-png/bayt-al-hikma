@@ -76,3 +76,19 @@ export function saveAnnotation(s: State, id: string, note: string): State {
   else delete annotations[id];
   return { ...s, annotations };
 }
+
+/** The review plan is a view of the saved flashcard progress, never question progress. */
+export function wordReviewPlan(s: State, date = today()) {
+  return s.knowledge
+    .flatMap((k) => {
+      const progress = s.wordProgress?.[k.id];
+      return progress
+        ? [{ knowledge: k, ...progress, overdue: progress.due <= date }]
+        : [];
+    })
+    .sort(
+      (a, b) =>
+        a.due.localeCompare(b.due) ||
+        a.knowledge.id.localeCompare(b.knowledge.id),
+    );
+}

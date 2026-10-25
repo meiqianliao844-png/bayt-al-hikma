@@ -1,6 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { initialState, parseBackup, removeKnowledge } from "./core";
-import { choiceOnly, recordWord, saveAnnotation } from "./study";
+import {
+  choiceOnly,
+  recordWord,
+  saveAnnotation,
+  wordReviewPlan,
+} from "./study";
 describe("choice-only practice and word study", () => {
   it("adapts every current exercise without changing source IDs, records or input data", () => {
     const s = initialState(),
@@ -68,4 +73,22 @@ describe("choice-only practice and word study", () => {
       }),
     ).toThrow();
   });
+});
+
+it("builds the review plan from word ratings and carries overdue words forward", () => {
+  const original = initialState();
+  const id = original.knowledge[0].id;
+  const learned = recordWord(original, id, true, "2026-10-25");
+  expect(wordReviewPlan(original)).toEqual([]);
+  expect(wordReviewPlan(learned, "2026-10-27")[0]).toMatchObject({
+    knowledge: { id },
+    due: "2026-10-26",
+    overdue: true,
+  });
+  const reviewed = recordWord(learned, id, true, "2026-10-27");
+  expect(wordReviewPlan(reviewed, "2026-10-27")[0]).toMatchObject({
+    due: "2026-10-30",
+    overdue: false,
+  });
+  expect(reviewed.progress).toEqual(original.progress);
 });

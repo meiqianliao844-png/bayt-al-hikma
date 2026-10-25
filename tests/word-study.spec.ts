@@ -52,3 +52,28 @@ test("revealing a news verb shows its supplied collocation and bilingual teachin
   await expect(context.getByText(/教学例句/).first()).toBeVisible();
   await expect(context.locator(".arabic").first()).toBeVisible();
 });
+
+test("review plan follows word study and opens the due flashcard scope", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "背单词", exact: true }).click();
+  await page.getByRole("button", { name: "开始背单词", exact: true }).click();
+  await page.getByRole("button", { name: "显示释义", exact: true }).click();
+  await page
+    .getByRole("button", { name: "认识，下一词 →", exact: true })
+    .click();
+  await page.getByRole("button", { name: /错题与复习/ }).click();
+  await expect(page.locator(".schedule")).toHaveCount(1);
+  await page.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem("hikma-v1")!);
+    Object.values(s.wordProgress).forEach((p: any) => (p.due = "2020-01-01"));
+    localStorage.setItem("hikma-v1", JSON.stringify(s));
+  });
+  await page.reload();
+  await page.getByRole("button", { name: /错题与复习/ }).click();
+  await page.getByRole("button", { name: "开始背词复习", exact: true }).click();
+  await expect(page.getByLabel("背词范围")).toHaveValue("due");
+  await page.getByRole("button", { name: "开始背单词", exact: true }).click();
+  await expect(page.locator(".word-front")).toBeVisible();
+});
