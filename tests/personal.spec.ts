@@ -26,13 +26,11 @@ test("daily journal retains mood, weather and text on reload and complete backup
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
   await page.getByRole("button", { name: "知识包与备份", exact: true }).click();
-  await page
-    .getByLabel("选择备份恢复")
-    .setInputFiles({
-      name: "backup.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(JSON.stringify(state)),
-    });
+  await page.getByLabel("选择备份恢复").setInputFiles({
+    name: "backup.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(state)),
+  });
   await page.getByRole("button", { name: "确认覆盖并恢复" }).click();
   await page.getByRole("button", { name: "每日小记", exact: true }).click();
   await expect(page.locator(".journal-entry")).toContainText("☀️ 晴");
@@ -64,20 +62,25 @@ test("wallpaper upload adapts button colors, persists locally and restores defau
   await expect(
     page.getByText("壁纸已保存，按钮配色已自动适配", { exact: true }),
   ).toBeVisible();
-  const normal = await page
-    .getByRole("button", { name: "搜索词库", exact: true })
-    .evaluate((el) => getComputedStyle(el).backgroundColor);
-  await page.getByRole("button", { name: "搜索词库", exact: true }).hover();
-  const hovered = await page
-    .getByRole("button", { name: "搜索词库", exact: true })
-    .evaluate((el) => getComputedStyle(el).backgroundColor);
-  // CSS transition can be in progress; assert the declared theme hover color separately.
-  expect(
-    await page.evaluate(() =>
-      document.documentElement.style.getPropertyValue("--wallpaper-hover"),
-    ),
-  ).not.toBe("");
-  expect(normal).not.toBe("rgb(33, 76, 63)");
+  const searchButton = page.getByRole("button", {
+    name: "搜索词库",
+    exact: true,
+  });
+  await expect(searchButton).not.toHaveCSS(
+    "background-color",
+    "rgb(33, 76, 63)",
+  );
+  await searchButton.hover();
+  const hover = await page.evaluate(() => {
+    const hex =
+      document.documentElement.style.getPropertyValue("--wallpaper-hover");
+    const channels = hex
+      .slice(1)
+      .match(/../g)!
+      .map((v) => parseInt(v, 16));
+    return `rgb(${channels.join(", ")})`;
+  });
+  await expect(searchButton).toHaveCSS("background-color", hover);
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-wallpaper", "true");
   await page.getByText("页面壁纸", { exact: true }).click();

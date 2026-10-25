@@ -43,6 +43,7 @@ export function Journal({
           小记日期
           <input
             type="date"
+            aria-label="小记日期"
             value={date}
             onChange={(e) => {
               setDate(e.target.value);
@@ -83,6 +84,7 @@ export function Journal({
         <label className="field">
           学习心情与感受
           <textarea
+            aria-label="学习心情与感受"
             rows={6}
             dir="auto"
             maxLength={20000}
