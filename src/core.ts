@@ -2,6 +2,8 @@ import Ajv from "ajv";
 import type { Vocabulary, VerbForms } from "./vocabulary";
 import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
+import newsPack from "./data/azerbaijan-school-uniform.json";
+import { isPortableNews, convertPortableNews } from "./portable-news.mjs";
 export type Knowledge = {
   id: string;
   arabic: string;
@@ -55,6 +57,7 @@ export type Progress = {
 };
 export type State = {
   version: 1;
+  installedPacks?: string[];
   knowledge: Knowledge[];
   questions: Question[];
   favorites: string[];
@@ -76,6 +79,7 @@ export const today = () => {
 };
 const validate = new Ajv({ allErrors: true }).compile(schema);
 export function parsePack(data: unknown, existingIds: string[] = []): Pack {
+  if (isPortableNews(data)) data = convertPortableNews(data).pack;
   if (!validate(data))
     throw new Error(
       (validate.errors || [])
@@ -130,14 +134,15 @@ export function parsePack(data: unknown, existingIds: string[] = []): Pack {
   }
   return pack;
 }
-export const initialState = (): State => ({
-  version: 1,
-  knowledge: seed.knowledge,
-  questions: seed.questions,
-  favorites: [],
-  progress: {},
-  history: [],
-});
+export const initialState = (): State =>
+  installBundledNews({
+    version: 1,
+    knowledge: seed.knowledge,
+    questions: seed.questions,
+    favorites: [],
+    progress: {},
+    history: [],
+  });
 export const intervals = [1, 3, 7, 14, 30];
 export function recordAnswer(
   state: State,
@@ -251,6 +256,17 @@ export function checkAnswer(q: Question, answer: string): boolean {
     );
   throw new Error("开放式题目应对照参考答案自评");
 }
+export const bundledNews = parsePack(newsPack);
+/** Mark installation once, retaining both users' records and intentional deletions.
+ * No save during load: a quota error must never replace the user's stored state. */
+export function installBundledNews(state: State): State {
+  if (state.installedPacks?.includes(bundledNews.id)) return state;
+  const next = mergePack(state, bundledNews, false);
+  return {
+    ...next,
+    installedPacks: [...(state.installedPacks || []), bundledNews.id],
+  };
+}
 export function removeKnowledge(s: State, id: string): State {
   const removed = new Set(
     s.questions.filter((q) => q.knowledgeId === id).map((q) => q.id),
@@ -286,6 +302,12 @@ export function parseBackup(data: unknown): State {
     knowledge: s.knowledge,
     questions: s.questions,
   });
+  if (
+    s.installedPacks !== undefined &&
+    (!Array.isArray(s.installedPacks) ||
+      !s.installedPacks.every((id) => typeof id === "string"))
+  )
+    throw new Error("备份知识包安装记录无效");
   const ids = new Set(s.questions.map((q) => q.id));
   for (const [key, p] of Object.entries(s.progress)) {
     if (
@@ -327,7 +349,9 @@ export interface StudyRepository {
 export const localRepository: StudyRepository = {
   load() {
     const raw = localStorage.getItem("hikma-v1");
-    return raw ? parseBackup(JSON.parse(raw)) : initialState();
+    return raw
+      ? installBundledNews(parseBackup(JSON.parse(raw)))
+      : initialState();
   },
   save(s) {
     localStorage.setItem("hikma-v1", JSON.stringify(s));

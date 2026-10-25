@@ -25,3 +25,11 @@
 - 正常/慢速朗读继续使用原音频组件；实际阿语音色及真人音频可用性由系统与资源提供方决定。本次没有合成或伪造音频文件。
 
 GitHub 自动验证结果：PR #2 的提交 `99078ed2b364e0de8b6e1fe1599e06e99a05c5e7` 对应 [Validate #3](https://github.com/meiqianliao844-png/bayt-al-hikma/actions/runs/40195299477) 已成功完成 npm ci、npm test、npm run build 与 npm run test:e2e。此结果补充本地交互预览的限制，不代表已验证用户设备的实际语音音色。
+
+## 校服新闻知识包导入（2026-10-25）
+
+- 已检验原上传包不能通过原生 Schema；显式转换后 106 个知识点和 277 道题通过当前 Schema / Ajv 校验。
+- `npm test`：24 项通过；`npm run build`：TypeScript 与 Vite 通过。
+- 转换保留全部 51 组动词搭配、55 条主题术语及原双语例句；缺失词形不推导，特殊处理写入转换报告。
+- 旧数据、用户同 ID 内容、收藏、错题、历史和复习时间均有回归测试；加载阶段不写存储。原 seed 和部署工作流保持不变。
+- 新增桌面/手机端用例，交由 PR 的原有 GitHub Validate 工作流执行。本地未启动另一个浏览器自动化环境。
