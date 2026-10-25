@@ -1375,3 +1375,85 @@ span {
 .word-context .audio-tools .button-row {
   justify-content: flex-start;
 }
+
+.journal-editor fieldset {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 18px 0;
+  padding: 14px;
+  min-width: 0;
+}
+.journal-editor .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.journal-editor [aria-pressed="true"] {
+  background: var(--green);
+  color: white;
+}
+.journal-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.journal-status {
+  display: inline-block;
+  margin: 10px;
+}
+
+.wallpaper-settings {
+  margin-top: 18px;
+  padding: 14px 20px;
+}
+.wallpaper-settings summary {
+  cursor: pointer;
+  color: var(--green);
+}
+.wallpaper-settings[open] summary {
+  margin-bottom: 14px;
+}
+.wallpaper-settings [role="status"] {
+  display: inline-block;
+  margin: 10px;
+}
+html[data-wallpaper] body {
+  background-image: linear-gradient(#ffffff18, #ffffff18), var(--wallpaper);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+html[data-wallpaper] main {
+  background: rgba(250, 249, 245, 0.83);
+  backdrop-filter: blur(3px);
+}
+html[data-wallpaper] aside {
+  background: rgba(250, 249, 245, 0.96);
+}
+html[data-wallpaper] .primary:hover,
+html[data-wallpaper] nav button.active:hover {
+  background: var(--wallpaper-hover);
+}
+html[data-wallpaper] button:hover {
+  background: var(--wallpaper-tint);
+}
+html[data-wallpaper] button.primary,
+html[data-wallpaper] nav button.active,
+html[data-wallpaper] button[aria-pressed="true"] {
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+}
+html[data-wallpaper] button.primary:hover,
+html[data-wallpaper] button[aria-pressed="true"]:hover {
+  background: var(--wallpaper-hover);
+}
+html[data-wallpaper] .selected {
+  background: var(--wallpaper-tint) !important;
+  border-color: var(--green) !important;
+}
+html[data-wallpaper] button:focus-visible,
+html[data-wallpaper] input:focus-visible,
+html[data-wallpaper] textarea:focus-visible,
+html[data-wallpaper] select:focus-visible {
+  outline-color: var(--green);
+}

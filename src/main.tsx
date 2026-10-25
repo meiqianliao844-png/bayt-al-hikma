@@ -12,6 +12,8 @@ import {
   Check,
   Menu,
 } from "lucide-react";
+import { Wallpaper } from "./Wallpaper";
+import { Journal } from "./Journal";
 import { AudioTools } from "./Audio";
 import { WordPlanSummary } from "./WordPlanSummary";
 import { WordStudy } from "./WordStudy";
@@ -32,11 +34,11 @@ import {
   mergePack,
   recordAnswer,
   removeKnowledge,
-  normalize,
   shuffle,
   bundledCollections,
   installBundledPacks,
 } from "./core";
+import { matchesKnowledge } from "./search";
 import "./style.css";
 const labels = questionLabels;
 let startupError = "";
@@ -83,6 +85,7 @@ function App() {
       return false;
     }
   };
+  const [lookup, setLookup] = useState("");
   const [wordScope, setWordScope] = useState("all");
   const plan = wordReviewPlan(s);
   const dueWords = plan.filter((p) => p.overdue);
@@ -106,19 +109,7 @@ function App() {
   }).length;
   const filtered = s.knowledge.filter(
     (k) =>
-      (!search ||
-        normalize(
-          [
-            k.arabic,
-            k.meaning,
-            k.root,
-            k.category,
-            JSON.stringify(k.vocabulary || {}),
-            ...(k.collocations || []),
-          ].join(" "),
-        )
-          .toLowerCase()
-          .includes(normalize(search).toLowerCase())) &&
+      matchesKnowledge(k, search, s.annotations?.[k.id]) &&
       (!category || k.category === category) &&
       (!date || k.date === date) &&
       (!fav || s.favorites.includes(k.id)),
@@ -176,6 +167,7 @@ function App() {
             ["home", "学习庭院", Sun],
             ["library", "每日知识库", BookOpen],
             ["words", "背单词", BookOpen],
+            ["journal", "每日小记", Feather],
             ["practice", "智慧试炼", Feather],
             ["review", "错题与复习", RotateCcw],
             ["import", "知识包与备份", Upload],
@@ -218,6 +210,7 @@ function App() {
                   home: "学习庭院",
                   library: "每日知识库",
                   words: "背单词",
+                  journal: "每日小记",
                   practice: "智慧试炼",
                   review: "错题与复习",
                   import: "知识包与备份",
@@ -234,6 +227,7 @@ function App() {
             })}
           </span>
         </header>
+        <Wallpaper />
         {notice && (
           <div className="notice" role="status">
             {notice}
@@ -280,6 +274,37 @@ function App() {
                 <small>智慧，自积累而来</small>
               </div>
             </section>
+            <form
+              className="panel toolbar"
+              role="search"
+              aria-label="中阿词库搜索"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setSearch(lookup);
+                setCategory("");
+                setDate("");
+                setFav(false);
+                setPage("library");
+              }}
+            >
+              <label className="search">
+                <Search size={17} />
+                <input
+                  type="search"
+                  dir="auto"
+                  aria-label="输入阿语或中文查词"
+                  placeholder="输入阿语或中文，搜索我的词库…"
+                  value={lookup}
+                  onChange={(e) => setLookup(e.target.value)}
+                />
+              </label>
+              <button className="primary" type="submit">
+                搜索词库
+              </button>
+              <p className="muted">
+                支持中文释义、阿语词形、词根、搭配及例句；阿语可不输入标符。
+              </p>
+            </form>
             <div className="stats">
               <Stat
                 number={s.knowledge.length}
@@ -303,6 +328,11 @@ function App() {
               />
             </div>
             <WordPlanSummary state={s} />
+            <section className="panel">
+              <h2>今天，学得怎么样？</h2>
+              <p>用一点文字、一个心情或天气符号，记下今天的学习感受。</p>
+              <button onClick={() => setPage("journal")}>写每日小记 →</button>
+            </section>
             <section className="section-title">
               <div>
                 <span className="eyebrow">YOUR DAILY COLLECTION</span>
@@ -345,6 +375,16 @@ function App() {
             </section>
           </>
         )}
+        {page === "journal" && (
+          <>
+            <Title
+              eyebrow="MY LEARNING JOURNAL"
+              title="每日小记"
+              text="记下今天的心情，也留住学习路上的一点进步。"
+            />
+            <Journal state={s} save={commit} />
+          </>
+        )}
         {page === "words" && (
           <>
             <Title
@@ -381,6 +421,8 @@ function App() {
                 <Search size={17} />
                 <input
                   aria-label="搜索知识"
+                  type="search"
+                  dir="auto"
                   placeholder="搜索阿语、中文、词根…"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
@@ -424,64 +466,81 @@ function App() {
                 ＋ 添加知识
               </button>
             </div>
-            {bundledCollections.map((collection) => (
-              <section
-                className="news-collection panel"
-                key={collection.pack.id}
-                aria-label={collection.title}
+            <p className="muted">
+              支持中文和阿语搜索；忽略阿语标符与延长线，也可搜索动词变化、例句和批注。
+            </p>
+            {search && (
+              <button
+                onClick={() => {
+                  setSearch("");
+                  setCategory("");
+                  setDate("");
+                  setFav(false);
+                }}
               >
-                <div>
-                  <span className="eyebrow">
-                    LEARNING COLLECTION · 学习专题
-                  </span>
-                  <h2>{collection.title}</h2>
-                  <p>
-                    {collection.verbs > 0 &&
-                      `${collection.verbs} 组动词搭配 · `}
-                    {collection.terms} 条词汇 ·{" "}
-                    {collection.pack.questions.length} 道练习。{collection.note}
-                  </p>
-                  {collection.reviewNotes.length > 0 && (
-                    <details>
-                      <summary>
-                        字幕核对备注（{collection.reviewNotes.length}{" "}
-                        条，未据音频确认）
-                      </summary>
-                      {collection.reviewNotes.map((n, i) => (
-                        <div className="subtitle-note" key={i}>
-                          <p lang="ar" dir="rtl" className="arabic">
-                            {n.source}
-                          </p>
-                          <p>{n.note}</p>
-                        </div>
-                      ))}
-                    </details>
-                  )}
-                </div>
-                <button
-                  onClick={() => {
-                    setSearch(collection.pack.title);
-                    setCategory("");
-                    setDate("");
-                    setFav(false);
-                    setGroupBy("category");
-                  }}
+                清除搜索与筛选
+              </button>
+            )}
+            {!search.trim() &&
+              bundledCollections.map((collection) => (
+                <section
+                  className="news-collection panel"
+                  key={collection.pack.id}
+                  aria-label={collection.title}
                 >
-                  {collection.viewLabel}
-                </button>
-                <button
-                  className="text-button"
-                  onClick={() => {
-                    const ids = new Set(
-                      collection.pack.questions.map((q) => q.id),
-                    );
-                    start(s.questions.filter((q) => ids.has(q.id)));
-                  }}
-                >
-                  专题练习 · {collection.title}
-                </button>
-              </section>
-            ))}
+                  <div>
+                    <span className="eyebrow">
+                      LEARNING COLLECTION · 学习专题
+                    </span>
+                    <h2>{collection.title}</h2>
+                    <p>
+                      {collection.verbs > 0 &&
+                        `${collection.verbs} 组动词搭配 · `}
+                      {collection.terms} 条词汇 ·{" "}
+                      {collection.pack.questions.length} 道练习。
+                      {collection.note}
+                    </p>
+                    {collection.reviewNotes.length > 0 && (
+                      <details>
+                        <summary>
+                          字幕核对备注（{collection.reviewNotes.length}{" "}
+                          条，未据音频确认）
+                        </summary>
+                        {collection.reviewNotes.map((n, i) => (
+                          <div className="subtitle-note" key={i}>
+                            <p lang="ar" dir="rtl" className="arabic">
+                              {n.source}
+                            </p>
+                            <p>{n.note}</p>
+                          </div>
+                        ))}
+                      </details>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSearch(collection.pack.title);
+                      setCategory("");
+                      setDate("");
+                      setFav(false);
+                      setGroupBy("category");
+                    }}
+                  >
+                    {collection.viewLabel}
+                  </button>
+                  <button
+                    className="text-button"
+                    onClick={() => {
+                      const ids = new Set(
+                        collection.pack.questions.map((q) => q.id),
+                      );
+                      start(s.questions.filter((q) => ids.has(q.id)));
+                    }}
+                  >
+                    专题练习 · {collection.title}
+                  </button>
+                </section>
+              ))}
             <div className="group-toolbar">
               <p className="muted">共 {filtered.length} 个知识点</p>
               <label>

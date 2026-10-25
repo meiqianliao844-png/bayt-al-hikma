@@ -4,6 +4,7 @@ import { today, shuffle } from "./core";
 import { recordWord } from "./study";
 import { AudioTools } from "./Audio";
 import { Annotation } from "./Annotation";
+import { matchesKnowledge } from "./search";
 import { wordContext } from "./word-context";
 export function WordStudy({
   state,
@@ -18,6 +19,7 @@ export function WordStudy({
   note: (id: string, text: string) => boolean;
   star: (id: string) => void;
 }) {
+  const [query, setQuery] = useState("");
   const [category, setCategory] = useState(""),
     [scope, setScope] = useState(initialScope),
     [limit, setLimit] = useState(20),
@@ -28,6 +30,7 @@ export function WordStudy({
     [knownCount, setKnownCount] = useState(0);
   const candidates = state.knowledge.filter(
     (k) =>
+      matchesKnowledge(k, query, state.annotations?.[k.id]) &&
       (!category || k.category === category) &&
       (scope === "all" ||
         (scope === "favorites" && state.favorites.includes(k.id)) ||
@@ -154,6 +157,16 @@ export function WordStudy({
       <h2>像背单词一样，一张一张过</h2>
       <p>先看阿语回想意思，点击翻面，再标记认识或再学。不需要输入答案。</p>
       <div className="toolbar">
+        <label className="search">
+          <input
+            type="search"
+            dir="auto"
+            aria-label="搜索背词词库"
+            placeholder="搜索阿语或中文，只背匹配的词…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </label>
         <select
           aria-label="背词分类"
           value={category}
