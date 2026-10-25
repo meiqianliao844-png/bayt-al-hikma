@@ -9,12 +9,13 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "sync:assets": "npm run convert:news && npm run convert:sponge && node scripts/sync-assets.mjs",
+    "sync:assets": "npm run convert:news && npm run convert:sponge && npm run convert:corpus && node scripts/sync-assets.mjs",
     "predev": "npm run sync:assets",
     "prebuild": "npm run sync:assets",
     "format": "prettier --write src tests scripts *.ts *.json *.md docs .github",
     "convert:news": "node scripts/convert-news.mjs",
-    "convert:sponge": "node scripts/convert-news.mjs --input data/imports/spongebob-01.portable.json --output src/data/spongebob-01.json --report src/data/spongebob-01.report.json"
+    "convert:sponge": "node scripts/convert-news.mjs --input data/imports/spongebob-01.portable.json --output src/data/spongebob-01.json --report src/data/spongebob-01.report.json",
+    "convert:corpus": "node scripts/convert-corpus.mjs"
   },
   "dependencies": {
     "@fontsource/amiri": "^5.3.0",

@@ -23,7 +23,7 @@ test("flashcards reveal meanings, save annotations and word progress, and retain
   );
   expect(Object.keys(s.wordProgress)).toHaveLength(1);
   expect(Object.values(s.annotations)).toContain("我的测试批注 فِي");
-  expect(s.questions).toHaveLength(580);
+  expect(s.questions).toHaveLength(750);
   await page.reload();
   s = await page.evaluate(() => JSON.parse(localStorage.getItem("hikma-v1")!));
   expect(Object.keys(s.wordProgress)).toHaveLength(1);

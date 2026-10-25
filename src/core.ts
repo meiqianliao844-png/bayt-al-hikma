@@ -4,6 +4,7 @@ import type { Vocabulary, VerbForms } from "./vocabulary";
 import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
 import newsPack from "./data/azerbaijan-school-uniform.json";
+import sharedFuturePack from "./data/shared-future.json";
 import spongePack from "./data/spongebob-01.json";
 import spongeReport from "./data/spongebob-01.report.json";
 import { isPortableNews, convertPortableNews } from "./portable-news.mjs";
@@ -263,6 +264,7 @@ export function checkAnswer(q: Question, answer: string): boolean {
 }
 export const bundledNews = parsePack(newsPack);
 export const bundledSponge = parsePack(spongePack);
+export const bundledSharedFuture = parsePack(sharedFuturePack);
 export const bundledCollections = [
   {
     pack: bundledNews,
@@ -283,6 +285,16 @@ export const bundledCollections = [
     download: "spongebob-01",
     note: "动画配音学习资料；例句为教学编写，个别字幕待核音。",
     reviewNotes: spongeReport.sourceReviewNotes || [],
+  },
+  {
+    pack: bundledSharedFuture,
+    title: "时政阿拉伯语 · 人类命运共同体",
+    verbs: 0,
+    terms: 85,
+    viewLabel: "查看人类命运共同体",
+    download: "shared-future",
+    note: "中阿语料表共85条，已补充学习标符。文档未附文章全文；第73条笔误已校订并保留原文说明。",
+    reviewNotes: [] as { source: string; note: string }[],
   },
 ];
 /** Install each collection once without replacing user edits or losing old schedules. */
