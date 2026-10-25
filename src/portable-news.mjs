@@ -19,8 +19,13 @@ const hash = (s) => {
   }
   return (h >>> 0).toString(16).padStart(8, "0");
 };
-function choices(answer, records, meaningKey, start, category) {
+function choices(answer, records, meaningKey, start, category, strict = false) {
   const parts = answer.split(/[、，；,;\/]/).filter((x) => x.length > 1);
+  if (strict) {
+    const chars = answer.replace(/[^\u4e00-\u9fff]/g, "");
+    for (let i = 0; i < chars.length - 1; i++)
+      parts.push(chars.slice(i, i + 2));
+  }
   const candidates = [
     ...records.slice(start + 1),
     ...records.slice(0, start + 1),
@@ -43,6 +48,42 @@ function choices(answer, records, meaningKey, start, category) {
 export function convertPortableNews(data) {
   if (!isPortableNews(data) || data.version !== "1.0")
     throw Error("不支持的可移植知识包格式或版本");
+  // Two explicitly supported variants share the portable identifier but differ
+  // in term fields and source/usage metadata. Normalize only the animation variant.
+  const animation = data.source === "用户提供的阿语动画字幕";
+  if (animation) {
+    if (!Array.isArray(data.verbs) || !Array.isArray(data.terms))
+      throw Error("动画知识包缺少 verbs / terms 数组");
+    for (const [i, t] of data.terms.entries()) {
+      if (!t || t.type !== "term")
+        throw Error(`terms[${i}]: 动画词汇 type 应为 term`);
+      text(t, "meaning_zh", `terms[${i}]`);
+    }
+    if (
+      data.review_notes !== undefined &&
+      (!Array.isArray(data.review_notes) || data.review_notes.length > 100)
+    )
+      throw Error("review_notes 应为最多 100 条的数组");
+    for (const [i, n] of (data.review_notes || []).entries()) {
+      if (!n || typeof n !== "object") throw Error(`review_notes[${i}] 无效`);
+      text(n, "source", `review_notes[${i}]`);
+      text(n, "note", `review_notes[${i}]`);
+    }
+    data = {
+      ...data,
+      verbs: data.verbs.map((v) => ({
+        ...v,
+        usage_note: v.usage_note ?? "原包未提供额外搭配备注",
+        source: v.source ?? data.source,
+      })),
+      terms: data.terms.map((t) => ({
+        ...t,
+        type: "news_term",
+        chinese: t.meaning_zh,
+        source: t.source ?? data.source,
+      })),
+    };
+  }
   const title = text(data, "title", "$"),
     date = text(data, "date", "$");
   if (
@@ -81,7 +122,7 @@ export function convertPortableNews(data) {
         throw Error(`${path}: type 不匹配`);
     });
   }
-  const namespace = `news-${date.replaceAll("-", "")}-${hash(title)}`;
+  const namespace = `${animation ? "animation" : "news"}-${date.replaceAll("-", "")}-${hash(title)}`;
   const idFor = (kind, id) => `${namespace}-${kind}-${id}`;
   const pack = {
     schemaVersion: 1,
@@ -106,8 +147,17 @@ export function convertPortableNews(data) {
     generation:
       "所有词形和例句来自输入；选择题干扰项取自本包已有释义，不推导新阿语形式。",
   };
-  const sourceNote =
-    "用户上传资料。例句为原包编写的教学例句，不当作新闻原文或已经核实的现实事实。";
+  if (animation) {
+    report.sourceProfile = "animation-subtitles";
+    report.sourceReviewNotes = data.review_notes || [];
+  }
+  const prefix = animation ? "海绵宝宝01" : "校服新闻";
+  const variety = animation
+    ? "动画配音学习资料；原包未标定地区方言，教学例句按资料保留"
+    : "现代标准阿拉伯语";
+  const sourceNote = animation
+    ? `用户提供的动画字幕学习资料。例句为教学编写，非逐字字幕；未依据音频核实听写或方言。${data.note || ""}`
+    : "用户上传资料。例句为原包编写的教学例句，不当作新闻原文或已经核实的现实事实。";
   data.verbs.forEach((v, i) => {
     const id = idFor("verb", v.id),
       modal = v.lemma === "يَنْبَغِي";
@@ -115,7 +165,32 @@ export function convertPortableNews(data) {
     let past = modal ? undefined : cleanForm(v.lemma),
       present = modal ? v.lemma : cleanForm(v.imperfect),
       masdar = cleanForm(v.masdar);
-    if (!masdar) {
+    if (animation && /[\u4e00-\u9fff]/.test(v.masdar)) {
+      notes.push(
+        `原动名词说明：${v.masdar}。说明区分了词义，不将整段注释当作“找到”义的标准动名词。`,
+      );
+      report.notes.push({
+        sourceId: v.id,
+        field: "masdar",
+        note: "原字段混有中文词义说明，移入备注；不强配“找到”义的动名词。",
+      });
+      masdar = undefined;
+    }
+    if (animation && ["sponge-v017", "sponge-v032"].includes(v.id))
+      notes.push(
+        "本条重点是给定固定表达；短语整体含义不等于词头动词的一般词义，所列动词形式仅保留原包关联信息。",
+      );
+    if (animation && v.id === "sponge-v038") {
+      notes.push(
+        "词头 مَلَكَ 与搭配、例句中的 اِمْتَلَكَ 是不同动词，意思相关但变位不可混用；另有 اِمْتَلَكَ 独立卡片。",
+      );
+      report.notes.push({
+        sourceId: v.id,
+        field: "lemma/collocation",
+        note: "保留原包 مَلَكَ 词头，注明搭配使用 اِمْتَلَكَ，并链接独立档案。",
+      });
+    }
+    if (!masdar && !/[\u4e00-\u9fff]/.test(v.masdar)) {
       notes.push("原资料未提供动名词，不自动补造。");
       report.notes.push({
         sourceId: v.id,
@@ -162,7 +237,7 @@ export function convertPortableNews(data) {
       arabic: v.lemma,
       meaning: v.meaning_zh,
       date,
-      category: "校服新闻 · 动词搭配",
+      category: `${prefix} · 动词搭配`,
       verb: {
         ...(past ? { past } : {}),
         ...(present ? { present } : {}),
@@ -174,13 +249,15 @@ export function convertPortableNews(data) {
         {
           arabic: v.example_ar,
           chinese: v.example_zh,
-          context: "新闻主题 · 原包教学例句",
-          variety: "现代标准阿拉伯语",
+          context: animation
+            ? "动画口语 · 原包教学例句（非逐字字幕）"
+            : "新闻主题 · 原包教学例句",
+          variety,
         },
       ],
       vocabulary: {
         partOfSpeech: modal ? "固定情态表达" : "动词 / 动词搭配",
-        variety: "现代标准阿拉伯语",
+        variety,
         phrases: [
           {
             arabic: v.collocation,
@@ -194,10 +271,22 @@ export function convertPortableNews(data) {
           },
         ],
         usage: {
-          register: "新闻与正式表达",
-          interpretation: `新闻搭配练习：${v.meaning_zh}。`,
+          register: animation ? "日常对话与动画配音" : "新闻与正式表达",
+          interpretation: `${animation ? "日常搭配" : "新闻搭配"}练习：${v.meaning_zh}。`,
           note: sourceNote,
         },
+        ...(animation && v.id === "sponge-v038"
+          ? {
+              family: [
+                {
+                  arabic: "اِمْتَلَكَ",
+                  chinese: "拥有",
+                  knowledgeId: idFor("verb", "sponge-v041"),
+                  note: "与源词头为不同动词；查看该词独立变位。",
+                },
+              ],
+            }
+          : {}),
         sources: [
           {
             label: title,
@@ -250,7 +339,16 @@ export function convertPortableNews(data) {
       `选择该搭配在本资料中的中文含义：${v.collocation}`,
       v.meaning_zh,
       `本卡释义：${v.meaning_zh}；搭配：${v.collocation}。${notes.join(" ")}`,
-      { options: choices(v.meaning_zh, data.verbs, "meaning_zh", i) },
+      {
+        options: choices(
+          v.meaning_zh,
+          data.verbs,
+          "meaning_zh",
+          i,
+          undefined,
+          animation,
+        ),
+      },
     );
     q(
       "zh-ar-v1",
@@ -263,7 +361,9 @@ export function convertPortableNews(data) {
         rubric: [
           "准确表达中文句意及主要参与者、动作和对象。",
           "结合语境检查介词、语态、人称和格位；不要求与参考逐字相同。",
-          "参考例句来自上传资料，不代表新闻事实已经核验。",
+          animation
+            ? "例句为教学编写，不冒充已经听音确认的原字幕。"
+            : "参考例句来自上传资料，不代表新闻事实已经核验。",
         ],
       },
     );
@@ -289,13 +389,13 @@ export function convertPortableNews(data) {
       arabic: v.arabic,
       meaning: v.chinese,
       date,
-      category: `校服新闻 · ${v.category}`,
+      category: `${prefix} · ${v.category}`,
       vocabulary: {
-        partOfSpeech: "新闻术语 / 固定表达",
-        variety: "现代标准阿拉伯语",
+        partOfSpeech: animation ? "动画词汇 / 固定表达" : "新闻术语 / 固定表达",
+        variety,
         usage: {
-          register: "新闻语体",
-          interpretation: `主题：${v.category}。请结合原新闻上下文理解。`,
+          register: animation ? "动画与日常表达（注意具体场合）" : "新闻语体",
+          interpretation: `主题：${v.category}。请结合原${animation ? "动画" : "新闻"}上下文理解。`,
           note: sourceNote,
         },
         sources: [{ label: title, note: `${v.source}；源 ID：${v.id}` }],
@@ -307,8 +407,17 @@ export function convertPortableNews(data) {
       type: "ar-choice",
       prompt: `选择此术语在本资料中的中文含义：${v.arabic}`,
       answer: v.chinese,
-      explanation: `${v.arabic}：${v.chinese}。新闻主题：${v.category}。本题学习表达含义，不验证相关新闻事实。`,
-      options: choices(v.chinese, data.terms, "chinese", i, v.category),
+      explanation: animation
+        ? `${v.arabic}：${v.chinese}。动画主题：${v.category}。本题学习资料中的表达含义，不作为已核音的字幕定稿。`
+        : `${v.arabic}：${v.chinese}。新闻主题：${v.category}。本题学习表达含义，不验证相关新闻事实。`,
+      options: choices(
+        v.chinese,
+        data.terms,
+        "chinese",
+        i,
+        v.category,
+        animation,
+      ),
     });
   });
   report.counts.knowledge = pack.knowledge.length;

@@ -32,8 +32,8 @@ import {
   shuffle,
   gradingMode,
   checkAnswer,
-  bundledNews,
-  installBundledNews,
+  bundledCollections,
+  installBundledPacks,
 } from "./core";
 import "@fontsource/amiri/arabic-400.css";
 import "./style.css";
@@ -124,7 +124,7 @@ function App() {
     try {
       if (file.size > 10 * 1024 * 1024) throw new Error("文件不能超过 10 MB");
       const data = JSON.parse(await file.text());
-      if (restore) setBackup(installBundledNews(parseBackup(data)));
+      if (restore) setBackup(installBundledPacks(parseBackup(data)));
       else {
         setPack(
           parsePack(
@@ -379,39 +379,62 @@ function App() {
                 ＋ 添加知识
               </button>
             </div>
-            <div className="news-collection panel">
-              <div>
-                <span className="eyebrow">NEWS COLLECTION · 新闻专题</span>
-                <h2>阿塞拜疆校服新闻</h2>
-                <p>
-                  51 组动词搭配 · 55 条术语 · {bundledNews.questions.length}{" "}
-                  道练习。例句为教学资料，新闻事实未独立核验。
-                </p>
-              </div>
-              <button
-                onClick={() => {
-                  setSearch(bundledNews.title);
-                  setCategory("");
-                  setDate("");
-                  setFav(false);
-                  setGroupBy("category");
-                }}
+            {bundledCollections.map((collection) => (
+              <section
+                className="news-collection panel"
+                key={collection.pack.id}
+                aria-label={collection.title}
               >
-                查看新闻专题
-              </button>
-              <button
-                className="text-button"
-                onClick={() =>
-                  start(
-                    s.questions.filter((q) =>
-                      bundledNews.questions.some((n) => n.id === q.id),
-                    ),
-                  )
-                }
-              >
-                专题练习
-              </button>
-            </div>
+                <div>
+                  <span className="eyebrow">
+                    LEARNING COLLECTION · 学习专题
+                  </span>
+                  <h2>{collection.title}</h2>
+                  <p>
+                    {collection.verbs} 组动词搭配 · {collection.terms} 条词汇 ·{" "}
+                    {collection.pack.questions.length} 道练习。{collection.note}
+                  </p>
+                  {collection.reviewNotes.length > 0 && (
+                    <details>
+                      <summary>
+                        字幕核对备注（{collection.reviewNotes.length}{" "}
+                        条，未据音频确认）
+                      </summary>
+                      {collection.reviewNotes.map((n, i) => (
+                        <div className="subtitle-note" key={i}>
+                          <p lang="ar" dir="rtl" className="arabic">
+                            {n.source}
+                          </p>
+                          <p>{n.note}</p>
+                        </div>
+                      ))}
+                    </details>
+                  )}
+                </div>
+                <button
+                  onClick={() => {
+                    setSearch(collection.pack.title);
+                    setCategory("");
+                    setDate("");
+                    setFav(false);
+                    setGroupBy("category");
+                  }}
+                >
+                  {collection.viewLabel}
+                </button>
+                <button
+                  className="text-button"
+                  onClick={() => {
+                    const ids = new Set(
+                      collection.pack.questions.map((q) => q.id),
+                    );
+                    start(s.questions.filter((q) => ids.has(q.id)));
+                  }}
+                >
+                  专题练习 · {collection.title}
+                </button>
+              </section>
+            ))}
             <div className="group-toolbar">
               <p className="muted">共 {filtered.length} 个知识点</p>
               <label>
@@ -424,7 +447,7 @@ function App() {
                   }
                 >
                   <option value="date">按日期</option>
-                  <option value="category">按新闻主题 / 分类</option>
+                  <option value="category">按主题 / 分类</option>
                 </select>
               </label>
             </div>
@@ -622,15 +645,16 @@ function App() {
                   <a href="./examples/vocabulary.json" download>
                     深度词汇示例（10 类练习）
                   </a>
-                  <a href="./packs/azerbaijan-school-uniform.json" download>
-                    校服新闻 · 已转换知识包
-                  </a>
-                  <a
-                    href="./packs/azerbaijan-school-uniform.report.json"
-                    download
-                  >
-                    转换报告
-                  </a>
+                  {bundledCollections.map((c) => (
+                    <React.Fragment key={c.pack.id}>
+                      <a href={`./packs/${c.download}.json`} download>
+                        {c.title} · 已转换知识包
+                      </a>
+                      <a href={`./packs/${c.download}.report.json`} download>
+                        {c.title} · 转换报告
+                      </a>
+                    </React.Fragment>
+                  ))}
                   <a href="./knowledge-pack.schema.json" download>
                     JSON Schema
                   </a>

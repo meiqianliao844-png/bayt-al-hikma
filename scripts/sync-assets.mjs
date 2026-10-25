@@ -17,6 +17,8 @@ mkdirSync(new URL("../public/packs/", import.meta.url), { recursive: true });
 for (const name of [
   "azerbaijan-school-uniform.json",
   "azerbaijan-school-uniform.report.json",
+  "spongebob-01.json",
+  "spongebob-01.report.json",
 ]) {
   copyFileSync(
     new URL(`../src/data/${name}`, import.meta.url),

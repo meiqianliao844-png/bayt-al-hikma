@@ -1,0 +1,1002 @@
+{
+  "title": "智慧宫｜海绵宝宝：章鱼哥的单簧管01",
+  "version": "1.0",
+  "date": "2026-10-24",
+  "schema": "wisdom-house-learning-pack-portable-v1",
+  "source": "用户提供的阿语动画字幕",
+  "note": "动词例句为原创教学例句；个别原字幕疑似听写不准，需对照音频核实。非所有动词都有常用被动分词。此包为通用格式，导入前请匹配站点JSON Schema。",
+  "verbs": [
+    {
+      "id": "sponge-v001",
+      "type": "verb_collocation",
+      "lemma": "لَمَسَ",
+      "imperfect": "يَلْمِسُ",
+      "masdar": "لَمْسٌ",
+      "collocation": "لَمَسَ شَيْئًا",
+      "meaning_zh": "触碰某物",
+      "example_ar": "لَا تَلْمِسْ أَشْيَائِي دُونَ إِذْنِي.",
+      "example_zh": "未经允许别碰我的东西。"
+    },
+    {
+      "id": "sponge-v002",
+      "type": "verb_collocation",
+      "lemma": "وَجَدَ",
+      "imperfect": "يَجِدُ",
+      "masdar": "وُجُودٌ (表示存在)؛ وِجْدَانٌ 不用于此处的“找到”义",
+      "collocation": "وَجَدَ مَكَانًا لِـ",
+      "meaning_zh": "找到……的地方",
+      "example_ar": "وَجَدْتُ مَكَانًا لِكُتُبِي فِي الْخِزَانَةِ.",
+      "example_zh": "我在柜子里找到了放书的地方。"
+    },
+    {
+      "id": "sponge-v003",
+      "type": "verb_collocation",
+      "lemma": "أَصَابَ",
+      "imperfect": "يُصِيبُ",
+      "masdar": "إِصَابَةٌ",
+      "collocation": "أَصَابَ شَيْئًا مَكْرُوهٌ",
+      "meaning_zh": "某物遭遇不测",
+      "example_ar": "أَرْجُو أَلَّا يُصِيبَ الْآلَةَ أَيُّ مَكْرُوهٍ.",
+      "example_zh": "希望这件乐器平安无事。"
+    },
+    {
+      "id": "sponge-v004",
+      "type": "verb_collocation",
+      "lemma": "وَعَدَ",
+      "imperfect": "يَعِدُ",
+      "masdar": "وَعْدٌ",
+      "collocation": "وَعَدَ شَخْصًا بِأَنْ / أَنْ",
+      "meaning_zh": "答应某人做某事",
+      "example_ar": "أَعِدُكَ أَنْ أُعِيدَ الْكِتَابَ غَدًا.",
+      "example_zh": "我答应你明天还书。"
+    },
+    {
+      "id": "sponge-v005",
+      "type": "verb_collocation",
+      "lemma": "ظَنَّ",
+      "imperfect": "يَظُنُّ",
+      "masdar": "ظَنٌّ",
+      "collocation": "ظَنَّ أَنَّ",
+      "meaning_zh": "认为、以为",
+      "example_ar": "مَاذَا تَظُنُّ أَنَّكَ تَفْعَلُ؟",
+      "example_zh": "你以为自己在做什么？"
+    },
+    {
+      "id": "sponge-v006",
+      "type": "verb_collocation",
+      "lemma": "فَعَلَ",
+      "imperfect": "يَفْعَلُ",
+      "masdar": "فِعْلٌ",
+      "collocation": "فَعَلَ شَيْئًا بِـ",
+      "meaning_zh": "对某物做了什么",
+      "example_ar": "مَاذَا فَعَلْتَ بِهَذِهِ الْآلَةِ؟",
+      "example_zh": "你把这件乐器怎么了？"
+    },
+    {
+      "id": "sponge-v007",
+      "type": "verb_collocation",
+      "lemma": "وَجَبَ",
+      "imperfect": "يَجِبُ",
+      "masdar": "وُجُوبٌ",
+      "collocation": "يَجِبُ أَنْ + مُضَارِعٌ مَنْصُوبٌ",
+      "meaning_zh": "必须做……",
+      "example_ar": "يَجِبُ أَنْ نَعُودَ إِلَى الْعَمَلِ.",
+      "example_zh": "我们必须回去工作。"
+    },
+    {
+      "id": "sponge-v008",
+      "type": "verb_collocation",
+      "lemma": "بَدَأَ",
+      "imperfect": "يَبْدَأُ",
+      "masdar": "بَدْءٌ",
+      "collocation": "بَدَأَ + مَصْدَرًا / أَنْ",
+      "meaning_zh": "开始做……",
+      "example_ar": "بَدَأَ الْعُمَّالُ تَرْمِيمَ الْمَكَانِ.",
+      "example_zh": "工人开始装修这个地方。"
+    },
+    {
+      "id": "sponge-v009",
+      "type": "verb_collocation",
+      "lemma": "قَالَ",
+      "imperfect": "يَقُولُ",
+      "masdar": "قَوْلٌ",
+      "collocation": "قَالَ لِشَخْصٍ",
+      "meaning_zh": "对某人说",
+      "example_ar": "قُلْتُ لَكَ أَلَّا تَلْمِسَ الْآلَةَ.",
+      "example_zh": "我跟你说过不要碰乐器。"
+    },
+    {
+      "id": "sponge-v010",
+      "type": "verb_collocation",
+      "lemma": "وَضَعَ",
+      "imperfect": "يَضَعُ",
+      "masdar": "وَضْعٌ",
+      "collocation": "وَضَعَ شَيْئًا فِي",
+      "meaning_zh": "把某物放入……",
+      "example_ar": "وَضَعْتُ الصَّنَادِيقَ فِي الْخِزَانَةِ.",
+      "example_zh": "我把箱子放进了柜子。"
+    },
+    {
+      "id": "sponge-v011",
+      "type": "verb_collocation",
+      "lemma": "أَعْجَبَ",
+      "imperfect": "يُعْجِبُ",
+      "masdar": "إِعْجَابٌ",
+      "collocation": "أَعْجَبَ شَيْءٌ شَخْصًا",
+      "meaning_zh": "某物让某人喜欢",
+      "example_ar": "هَلْ يُعْجِبُكَ مَظْهَرُ الْغُرْفَةِ؟",
+      "example_zh": "你喜欢房间的样子吗？"
+    },
+    {
+      "id": "sponge-v012",
+      "type": "verb_collocation",
+      "lemma": "وَدَّ",
+      "imperfect": "يَوَدُّ",
+      "masdar": "وُدٌّ",
+      "collocation": "وَدَّ أَنْ",
+      "meaning_zh": "想要、愿意",
+      "example_ar": "أَوَدُّ أَنْ أَتَحَدَّثَ مَعَكَ قَلِيلًا.",
+      "example_zh": "我想和你聊一会儿。"
+    },
+    {
+      "id": "sponge-v013",
+      "type": "verb_collocation",
+      "lemma": "جَلَسَ",
+      "imperfect": "يَجْلِسُ",
+      "masdar": "جُلُوسٌ",
+      "collocation": "جَلَسَ مَعَ",
+      "meaning_zh": "与……坐在一起",
+      "example_ar": "جَلَسْتُ مَعَ صَدِيقِي فِي الْمَقْهَى.",
+      "example_zh": "我和朋友坐在咖啡馆里。"
+    },
+    {
+      "id": "sponge-v014",
+      "type": "verb_collocation",
+      "lemma": "تَحَدَّثَ",
+      "imperfect": "يَتَحَدَّثُ",
+      "masdar": "تَحَدُّثٌ",
+      "collocation": "تَحَدَّثَ مَعَ / عَنْ",
+      "meaning_zh": "与……交谈／谈论……",
+      "example_ar": "تَحَدَّثْتُ مَعَ زَمِيلِي عَنِ الْعَمَلِ.",
+      "example_zh": "我和同事谈了工作。"
+    },
+    {
+      "id": "sponge-v015",
+      "type": "verb_collocation",
+      "lemma": "عَادَ",
+      "imperfect": "يَعُودُ",
+      "masdar": "عَوْدَةٌ",
+      "collocation": "عَادَ إِلَى",
+      "meaning_zh": "返回……",
+      "example_ar": "سَأَعُودُ إِلَى الْعَمَلِ بَعْدَ قَلِيلٍ.",
+      "example_zh": "我过一会儿回去工作。"
+    },
+    {
+      "id": "sponge-v016",
+      "type": "verb_collocation",
+      "lemma": "قَاطَعَ",
+      "imperfect": "يُقَاطِعُ",
+      "masdar": "مُقَاطَعَةٌ",
+      "collocation": "قَاطَعَ شَخْصًا أَثْنَاءَ الْعَمَلِ",
+      "meaning_zh": "打断某人工作",
+      "example_ar": "لَا تُقَاطِعْنِي وَأَنَا أَدْرُسُ.",
+      "example_zh": "我学习时不要打断我。"
+    },
+    {
+      "id": "sponge-v017",
+      "type": "verb_collocation",
+      "lemma": "دَعَا",
+      "imperfect": "يَدْعُو",
+      "masdar": "دَعْوَةٌ",
+      "collocation": "لَا دَاعِيَ لِـ",
+      "meaning_zh": "没必要……（固定名词表达）",
+      "example_ar": "لَا دَاعِيَ لِلْقَلَقِ؛ كُلُّ شَيْءٍ بِخَيْرٍ.",
+      "example_zh": "不必担心，一切都好。"
+    },
+    {
+      "id": "sponge-v018",
+      "type": "verb_collocation",
+      "lemma": "أَرَادَ",
+      "imperfect": "يُرِيدُ",
+      "masdar": "إِرَادَةٌ",
+      "collocation": "أَرَادَ أَنْ / شَيْئًا",
+      "meaning_zh": "想做／想要……",
+      "example_ar": "أُرِيدُ أَنْ أَطْلُبَ الطَّعَامَ.",
+      "example_zh": "我想点餐。"
+    },
+    {
+      "id": "sponge-v019",
+      "type": "verb_collocation",
+      "lemma": "فَاتَ",
+      "imperfect": "يَفُوتُ",
+      "masdar": "فَوَاتٌ",
+      "collocation": "فَاتَ الْأَوَانُ",
+      "meaning_zh": "为时已晚",
+      "example_ar": "فَاتَ الْأَوَانُ لِتَغْيِيرِ الْخُطَّةِ.",
+      "example_zh": "现在改变计划已经晚了。"
+    },
+    {
+      "id": "sponge-v020",
+      "type": "verb_collocation",
+      "lemma": "حَطَّمَ",
+      "imperfect": "يُحَطِّمُ",
+      "masdar": "تَحْطِيمٌ",
+      "collocation": "حَطَّمَ شَيْئًا",
+      "meaning_zh": "打碎、损坏……",
+      "example_ar": "لَا تُحَطِّمْ آلَتِي الْمُوسِيقِيَّةَ.",
+      "example_zh": "别弄坏我的乐器。"
+    },
+    {
+      "id": "sponge-v021",
+      "type": "verb_collocation",
+      "lemma": "عَرَفَ",
+      "imperfect": "يَعْرِفُ",
+      "masdar": "مَعْرِفَةٌ",
+      "collocation": "عَرَفَ مَاذَا / كَيْفَ",
+      "meaning_zh": "知道……",
+      "example_ar": "لَا أَعْرِفُ مَاذَا سَأَفْعَلُ الْآنَ.",
+      "example_zh": "我不知道现在该怎么办。"
+    },
+    {
+      "id": "sponge-v022",
+      "type": "verb_collocation",
+      "lemma": "خَافَ",
+      "imperfect": "يَخَافُ",
+      "masdar": "خَوْفٌ",
+      "collocation": "خَافَ مِنْ / عَلَى",
+      "meaning_zh": "害怕……／担心……的安危",
+      "example_ar": "لَا تَخَفْ عَلَى آلَتِكَ؛ إِنَّهَا بِأَمَانٍ.",
+      "example_zh": "别担心你的乐器，它很安全。"
+    },
+    {
+      "id": "sponge-v023",
+      "type": "verb_collocation",
+      "lemma": "وَسَّعَ",
+      "imperfect": "يُوَسِّعُ",
+      "masdar": "تَوْسِيعٌ",
+      "collocation": "وَسَّعَ مَكَانًا",
+      "meaning_zh": "扩建、拓宽……",
+      "example_ar": "وَسَّعَ الْعُمَّالُ الْغُرْفَةَ الْقَدِيمَةَ.",
+      "example_zh": "工人扩建了旧房间。"
+    },
+    {
+      "id": "sponge-v024",
+      "type": "verb_collocation",
+      "lemma": "بَدَا",
+      "imperfect": "يَبْدُو",
+      "masdar": "بُدُوٌّ",
+      "collocation": "بَدَا + صِفَةً مَنْصُوبَةً",
+      "meaning_zh": "看起来……",
+      "example_ar": "تَبْدُو الْخِزَانَةُ فَسِيحَةً.",
+      "example_zh": "这个柜子看起来很宽敞。"
+    },
+    {
+      "id": "sponge-v025",
+      "type": "verb_collocation",
+      "lemma": "رَجَعَ",
+      "imperfect": "يَرْجِعُ",
+      "masdar": "رُجُوعٌ",
+      "collocation": "رَجَعَ إِلَى",
+      "meaning_zh": "返回、查阅……",
+      "example_ar": "رَجَعْتُ إِلَى كُتَيِّبِ الْإِرْشَادَاتِ.",
+      "example_zh": "我查阅了说明手册。"
+    },
+    {
+      "id": "sponge-v026",
+      "type": "verb_collocation",
+      "lemma": "بَحَثَ",
+      "imperfect": "يَبْحَثُ",
+      "masdar": "بَحْثٌ",
+      "collocation": "بَحَثَ عَنْ",
+      "meaning_zh": "寻找、查找……",
+      "example_ar": "أَبْحَثُ عَنْ آلَتِي الْمُوسِيقِيَّةِ.",
+      "example_zh": "我在寻找我的乐器。"
+    },
+    {
+      "id": "sponge-v027",
+      "type": "verb_collocation",
+      "lemma": "رَأَى",
+      "imperfect": "يَرَى",
+      "masdar": "رُؤْيَةٌ",
+      "collocation": "أَرَأَيْتَ؟",
+      "meaning_zh": "你看见了吗／明白了吗",
+      "example_ar": "هَذَا هُوَ الرَّقْمُ الصَّحِيحُ، أَرَأَيْتَ؟",
+      "example_zh": "这就是正确的号码，看见了吗？"
+    },
+    {
+      "id": "sponge-v028",
+      "type": "verb_collocation",
+      "lemma": "نَسِيَ",
+      "imperfect": "يَنْسَى",
+      "masdar": "نِسْيَانٌ",
+      "collocation": "نَسِيَ أَنْ",
+      "meaning_zh": "忘记做……",
+      "example_ar": "لَا تَنْسَ أَنْ تُغْلِقَ الْبَابَ.",
+      "example_zh": "别忘了关门。"
+    },
+    {
+      "id": "sponge-v029",
+      "type": "verb_collocation",
+      "lemma": "قَلِقَ",
+      "imperfect": "يَقْلَقُ",
+      "masdar": "قَلَقٌ",
+      "collocation": "قَلِقَ عَلَى / مِنْ",
+      "meaning_zh": "担心……",
+      "example_ar": "لَا تَقْلَقْ عَلَيَّ؛ سَأَعُودُ سَرِيعًا.",
+      "example_zh": "别担心我，我很快回来。"
+    },
+    {
+      "id": "sponge-v030",
+      "type": "verb_collocation",
+      "lemma": "طَلَبَ",
+      "imperfect": "يَطْلُبُ",
+      "masdar": "طَلَبٌ",
+      "collocation": "طَلَبَ شَيْئًا / أَنْ",
+      "meaning_zh": "点餐、请求……",
+      "example_ar": "هَلْ يُمْكِنُنِي أَنْ أَطْلُبَ وَجْبَةً؟",
+      "example_zh": "我可以点一份餐吗？"
+    },
+    {
+      "id": "sponge-v031",
+      "type": "verb_collocation",
+      "lemma": "أَمْكَنَ",
+      "imperfect": "يُمْكِنُ",
+      "masdar": "إِمْكَانٌ",
+      "collocation": "يُمْكِنُنِي أَنْ",
+      "meaning_zh": "我可以……",
+      "example_ar": "هَلْ يُمْكِنُنِي أَنْ أَجْلِسَ هُنَا؟",
+      "example_zh": "我可以坐在这里吗？"
+    },
+    {
+      "id": "sponge-v032",
+      "type": "verb_collocation",
+      "lemma": "رَامَ",
+      "imperfect": "يَرُومُ",
+      "masdar": "رَوْمٌ",
+      "collocation": "عَلَى مَا يُرَامُ",
+      "meaning_zh": "顺利、如愿（固定表达）",
+      "example_ar": "هَلْ كُلُّ شَيْءٍ عَلَى مَا يُرَامُ؟",
+      "example_zh": "一切都顺利吗？"
+    },
+    {
+      "id": "sponge-v033",
+      "type": "verb_collocation",
+      "lemma": "رَمَّمَ",
+      "imperfect": "يُرَمِّمُ",
+      "masdar": "تَرْمِيمٌ",
+      "collocation": "رَمَّمَ مَبْنًى / أَعْمَالُ تَرْمِيمٍ",
+      "meaning_zh": "修缮建筑／装修工程",
+      "example_ar": "تَجْرِي أَعْمَالُ تَرْمِيمٍ فِي الْمَدْرَسَةِ.",
+      "example_zh": "学校正在进行修缮工程。"
+    },
+    {
+      "id": "sponge-v034",
+      "type": "verb_collocation",
+      "lemma": "نَقَلَ",
+      "imperfect": "يَنْقُلُ",
+      "masdar": "نَقْلٌ",
+      "collocation": "نَقَلَ شَيْئًا إِلَى",
+      "meaning_zh": "把某物移到……",
+      "example_ar": "تَمَّ نَقْلُ الْآلَةِ إِلَى رَفٍّ آخَرَ.",
+      "example_zh": "乐器被移到了另一个架子。"
+    },
+    {
+      "id": "sponge-v035",
+      "type": "verb_collocation",
+      "lemma": "قَصَدَ",
+      "imperfect": "يَقْصِدُ",
+      "masdar": "قَصْدٌ",
+      "collocation": "قَصَدَ شَيْئًا / أَقْصِدُ",
+      "meaning_zh": "指的是、意指",
+      "example_ar": "أَقْصِدُ الرَّفَّ الثَّانِيَ، لَا الْأَوَّلَ.",
+      "example_zh": "我指的是第二个架子，不是第一个。"
+    },
+    {
+      "id": "sponge-v036",
+      "type": "verb_collocation",
+      "lemma": "اِنْتَظَرَ",
+      "imperfect": "يَنْتَظِرُ",
+      "masdar": "اِنْتِظَارٌ",
+      "collocation": "اِنْتَظَرَ شَخْصًا",
+      "meaning_zh": "等候某人",
+      "example_ar": "اِنْتَظِرْنِي عِنْدَ الْبَابِ.",
+      "example_zh": "在门口等我。"
+    },
+    {
+      "id": "sponge-v037",
+      "type": "verb_collocation",
+      "lemma": "أَحَبَّ",
+      "imperfect": "يُحِبُّ",
+      "masdar": "حُبٌّ",
+      "collocation": "أَحَبَّ شَيْئًا / أَنْ",
+      "meaning_zh": "喜欢……",
+      "example_ar": "لَا أُحِبُّ هَذِهِ الْأَلْعَابَ.",
+      "example_zh": "我不喜欢这种游戏。"
+    },
+    {
+      "id": "sponge-v038",
+      "type": "verb_collocation",
+      "lemma": "مَلَكَ",
+      "imperfect": "يَمْلِكُ",
+      "masdar": "مِلْكٌ",
+      "collocation": "اِمْتَلَكَ شَيْئًا",
+      "meaning_zh": "拥有某物",
+      "example_ar": "أَمْتَلِكُ آلَةً مُوسِيقِيَّةً قَدِيمَةً.",
+      "example_zh": "我有一件旧乐器。"
+    },
+    {
+      "id": "sponge-v039",
+      "type": "verb_collocation",
+      "lemma": "أَخْبَرَ",
+      "imperfect": "يُخْبِرُ",
+      "masdar": "إِخْبَارٌ",
+      "collocation": "أَخْبَرَ شَخْصًا بِـ / عَنْ",
+      "meaning_zh": "告知某人……",
+      "example_ar": "أَخْبِرْنِي بِسَبَبِ مَجِيئِكَ.",
+      "example_zh": "告诉我你来的原因。"
+    },
+    {
+      "id": "sponge-v040",
+      "type": "verb_collocation",
+      "lemma": "جَاءَ",
+      "imperfect": "يَجِيءُ",
+      "masdar": "مَجِيءٌ",
+      "collocation": "جَاءَ إِلَى / سَبَبُ مَجِيئِكَ",
+      "meaning_zh": "来到／你来此的原因",
+      "example_ar": "مَا سَبَبُ مَجِيئِكَ إِلَى هَذَا الْمَكَانِ؟",
+      "example_zh": "你来这个地方做什么？"
+    },
+    {
+      "id": "sponge-v041",
+      "type": "verb_collocation",
+      "lemma": "اِمْتَلَكَ",
+      "imperfect": "يَمْتَلِكُ",
+      "masdar": "اِمْتِلَاكٌ",
+      "collocation": "اِمْتَلَكَ شَيْئًا",
+      "meaning_zh": "拥有……",
+      "example_ar": "لَا يَمْتَلِكُ أَحَدٌ هَذِهِ الْآلَةَ.",
+      "example_zh": "没有人拥有这件乐器。"
+    },
+    {
+      "id": "sponge-v042",
+      "type": "verb_collocation",
+      "lemma": "أَهَانَ",
+      "imperfect": "يُهِينُ",
+      "masdar": "إِهَانَةٌ",
+      "collocation": "أَهَانَ شَخْصًا",
+      "meaning_zh": "冒犯、侮辱某人",
+      "example_ar": "لَمْ أَتَعَمَّدْ إِهَانَتَكَ.",
+      "example_zh": "我不是故意冒犯你的。"
+    },
+    {
+      "id": "sponge-v043",
+      "type": "verb_collocation",
+      "lemma": "تَعَمَّدَ",
+      "imperfect": "يَتَعَمَّدُ",
+      "masdar": "تَعَمُّدٌ",
+      "collocation": "تَعَمَّدَ فِعْلَ شَيْءٍ",
+      "meaning_zh": "故意做某事",
+      "example_ar": "لَمْ أَتَعَمَّدْ إِزْعَاجَكَ.",
+      "example_zh": "我不是故意打扰你的。"
+    },
+    {
+      "id": "sponge-v044",
+      "type": "verb_collocation",
+      "lemma": "عَاشَ",
+      "imperfect": "يَعِيشُ",
+      "masdar": "عَيْشٌ / مَعِيشَةٌ",
+      "collocation": "عَاشَ فِي / دُونَ",
+      "meaning_zh": "生活在……／不受……",
+      "example_ar": "تَعِيشُ الْحَيَوَانَاتُ فِي الْغَابَةِ دُونَ إِزْعَاجٍ.",
+      "example_zh": "动物们在森林中不受打扰地生活。"
+    },
+    {
+      "id": "sponge-v045",
+      "type": "verb_collocation",
+      "lemma": "تَعَلَّمَ",
+      "imperfect": "يَتَعَلَّمُ",
+      "masdar": "تَعَلُّمٌ",
+      "collocation": "تَعَلَّمَ أَنْ",
+      "meaning_zh": "学会做……",
+      "example_ar": "تَعَلَّمْ أَنْ تَحْتَرِمَ الْآخَرِينَ.",
+      "example_zh": "学会尊重他人。"
+    },
+    {
+      "id": "sponge-v046",
+      "type": "verb_collocation",
+      "lemma": "اِحْتَرَمَ",
+      "imperfect": "يَحْتَرِمُ",
+      "masdar": "اِحْتِرَامٌ",
+      "collocation": "اِحْتَرَمَ شَخْصًا / مَكَانًا",
+      "meaning_zh": "尊重某人／某地",
+      "example_ar": "يَجِبُ أَنْ نَحْتَرِمَ هَذَا الْمَكَانَ.",
+      "example_zh": "我们应该尊重这个地方。"
+    },
+    {
+      "id": "sponge-v047",
+      "type": "verb_collocation",
+      "lemma": "صَدَّقَ",
+      "imperfect": "يُصَدِّقُ",
+      "masdar": "تَصْدِيقٌ",
+      "collocation": "صَدَّقَ شَخْصًا",
+      "meaning_zh": "相信某人说的话",
+      "example_ar": "لَا أُصَدِّقُكَ حَتَّى أَرَى الدَّلِيلَ.",
+      "example_zh": "看到证据前我不相信你。"
+    },
+    {
+      "id": "sponge-v048",
+      "type": "verb_collocation",
+      "lemma": "لَزِمَ",
+      "imperfect": "يَلْزَمُ",
+      "masdar": "لُزُومٌ",
+      "collocation": "اِلْزَمْ مَكَانَكَ",
+      "meaning_zh": "待在原地、别动",
+      "example_ar": "اِلْزَمْ مَكَانَكَ حَتَّى أَعُودَ.",
+      "example_zh": "待在原地直到我回来。"
+    },
+    {
+      "id": "sponge-v049",
+      "type": "verb_collocation",
+      "lemma": "أَمْسَكَ",
+      "imperfect": "يُمْسِكُ",
+      "masdar": "إِمْسَاكٌ",
+      "collocation": "أَمْسَكَ بِـ",
+      "meaning_zh": "抓住……",
+      "example_ar": "سَأُمْسِكُ بِالْحَبْلِ جَيِّدًا.",
+      "example_zh": "我会抓紧绳子。"
+    },
+    {
+      "id": "sponge-v050",
+      "type": "verb_collocation",
+      "lemma": "فَازَ",
+      "imperfect": "يَفُوزُ",
+      "masdar": "فَوْزٌ",
+      "collocation": "فَازَ بِـ",
+      "meaning_zh": "赢得……",
+      "example_ar": "فَازَ فَرِيقُنَا بِالْمُبَارَاةِ.",
+      "example_zh": "我们的队伍赢了比赛。"
+    },
+    {
+      "id": "sponge-v051",
+      "type": "verb_collocation",
+      "lemma": "تَضَخَّمَ",
+      "imperfect": "يَتَضَخَّمُ",
+      "masdar": "تَضَخُّمٌ",
+      "collocation": "تَضَخَّمَ حَجْمُ شَيْءٍ",
+      "meaning_zh": "某物体积膨胀",
+      "example_ar": "تَضَخَّمَ حَجْمُ الْبَالُونِ بِسُرْعَةٍ.",
+      "example_zh": "气球迅速膨胀。"
+    },
+    {
+      "id": "sponge-v052",
+      "type": "verb_collocation",
+      "lemma": "خَرَجَ",
+      "imperfect": "يَخْرُجُ",
+      "masdar": "خُرُوجٌ",
+      "collocation": "خَرَجَ مِنْ",
+      "meaning_zh": "从……出去",
+      "example_ar": "يَجِبُ أَنْ نَخْرُجَ مِنْ هُنَا.",
+      "example_zh": "我们必须离开这里。"
+    },
+    {
+      "id": "sponge-v053",
+      "type": "verb_collocation",
+      "lemma": "ذَهَبَ",
+      "imperfect": "يَذْهَبُ",
+      "masdar": "ذَهَابٌ",
+      "collocation": "ذَهَبَ إِلَى",
+      "meaning_zh": "去往……",
+      "example_ar": "أَيْنَ سَتَذْهَبُ بَعْدَ الْعَمَلِ؟",
+      "example_zh": "下班后你要去哪儿？"
+    },
+    {
+      "id": "sponge-v054",
+      "type": "verb_collocation",
+      "lemma": "أَمَرَ",
+      "imperfect": "يَأْمُرُ",
+      "masdar": "أَمْرٌ",
+      "collocation": "أَمْرُكَ / أَمَرَ شَخْصًا بِـ",
+      "meaning_zh": "遵命／命令某人……",
+      "example_ar": "أَمَرَ الْمُدِيرُ الْعُمَّالَ بِالْعَوْدَةِ.",
+      "example_zh": "经理命令工人返回。"
+    }
+  ],
+  "terms": [
+    {
+      "id": "sponge-t001",
+      "type": "term",
+      "arabic": "آلَةٌ مُوسِيقِيَّةٌ",
+      "meaning_zh": "乐器",
+      "category": "音乐"
+    },
+    {
+      "id": "sponge-t002",
+      "type": "term",
+      "arabic": "آلَةُ شَفِيقٍ",
+      "meaning_zh": "章鱼哥的乐器",
+      "category": "剧情"
+    },
+    {
+      "id": "sponge-t003",
+      "type": "term",
+      "arabic": "الْجُزْءُ الْخَاصُّ بِي",
+      "meaning_zh": "我的专属区域",
+      "category": "日常"
+    },
+    {
+      "id": "sponge-t004",
+      "type": "term",
+      "arabic": "فُرْشَاةُ أَسْنَانٍ",
+      "meaning_zh": "牙刷",
+      "category": "生活"
+    },
+    {
+      "id": "sponge-t005",
+      "type": "term",
+      "arabic": "طَلَبٌ",
+      "meaning_zh": "订单、点餐请求",
+      "category": "餐饮"
+    },
+    {
+      "id": "sponge-t006",
+      "type": "term",
+      "arabic": "قُفَّازٌ / قُفَّازَاتٌ",
+      "meaning_zh": "手套",
+      "category": "生活"
+    },
+    {
+      "id": "sponge-t007",
+      "type": "term",
+      "arabic": "مَظْهَرٌ",
+      "meaning_zh": "外观、样子",
+      "category": "描述"
+    },
+    {
+      "id": "sponge-t008",
+      "type": "term",
+      "arabic": "بَقِيَّةُ النُّقُودِ",
+      "meaning_zh": "找零、剩余的钱",
+      "category": "购物"
+    },
+    {
+      "id": "sponge-t009",
+      "type": "term",
+      "arabic": "نُقُودٌ",
+      "meaning_zh": "钱币、零钱",
+      "category": "购物"
+    },
+    {
+      "id": "sponge-t010",
+      "type": "term",
+      "arabic": "رِفَاقٌ",
+      "meaning_zh": "伙伴们",
+      "category": "称呼"
+    },
+    {
+      "id": "sponge-t011",
+      "type": "term",
+      "arabic": "أَحْمَقُ",
+      "meaning_zh": "傻瓜、笨蛋",
+      "category": "口语"
+    },
+    {
+      "id": "sponge-t012",
+      "type": "term",
+      "arabic": "صُنْدُوقٌ / صَنَادِيقُ",
+      "meaning_zh": "箱子／箱子们",
+      "category": "生活"
+    },
+    {
+      "id": "sponge-t013",
+      "type": "term",
+      "arabic": "خِزَانَةٌ",
+      "meaning_zh": "柜子、储物柜",
+      "category": "生活"
+    },
+    {
+      "id": "sponge-t014",
+      "type": "term",
+      "arabic": "فَسِيحٌ / فَسِيحَةٌ",
+      "meaning_zh": "宽敞的",
+      "category": "描述"
+    },
+    {
+      "id": "sponge-t015",
+      "type": "term",
+      "arabic": "كُتَيِّبُ الْإِرْشَادَاتِ",
+      "meaning_zh": "说明手册",
+      "category": "物品"
+    },
+    {
+      "id": "sponge-t016",
+      "type": "term",
+      "arabic": "إِرْشَادَاتٌ",
+      "meaning_zh": "指引、说明",
+      "category": "物品"
+    },
+    {
+      "id": "sponge-t017",
+      "type": "term",
+      "arabic": "مَكْرُوهٌ",
+      "meaning_zh": "不幸、伤害、坏事",
+      "category": "日常"
+    },
+    {
+      "id": "sponge-t018",
+      "type": "term",
+      "arabic": "فِي أَمَانٍ",
+      "meaning_zh": "安全地、处于安全状态",
+      "category": "日常"
+    },
+    {
+      "id": "sponge-t019",
+      "type": "term",
+      "arabic": "لَا دَاعِيَ لِـ",
+      "meaning_zh": "没必要……",
+      "category": "固定表达"
+    },
+    {
+      "id": "sponge-t020",
+      "type": "term",
+      "arabic": "فَاتَ الْأَوَانُ",
+      "meaning_zh": "为时已晚",
+      "category": "固定表达"
+    },
+    {
+      "id": "sponge-t021",
+      "type": "term",
+      "arabic": "عَلَى مَا يُرَامُ",
+      "meaning_zh": "顺利、如愿",
+      "category": "固定表达"
+    },
+    {
+      "id": "sponge-t022",
+      "type": "term",
+      "arabic": "أَعْمَالُ تَرْمِيمٍ",
+      "meaning_zh": "修缮工程、装修",
+      "category": "施工"
+    },
+    {
+      "id": "sponge-t023",
+      "type": "term",
+      "arabic": "عَمَلِيَّةُ التَّرْمِيمِ",
+      "meaning_zh": "翻修过程",
+      "category": "施工"
+    },
+    {
+      "id": "sponge-t024",
+      "type": "term",
+      "arabic": "رَفٌّ / رُفُوفٌ",
+      "meaning_zh": "架子、搁板",
+      "category": "物品"
+    },
+    {
+      "id": "sponge-t025",
+      "type": "term",
+      "arabic": "رَقْمٌ",
+      "meaning_zh": "编号、数字",
+      "category": "物品"
+    },
+    {
+      "id": "sponge-t026",
+      "type": "term",
+      "arabic": "شَرْطَةٌ",
+      "meaning_zh": "连字符、短横线",
+      "category": "文字"
+    },
+    {
+      "id": "sponge-t027",
+      "type": "term",
+      "arabic": "رِسَالَةٌ أُخْرَى",
+      "meaning_zh": "另一封留言",
+      "category": "交流"
+    },
+    {
+      "id": "sponge-t028",
+      "type": "term",
+      "arabic": "مُؤَقَّتًا",
+      "meaning_zh": "暂时地",
+      "category": "副词"
+    },
+    {
+      "id": "sponge-t029",
+      "type": "term",
+      "arabic": "آسِفٌ",
+      "meaning_zh": "抱歉",
+      "category": "礼貌"
+    },
+    {
+      "id": "sponge-t030",
+      "type": "term",
+      "arabic": "ضَحْكٌ",
+      "meaning_zh": "笑声",
+      "category": "声音"
+    },
+    {
+      "id": "sponge-t031",
+      "type": "term",
+      "arabic": "الْأَلْعَابُ",
+      "meaning_zh": "游戏",
+      "category": "生活"
+    },
+    {
+      "id": "sponge-t032",
+      "type": "term",
+      "arabic": "الْغَابَةُ الْمُوسِيقِيَّةُ",
+      "meaning_zh": "音乐森林",
+      "category": "剧情"
+    },
+    {
+      "id": "sponge-t033",
+      "type": "term",
+      "arabic": "حَارِسُ الْغَابَةِ",
+      "meaning_zh": "森林守卫",
+      "category": "人物"
+    },
+    {
+      "id": "sponge-t034",
+      "type": "term",
+      "arabic": "سَبَبُ مَجِيئِكَ",
+      "meaning_zh": "你来此的原因",
+      "category": "表达"
+    },
+    {
+      "id": "sponge-t035",
+      "type": "term",
+      "arabic": "بِكُلِّ فَخْرٍ",
+      "meaning_zh": "非常自豪地",
+      "category": "表达"
+    },
+    {
+      "id": "sponge-t036",
+      "type": "term",
+      "arabic": "السَّبَبُ الْحَقِيقِيُّ",
+      "meaning_zh": "真正的原因",
+      "category": "表达"
+    },
+    {
+      "id": "sponge-t037",
+      "type": "term",
+      "arabic": "أُسْلُوبٌ",
+      "meaning_zh": "方式、态度",
+      "category": "交流"
+    },
+    {
+      "id": "sponge-t038",
+      "type": "term",
+      "arabic": "إِهَانَةٌ",
+      "meaning_zh": "冒犯、侮辱",
+      "category": "交流"
+    },
+    {
+      "id": "sponge-t039",
+      "type": "term",
+      "arabic": "دُونَ إِزْعَاجٍ",
+      "meaning_zh": "不受打扰",
+      "category": "生活"
+    },
+    {
+      "id": "sponge-t040",
+      "type": "term",
+      "arabic": "مَكَانَكَ!",
+      "meaning_zh": "站住！待在原地！",
+      "category": "口语"
+    },
+    {
+      "id": "sponge-t041",
+      "type": "term",
+      "arabic": "مَكَانٌ عَجِيبٌ",
+      "meaning_zh": "奇怪的地方",
+      "category": "描述"
+    },
+    {
+      "id": "sponge-t042",
+      "type": "term",
+      "arabic": "مُرِيبٌ",
+      "meaning_zh": "可疑的、令人不安的",
+      "category": "描述"
+    },
+    {
+      "id": "sponge-t043",
+      "type": "term",
+      "arabic": "حَجْمٌ",
+      "meaning_zh": "体积、大小",
+      "category": "描述"
+    },
+    {
+      "id": "sponge-t044",
+      "type": "term",
+      "arabic": "ضَغْطٌ",
+      "meaning_zh": "压力、压强",
+      "category": "描述"
+    },
+    {
+      "id": "sponge-t045",
+      "type": "term",
+      "arabic": "لَابُدَّ أَنْ",
+      "meaning_zh": "必须……",
+      "category": "语法"
+    },
+    {
+      "id": "sponge-t046",
+      "type": "term",
+      "arabic": "لَابُدَّ أَنَّهُ",
+      "meaning_zh": "一定是……（依语境）",
+      "category": "语法"
+    },
+    {
+      "id": "sponge-t047",
+      "type": "term",
+      "arabic": "هَلَّا أَخْبَرْتَنِي",
+      "meaning_zh": "能不能告诉我……",
+      "category": "礼貌"
+    },
+    {
+      "id": "sponge-t048",
+      "type": "term",
+      "arabic": "لَا بَأْسَ",
+      "meaning_zh": "还不错、没关系",
+      "category": "固定表达"
+    },
+    {
+      "id": "sponge-t049",
+      "type": "term",
+      "arabic": "تَفَضَّلْ",
+      "meaning_zh": "请、给您",
+      "category": "礼貌"
+    },
+    {
+      "id": "sponge-t050",
+      "type": "term",
+      "arabic": "أَمْرُكَ",
+      "meaning_zh": "遵命、听你的",
+      "category": "口语"
+    },
+    {
+      "id": "sponge-t051",
+      "type": "term",
+      "arabic": "مَاذَا تَظُنُّ أَنَّكَ تَفْعَلُ؟",
+      "meaning_zh": "你以为你在做什么？",
+      "category": "口语"
+    },
+    {
+      "id": "sponge-t052",
+      "type": "term",
+      "arabic": "سْبُونْج بُوب",
+      "meaning_zh": "海绵宝宝",
+      "category": "角色"
+    },
+    {
+      "id": "sponge-t053",
+      "type": "term",
+      "arabic": "شَفِيقٌ",
+      "meaning_zh": "章鱼哥（阿语配音角色名）",
+      "category": "角色"
+    },
+    {
+      "id": "sponge-t054",
+      "type": "term",
+      "arabic": "سْبُونْج بُوب: آلَةُ شَفِيقٍ",
+      "meaning_zh": "海绵宝宝：章鱼哥的乐器",
+      "category": "剧集"
+    }
+  ],
+  "review_notes": [
+    {
+      "source": "أُرِيدُ آلَاتِي",
+      "note": "原字幕这里是复数“我的乐器们”，若语境只指一件单簧管，可能应为 آلَتِي；需听音核对。"
+    },
+    {
+      "source": "لَابُدَّ لَهُ أَنَّهُ الضَّغْطُ",
+      "note": "原字幕搭配不自然；更规范：لَا بُدَّ أَنَّهُ بِسَبَبِ الضَّغْطِ 或 لَا بُدَّ أَنَّ السَّبَبَ هُوَ الضَّغْطُ。"
+    },
+    {
+      "source": "لَا دَاعِيَ لِمُقَاطَعَتِي عَنِ الْعَمَلِ",
+      "note": "可理解，但更自然的说法是 لَا دَاعِيَ لِمُقَاطَعَتِي أَثْنَاءَ الْعَمَلِ。"
+    },
+    {
+      "source": "هُنَاكَ طَلَبٌ",
+      "note": "餐饮场景中表示“有订单”，不是抽象请求。"
+    }
+  ]
+}

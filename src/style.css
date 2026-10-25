@@ -1270,3 +1270,20 @@ span {
   background: #fffdf8;
   color: var(--green);
 }
+.subtitle-note {
+  border-top: 1px solid var(--line);
+  margin-top: 12px;
+  padding-top: 10px;
+}
+.news-collection details {
+  margin-top: 14px;
+  width: 100%;
+}
+.news-collection summary {
+  cursor: pointer;
+  color: var(--green);
+  font-size: 13px;
+}
+.news-collection .subtitle-note .arabic {
+  font-size: 22px;
+}
