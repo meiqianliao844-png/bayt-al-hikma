@@ -108,7 +108,10 @@ test("new constrained conjugation grades automatically and the associated profil
     .locator("..")
     .getByRole("button")
     .click();
-  await page.getByLabel("你的答案").fill("كتبت");
+  await page
+    .locator(".answers")
+    .getByRole("button", { name: "كَتَبَتْ", exact: true })
+    .click();
   await page.getByRole("button", { name: "提交答案", exact: true }).click();
   await expect(page.getByText("✓ 已掌握", { exact: true })).toBeVisible();
   await page

@@ -433,7 +433,7 @@ export function VocabularyProfile({
         )}
         {tab === 7 && (
           <>
-            <p>练习均关联当前知识点；开放表达采用参考答案与自评。</p>
+            <p>练习均关联当前知识点，全部为点选题，不需要输入答案。</p>
             <button
               className="primary"
               disabled={!related.length}

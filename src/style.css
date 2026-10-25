@@ -1,5 +1,13 @@
+@font-face {
+  font-family: "Hikma Arabic Times";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT");
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF,
+    U+1EE00-1EEFF;
+}
 :root {
   font-family:
+    "Hikma Arabic Times",
     system-ui,
     -apple-system,
     "Segoe UI",
@@ -128,7 +136,7 @@ aside {
   letter-spacing: 5px;
 }
 .brand span {
-  font-family: Amiri, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 18px;
   display: block;
   margin-top: 5px;
@@ -173,7 +181,7 @@ nav em {
   padding: 70px 10px 0;
 }
 .aside-quote > span {
-  font-family: Amiri, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 27px;
   color: #9f8658;
 }
@@ -283,7 +291,7 @@ header i {
   transform: rotate(15deg);
 }
 .hero-art b {
-  font-family: Amiri, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 52px;
   line-height: 1.7;
   text-align: center;
@@ -382,7 +390,7 @@ header i {
   background: transparent;
 }
 .arabic {
-  font-family: Amiri, "Traditional Arabic", serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 29px;
   line-height: 1.9;
   font-weight: 400;
@@ -583,7 +591,7 @@ header i {
   padding: 10px;
 }
 .preview-list b {
-  font-family: Amiri, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 23px;
 }
 details {
@@ -663,7 +671,7 @@ summary {
   margin: 20px 0 30px;
 }
 .practice h2 {
-  font-family: Amiri, system-ui, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 27px;
   line-height: 1.9;
 }
@@ -673,7 +681,7 @@ summary {
   margin-bottom: 25px;
 }
 .answers button {
-  font-family: Amiri, system-ui, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 23px;
   padding: 15px;
   text-align: center;
@@ -692,7 +700,7 @@ summary {
   color: #2e5a43;
 }
 .feedback p[dir] {
-  font-family: Amiri, system-ui, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 23px;
 }
 .feedback li {
@@ -1286,4 +1294,69 @@ span {
 }
 .news-collection .subtitle-note .arabic {
   font-size: 22px;
+}
+.word-study {
+  max-width: 780px;
+  margin: 20px auto;
+  text-align: center;
+}
+.word-study .word-front {
+  font-size: 56px;
+  line-height: 2;
+  margin: 32px 0;
+}
+.word-study .audio-tools .button-row {
+  justify-content: center;
+}
+.word-study progress {
+  width: 100%;
+  margin: 18px 0;
+}
+.reveal-word {
+  margin: 28px 0;
+  min-width: 180px;
+}
+.word-back {
+  border-top: 1px solid var(--line);
+  margin-top: 22px;
+  padding-top: 18px;
+}
+.word-ratings {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin: 26px 0;
+  flex-wrap: wrap;
+}
+.word-ratings button {
+  padding: 16px 24px;
+}
+.annotation {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: start;
+}
+.annotation summary {
+  cursor: pointer;
+  color: var(--green);
+}
+.annotation small {
+  margin-inline: 14px;
+}
+@media (max-width: 760px) {
+  .word-study .word-front {
+    font-size: 42px;
+  }
+  .word-ratings button {
+    flex: 1;
+    padding: 15px 10px;
+  }
+}
+
+[lang="ar"],
+[dir="rtl"],
+.arabic {
+  font-family: "Times New Roman", Times, serif;
 }
