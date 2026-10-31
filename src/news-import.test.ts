@@ -166,7 +166,7 @@ describe("non-destructive bundled installation", () => {
     });
     try {
       const loaded = localRepository.load();
-      expect(loaded.knowledge).toHaveLength(306);
+      expect(loaded.knowledge).toHaveLength(330);
       expect(writes).toBe(0);
       expect(loaded.favorites).toEqual(["guard"]);
     } finally {
