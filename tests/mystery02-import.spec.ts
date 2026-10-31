@@ -45,8 +45,8 @@ test("continuation reuses existing cards, shows noun singulars and studies the c
   const state = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(state.knowledge).toHaveLength(360);
-  expect(state.questions).toHaveLength(988);
+  expect(state.knowledge).toHaveLength(384);
+  expect(state.questions).toHaveLength(1084);
   expect(
     state.wordProgress["spongebob-mystery-customer-01-catch"],
   ).toBeDefined();

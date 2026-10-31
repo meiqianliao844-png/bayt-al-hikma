@@ -19,6 +19,8 @@ for (const name of [
   "azerbaijan-school-uniform.report.json",
   "shared-future.json",
   "shared-future.report.json",
+  "foldable-tech.json",
+  "foldable-tech.report.json",
   "spongebob-mystery-02.json",
   "spongebob-mystery-02.report.json",
   "spongebob-mystery-01.json",

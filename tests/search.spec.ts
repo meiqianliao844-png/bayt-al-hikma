@@ -20,7 +20,7 @@ test("home search accepts Chinese and unvocalized Arabic; matching cards can be 
     .getByRole("button", { name: "清除搜索与筛选", exact: true })
     .click();
   await expect(
-    page.getByText("共 360 个知识点", { exact: true }),
+    page.getByText("共 384 个知识点", { exact: true }),
   ).toBeVisible();
   await page.getByRole("button", { name: "背单词", exact: true }).click();
   await page.getByLabel("搜索背词词库", { exact: true }).fill("استئساد");
