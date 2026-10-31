@@ -1,3 +1,4 @@
+import { NounNumbers } from "./NounNumbers";
 import { useState } from "react";
 import { AudioTools } from "./Audio";
 import type { Knowledge, Question } from "./core";
@@ -147,6 +148,7 @@ export function VocabularyProfile({
       >
         {tab === 0 && (
           <>
+            <NounNumbers k={k} />
             <dl className="profile-grid">
               <Field label="词性" value={v?.partOfSpeech} />
               <Field label="词根" value={k.root} arabic />
@@ -201,6 +203,7 @@ export function VocabularyProfile({
         )}
         {tab === 1 && (
           <>
+            <NounNumbers k={k} />
             <h3>动词变化</h3>
             {k.verb?.applicable === false ? (
               <p>不适用。{k.verb.note}</p>

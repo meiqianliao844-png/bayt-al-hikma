@@ -1,0 +1,1125 @@
+{
+  "format": "hikma-subtitle-supplement-v1",
+  "id": "spongebob-mystery-customer-02",
+  "title": "海绵宝宝 · 神秘顾客02",
+  "date": "2026-10-31",
+  "note": "用户提供的续篇字幕，未提供音视频或发布日期；日期仅作入库日期。原文保留，缺少的中文另标补译。",
+  "transcript": [
+    {
+      "id": "M01",
+      "arabic": "هَلَّا عُدْنَا إِلَى الدِّيَارِ الْآنَ؟",
+      "chinese": "现在可以回家了吗？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M02",
+      "arabic": "مِسْتَر سَلْطَع قَالَ: لَا يُمْكِنُنَا الْعَوْدَةُ قَبْلَ أَنْ نَبِيعَ وَاحِدًا سَلْطَع بُرْجَر.",
+      "chinese": "蟹老板说了，不卖出一个蟹黄堡就不能回去。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M03",
+      "arabic": "حَسَنًا، سَأَشْتَرِي بُرْجَرًا أَحْمَقَ بِنَفْسِي. مَاذَا؟ أَوْ... نَسِيتُ مِحْفَظَتِي فِي سِرْوَالِي بِالْمَنْزِلِ. أُوه، سْبُونْج بُوب، هَلْ أَعِرْنِي النُّقُودَ كَيْ أَشْتَرِيَ الْبُرْجَر، رَجَاءً؟",
+      "chinese": "行，我自己买一个破汉堡总行了吧。什么？哦……钱包落在家里的裤子里了。呃，海绵宝宝，能不能借我点钱买汉堡，拜托了？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M04",
+      "arabic": "أَحْمِلُ نُقُودَ سَلْطَع فَقَطْ.",
+      "chinese": "我只有蟹老板代币。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M05",
+      "arabic": "لَا تُقْبَلُ فِي مُقَرْمَشَاتِ سَلْطَع. إِذَا أَرَدْتُ الْعَوْدَةَ إِلَى مَنْزِلِي، عَلَيَّ بَيْعُ سَلْطَع بُرْجَر إِلَى هَذَا الْغَرِيبِ الْغَامِضِ.",
+      "chinese": "蟹堡王不收这个。想回家，我就得把蟹黄堡卖给这个神秘的陌生人。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M06",
+      "arabic": "لَا مُشْكِلَةَ، سَأَتَعَقَّبُهُ مُسْتَخْدِمًا خِبْرَتِي فِي صَيْدِ الْقَنَادِيلِ.",
+      "chinese": "没问题！我可以用抓水母的经验追踪他。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M07",
+      "arabic": "أَمْسَكْتُ!",
+      "chinese": "抓到了！",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M08",
+      "arabic": "دِمَاغِي!",
+      "chinese": "我的脑袋！",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M09",
+      "arabic": "تَعَلَّمْتُ هَذِهِ الْخُدْعَةَ مِنْ مَجَلَّةِ أَسْمَاكِ الْغَابَةِ.",
+      "chinese": "我从《森林鱼类》杂志上学会了这一招。",
+      "translationOrigin": "assistant"
+    },
+    {
+      "id": "M10",
+      "arabic": "أَمْسَكْتُ الْمُزْعِجَ الصَّغِيرَ!",
+      "chinese": "我抓到这个小讨厌鬼了！",
+      "translationOrigin": "assistant"
+    },
+    {
+      "id": "M11",
+      "arabic": "【صُرَاخ】",
+      "chinese": "【尖叫】",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M12",
+      "arabic": "حَيْثُ إِنَّنِي لَنْ أَعُودَ أَبَدًا، سَأُحَاوِلُ أَنْ أَشْعُرَ بِالرَّاحَةِ.",
+      "chinese": "反正我永远也回不了家了，还是想办法让自己舒服点吧。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M13",
+      "arabic": "هَايْ، أَنْتُمَا اللَّذَانِ تُطَارِدَانِنِي فِي الْبَلْدَةِ؟",
+      "chinese": "嘿，就是你们俩在城里追着我跑？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M14",
+      "arabic": "لِمَاذَا كُنْتَ تُلَوِّحُ لَنَا ثُمَّ تَهْرُبُ بَعِيدًا؟",
+      "chinese": "那你为什么先向我们挥手，又跑得远远的？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M15",
+      "arabic": "هَا؟ أَنَا لَا أَفْهَمُ لَهَجَاتِكَ.",
+      "chinese": "啊？我听不懂你那口音。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M16",
+      "arabic": "سَأَتَوَلَّى الْأَمْرَ يَا شَفِيقُ. أَتَحَدَّثُ لُغَةَ قَاعِ الْمُحِيطِ بِطَلَاقَةٍ. لِمَاذَا كُنْتَ تُلَوِّحُ لَنَا؟",
+      "chinese": "交给我吧，章鱼哥。我比奇堡话说得可流利了。你刚才为什么向我们挥手？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M17",
+      "arabic": "أَنَا لَمْ أَكُنْ أُلَوِّحُ. أَنَا كُنْتُ أُجَفِّفُ نَفْسِي.",
+      "chinese": "我没在挥手，我是在擦干身体。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M18",
+      "arabic": "آ...",
+      "chinese": "啊……",
+      "translationOrigin": "assistant"
+    },
+    {
+      "id": "M19",
+      "arabic": "نُرِيدُ فَقَطْ أَنْ نَبِيعَ لَكَ سَلْطَع بُرْجَر لَذِيذًا.",
+      "chinese": "我们只是想卖给你一个美味的蟹黄堡。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M20",
+      "arabic": "هُوَ يَبْدُو لَذِيذًا.",
+      "chinese": "它看起来挺好吃的。",
+      "translationOrigin": "assistant"
+    },
+    {
+      "id": "M21",
+      "arabic": "سَوْفَ نَبِيعُ وَاحِدًا!",
+      "chinese": "我们要卖出去一个啦！",
+      "translationOrigin": "user"
+    }
+  ],
+  "corrections": [
+    {
+      "lineId": "M03",
+      "original": "هَلْ أَعِرْنِي النُّقُودَ كَيْ أَشْتَرِيَ الْبُرْجَر، رَجَاءً؟",
+      "arabic": "هَلْ تُعِيرُنِي النُّقُودَ كَيْ أَشْتَرِيَ الْبُرْجَرَ، رَجَاءً؟",
+      "chinese": "请问能借我点钱，让我买这个汉堡吗？",
+      "note": "هل 后不直接接命令式 أَعِرْنِي。规范整理为 هل + 现在式 تُعِيرُنِي；也可直接说 أَعِرْنِي ... رَجَاءً。学习改写，非音频核验结果。"
+    },
+    {
+      "lineId": "M02",
+      "original": "نَبِيعَ وَاحِدًا سَلْطَع بُرْجَر",
+      "arabic": "نَبِيعَ شَطِيرَةً وَاحِدَةً",
+      "chinese": "卖出一个汉堡",
+      "note": "原字幕的数量表达顺序不自然，练习改用规范的名词和数量搭配；品牌名不据此推定。"
+    }
+  ],
+  "cards": [
+    {
+      "key": "sell",
+      "arabic": "بَاعَ",
+      "meaning": "卖；出售",
+      "lineIds": [
+        "M02",
+        "M05",
+        "M19",
+        "M21"
+      ],
+      "phrase": {
+        "arabic": "بَاعَ لِشَخْصٍ",
+        "chinese": "卖给某人"
+      },
+      "grammar": "بَاعَ / يَبِيعُ 是中空动词。أَنْ نَبِيعَ 中现在式宾格；سَوْفَ نَبِيعُ 中现在式主格。卖给某人常用 لِـ，原字幕 M05 使用 إلى，保留原写法。",
+      "note": "",
+      "verb": {
+        "past": "بَاعَ",
+        "present": "يَبِيعُ",
+        "masdar": "بَيْعٌ",
+        "imperative": "بِعْ"
+      },
+      "root": "ب ي ع",
+      "cloze": {
+        "lineId": "M21",
+        "answer": "نَبِيعُ"
+      }
+    },
+    {
+      "key": "buy",
+      "arabic": "اِشْتَرَى",
+      "meaning": "买；购买",
+      "lineIds": [
+        "M03"
+      ],
+      "phrase": {
+        "arabic": "سَأَشْتَرِي",
+        "chinese": "我将购买"
+      },
+      "grammar": "سَأَشْتَرِي 为第一人称单数将来表达；كَيْ أَشْتَرِيَ 中 كي 使动词用宾格，词尾 ي 上的开口符可见。",
+      "note": "原字幕的“破汉堡”是抱怨语气，不把 بُرْجَرٌ أَحْمَقُ 当成日常推荐搭配。",
+      "verb": {
+        "past": "اِشْتَرَى",
+        "present": "يَشْتَرِي",
+        "masdar": "اِشْتِرَاءٌ",
+        "note": "常用名词“购买”为 شِرَاءٌ。",
+        "imperative": "اِشْتَرِ"
+      },
+      "root": "ش ر ي"
+    },
+    {
+      "key": "lend",
+      "arabic": "أَعَارَ",
+      "meaning": "借给；出借",
+      "lineIds": [
+        "M03"
+      ],
+      "phrase": {
+        "arabic": "أَعِرْنِي النُّقُودَ",
+        "chinese": "借给我钱"
+      },
+      "grammar": "أَعِرْنِي = 命令式 أَعِرْ + 保护 ن + 宾语 ي。原字幕 هل أعرني 疑似非标准组合，规范请求见校订示例。",
+      "note": "أَعَارَ 为借出，اِسْتَعَارَ 为借入，不把两个方向混为一谈。",
+      "verb": {
+        "past": "أَعَارَ",
+        "present": "يُعِيرُ",
+        "masdar": "إِعَارَةٌ",
+        "imperative": "أَعِرْ"
+      },
+      "root": "ع و ر"
+    },
+    {
+      "key": "carry",
+      "arabic": "حَمَلَ",
+      "meaning": "带着；携带",
+      "lineIds": [
+        "M04"
+      ],
+      "phrase": {
+        "arabic": "أَحْمِلُ نُقُودًا",
+        "chinese": "我带着钱"
+      },
+      "grammar": "أَحْمِلُ 是第一式第一人称单数现在式，不是第四式 أُحْمِلُ。原字幕“我只有”按场景意译，字面为“我只带着”。",
+      "note": "",
+      "verb": {
+        "past": "حَمَلَ",
+        "present": "يَحْمِلُ",
+        "masdar": "حَمْلٌ",
+        "imperative": "اِحْمِلْ"
+      },
+      "root": "ح م ل",
+      "cloze": {
+        "lineId": "M04",
+        "answer": "أَحْمِلُ"
+      }
+    },
+    {
+      "key": "accept",
+      "arabic": "قَبِلَ",
+      "meaning": "接受；收取",
+      "lineIds": [
+        "M05"
+      ],
+      "phrase": {
+        "arabic": "لَا تُقْبَلُ",
+        "chinese": "不被接受；这里不收"
+      },
+      "grammar": "原字幕 تُقْبَلُ 为第三人称阴性单数被动现在式，与前面的非人复数 نُقُودٌ 对应；主动式为 يَقْبَلُ。",
+      "note": "",
+      "verb": {
+        "past": "قَبِلَ",
+        "present": "يَقْبَلُ",
+        "masdar": "قَبُولٌ",
+        "passiveParticiple": "مَقْبُولٌ",
+        "imperative": "اِقْبَلْ"
+      },
+      "root": "ق ب ل",
+      "cloze": {
+        "lineId": "M05",
+        "answer": "تُقْبَلُ"
+      }
+    },
+    {
+      "key": "track",
+      "arabic": "تَعَقَّبَ",
+      "meaning": "追踪；跟踪",
+      "lineIds": [
+        "M06"
+      ],
+      "phrase": {
+        "arabic": "تَعَقَّبَهُ",
+        "chinese": "追踪他"
+      },
+      "grammar": "سَأَتَعَقَّبُهُ = 将来 سَـ + أَتَعَقَّبُ + 宾语 هُ。",
+      "note": "",
+      "verb": {
+        "past": "تَعَقَّبَ",
+        "present": "يَتَعَقَّبُ",
+        "masdar": "تَعَقُّبٌ",
+        "imperative": "تَعَقَّبْ"
+      },
+      "root": "ع ق ب",
+      "cloze": {
+        "lineId": "M06",
+        "answer": "سَأَتَعَقَّبُهُ"
+      }
+    },
+    {
+      "key": "use",
+      "arabic": "اِسْتَخْدَمَ",
+      "meaning": "使用；运用",
+      "lineIds": [
+        "M06"
+      ],
+      "phrase": {
+        "arabic": "مُسْتَخْدِمًا خِبْرَتِي",
+        "chinese": "运用我的经验"
+      },
+      "grammar": "مُسْتَخْدِمًا 是主动分词的宾格形式，在原句中作状态语，不是独立的变位动词；其基础动词为 اِسْتَخْدَمَ。",
+      "note": "",
+      "verb": {
+        "past": "اِسْتَخْدَمَ",
+        "present": "يَسْتَخْدِمُ",
+        "masdar": "اِسْتِخْدَامٌ",
+        "activeParticiple": "مُسْتَخْدِمٌ",
+        "passiveParticiple": "مُسْتَخْدَمٌ",
+        "imperative": "اِسْتَخْدِمْ"
+      },
+      "root": "خ د م",
+      "cloze": {
+        "lineId": "M06",
+        "answer": "مُسْتَخْدِمًا"
+      }
+    },
+    {
+      "key": "feel",
+      "arabic": "شَعَرَ",
+      "meaning": "感觉到；感到",
+      "lineIds": [
+        "M12"
+      ],
+      "phrase": {
+        "arabic": "شَعَرَ بِالرَّاحَةِ",
+        "chinese": "感觉舒服"
+      },
+      "grammar": "أَنْ أَشْعُرَ 中 أَشْعُرَ 用宾格；شَعَرَ بِـ 引出所感受到的状态。",
+      "note": "",
+      "verb": {
+        "past": "شَعَرَ",
+        "present": "يَشْعُرُ",
+        "masdar": "شُعُورٌ",
+        "imperative": "اُشْعُرْ"
+      },
+      "root": "ش ع ر",
+      "cloze": {
+        "lineId": "M12",
+        "answer": "أَشْعُرَ"
+      }
+    },
+    {
+      "key": "chase",
+      "arabic": "طَارَدَ",
+      "meaning": "追赶；追逐",
+      "lineIds": [
+        "M13"
+      ],
+      "phrase": {
+        "arabic": "تُطَارِدَانِنِي",
+        "chinese": "你们俩追着我"
+      },
+      "grammar": "تُطَارِدَانِ 是双数现在式，加宾语 نِي。أَنْتُمَا 与 اللَّذَانِ 都指两人；不能按你们多人复数理解。",
+      "note": "",
+      "verb": {
+        "past": "طَارَدَ",
+        "present": "يُطَارِدُ",
+        "masdar": "مُطَارَدَةٌ",
+        "imperative": "طَارِدْ"
+      },
+      "root": "ط ر د",
+      "cloze": {
+        "lineId": "M13",
+        "answer": "تُطَارِدَانِنِي"
+      }
+    },
+    {
+      "key": "be",
+      "arabic": "كَانَ",
+      "meaning": "曾是；用于描述过去状态或动作",
+      "lineIds": [
+        "M14",
+        "M17"
+      ],
+      "phrase": {
+        "arabic": "كُنْتُ أُجَفِّفُ نَفْسِي",
+        "chinese": "我当时正在擦干身体"
+      },
+      "grammar": "كَانَ + 现在式可描述过去持续的动作。لَمْ أَكُنْ 中 أَكُنْ 为 يَكُونُ 对应第一人称的切格形式，و 脱落。",
+      "note": "",
+      "verb": {
+        "past": "كَانَ",
+        "present": "يَكُونُ",
+        "imperative": "كُنْ",
+        "conjugations": [
+          {
+            "pronoun": "أَنَا",
+            "past": "كُنْتُ",
+            "present": "أَكُونُ"
+          },
+          {
+            "pronoun": "أَنْتَ",
+            "past": "كُنْتَ",
+            "present": "تَكُونُ"
+          }
+        ]
+      },
+      "root": "ك و ن",
+      "cloze": {
+        "lineId": "M17",
+        "answer": "أَكُنْ"
+      }
+    },
+    {
+      "key": "wave",
+      "arabic": "لَوَّحَ",
+      "meaning": "挥手；示意",
+      "lineIds": [
+        "M14",
+        "M16",
+        "M17"
+      ],
+      "phrase": {
+        "arabic": "لَوَّحَ لَنَا",
+        "chinese": "向我们挥手"
+      },
+      "grammar": "لَوَّحَ لِـ 表示向某人挥手；لَنَا = لِـ + نَا。تُلَوِّحُ 与 أُلَوِّحُ 分别对应你和我。",
+      "note": "",
+      "verb": {
+        "past": "لَوَّحَ",
+        "present": "يُلَوِّحُ",
+        "masdar": "تَلْوِيحٌ",
+        "imperative": "لَوِّحْ"
+      },
+      "root": "ل و ح",
+      "cloze": {
+        "lineId": "M14",
+        "answer": "تُلَوِّحُ"
+      }
+    },
+    {
+      "key": "understand",
+      "arabic": "فَهِمَ",
+      "meaning": "理解；听懂",
+      "lineIds": [
+        "M15"
+      ],
+      "phrase": {
+        "arabic": "لَا أَفْهَمُ لَهَجَاتِكَ",
+        "chinese": "我听不懂你的口音"
+      },
+      "grammar": "أَفْهَمُ 为第一人称单数现在式；لَا 表示一般现在的否定。لَهَجَاتِكَ 是复数，中文按自然口语译为“你那口音”。",
+      "note": "",
+      "verb": {
+        "past": "فَهِمَ",
+        "present": "يَفْهَمُ",
+        "masdar": "فَهْمٌ",
+        "imperative": "اِفْهَمْ"
+      },
+      "root": "ف ه م",
+      "cloze": {
+        "lineId": "M15",
+        "answer": "أَفْهَمُ"
+      }
+    },
+    {
+      "key": "handle",
+      "arabic": "تَوَلَّى",
+      "meaning": "接手；负责处理",
+      "lineIds": [
+        "M16"
+      ],
+      "phrase": {
+        "arabic": "تَوَلَّى الْأَمْرَ",
+        "chinese": "接手这件事"
+      },
+      "grammar": "سَأَتَوَلَّى = سَـ + أَتَوَلَّى；الْأَمْرَ 是宾语。本句不是“转身离开”的语义。",
+      "note": "",
+      "verb": {
+        "past": "تَوَلَّى",
+        "present": "يَتَوَلَّى",
+        "masdar": "تَوَلٍّ",
+        "imperative": "تَوَلَّ"
+      },
+      "root": "و ل ي",
+      "cloze": {
+        "lineId": "M16",
+        "answer": "سَأَتَوَلَّى"
+      }
+    },
+    {
+      "key": "dry",
+      "arabic": "جَفَّفَ",
+      "meaning": "擦干；弄干",
+      "lineIds": [
+        "M17"
+      ],
+      "phrase": {
+        "arabic": "أُجَفِّفُ نَفْسِي",
+        "chinese": "我在擦干自己"
+      },
+      "grammar": "أُجَفِّفُ 为第二式第一人称单数现在式；不是 أَجِفُّ。本句与“挥手”形成剧情误会。",
+      "note": "",
+      "verb": {
+        "past": "جَفَّفَ",
+        "present": "يُجَفِّفُ",
+        "masdar": "تَجْفِيفٌ",
+        "activeParticiple": "مُجَفِّفٌ",
+        "passiveParticiple": "مُجَفَّفٌ",
+        "imperative": "جَفِّفْ"
+      },
+      "root": "ج ف ف",
+      "cloze": {
+        "lineId": "M17",
+        "answer": "أُجَفِّفُ"
+      }
+    },
+    {
+      "key": "home",
+      "arabic": "مَنْزِلٌ / دَارٌ",
+      "meaning": "家；住所",
+      "lineIds": [
+        "M01",
+        "M03",
+        "M05"
+      ],
+      "phrase": {
+        "arabic": "إِلَى الدِّيَارِ",
+        "chinese": "回家"
+      },
+      "grammar": "الدِّيَارُ 是 دَارٌ 的复数；مَنْزِلٌ 的复数为 مَنَازِلُ。两组为近义词，不是同一词根变化。",
+      "note": "",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "مَنْزِلٌ",
+            "plural": "مَنَازِلُ"
+          },
+          {
+            "singular": "دَارٌ",
+            "plural": "دِيَارٌ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "wallet",
+      "arabic": "مِحْفَظَةٌ",
+      "meaning": "钱包",
+      "lineIds": [
+        "M03"
+      ],
+      "phrase": {
+        "arabic": "نَسِيتُ مِحْفَظَتِي",
+        "chinese": "我忘了带钱包"
+      },
+      "grammar": "مِحْفَظَتِي = مِحْفَظَةٌ + ي，原句为忘在某处。",
+      "note": "",
+      "cloze": {
+        "lineId": "M03",
+        "answer": "مِحْفَظَتِي"
+      },
+      "excerpt": "نَسِيتُ مِحْفَظَتِي فِي سِرْوَالِي بِالْمَنْزِلِ.",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "مِحْفَظَةٌ",
+            "plural": "مَحَافِظُ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "trousers",
+      "arabic": "سِرْوَالٌ",
+      "meaning": "裤子",
+      "lineIds": [
+        "M03"
+      ],
+      "phrase": {
+        "arabic": "فِي سِرْوَالِي",
+        "chinese": "在我的裤子里"
+      },
+      "grammar": "سِرْوَالٌ 是单数词形，通常指一条裤子；复数为 سَرَاوِيلُ。",
+      "note": "",
+      "cloze": {
+        "lineId": "M03",
+        "answer": "سِرْوَالِي"
+      },
+      "excerpt": "نَسِيتُ مِحْفَظَتِي فِي سِرْوَالِي بِالْمَنْزِلِ.",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "سِرْوَالٌ",
+            "plural": "سَرَاوِيلُ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "stranger",
+      "arabic": "غَرِيبٌ",
+      "meaning": "陌生人；陌生的",
+      "lineIds": [
+        "M05"
+      ],
+      "phrase": {
+        "arabic": "الْغَرِيبُ الْغَامِضُ",
+        "chinese": "神秘的陌生人"
+      },
+      "grammar": "本句 الْغَرِيبِ 用形容词名词化指人；غَامِضٌ“神秘的”复用原有词卡。",
+      "note": ""
+    },
+    {
+      "key": "experience",
+      "arabic": "خِبْرَةٌ",
+      "meaning": "经验；技能积累",
+      "lineIds": [
+        "M06"
+      ],
+      "phrase": {
+        "arabic": "خِبْرَتِي فِي الصَّيْدِ",
+        "chinese": "我在捕捉方面的经验"
+      },
+      "grammar": "خِبْرَتِي 为带第一人称领属后缀的名词，فِي 引出经验的领域。",
+      "note": "",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "خِبْرَةٌ",
+            "plural": "خِبْرَاتٌ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "jellyfish",
+      "arabic": "قِنْدِيلُ الْبَحْرِ",
+      "meaning": "水母",
+      "lineIds": [
+        "M06"
+      ],
+      "phrase": {
+        "arabic": "صَيْدُ الْقَنَادِيلِ",
+        "chinese": "抓水母"
+      },
+      "grammar": "本片将 قَنَادِيلُ الْبَحْرِ 简称为 الْقَنَادِيلِ。单数为 قِنْدِيلُ الْبَحْرِ；قِنْدِيلٌ 单独也可指灯。",
+      "note": "",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "قِنْدِيلُ الْبَحْرِ",
+            "plural": "قَنَادِيلُ الْبَحْرِ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "fishing",
+      "arabic": "صَيْدٌ",
+      "meaning": "捕捉；捕猎；捕鱼",
+      "lineIds": [
+        "M06"
+      ],
+      "phrase": {
+        "arabic": "صَيْدُ الْقَنَادِيلِ",
+        "chinese": "捕捉水母"
+      },
+      "grammar": "此处是动名词，来自 صَادَ / يَصِيدُ，不能把它当作复数名词。",
+      "note": ""
+    },
+    {
+      "key": "trick",
+      "arabic": "خُدْعَةٌ",
+      "meaning": "招数；把戏",
+      "lineIds": [
+        "M09"
+      ],
+      "phrase": {
+        "arabic": "هَذِهِ الْخُدْعَةُ",
+        "chinese": "这一招"
+      },
+      "grammar": "原句 الْخُدْعَةَ 作 تَعَلَّمْتُ 的宾语，用宾格。",
+      "note": "",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "خُدْعَةٌ",
+            "plural": "خُدَعٌ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "magazine",
+      "arabic": "مَجَلَّةٌ",
+      "meaning": "杂志",
+      "lineIds": [
+        "M09"
+      ],
+      "phrase": {
+        "arabic": "مِنْ مَجَلَّةٍ",
+        "chinese": "从一本杂志上"
+      },
+      "grammar": "أَسْمَاكٌ 的单数为 سَمَكَةٌ；杂志名按字面暂译《森林鱼类》，未据音频确认。",
+      "note": "",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "مَجَلَّةٌ",
+            "plural": "مَجَلَّاتٌ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "annoying",
+      "arabic": "مُزْعِجٌ",
+      "meaning": "讨厌的；烦人的；讨厌鬼",
+      "lineIds": [
+        "M10"
+      ],
+      "phrase": {
+        "arabic": "الْمُزْعِجُ الصَّغِيرُ",
+        "chinese": "小讨厌鬼"
+      },
+      "grammar": "مُزْعِجٌ 是 أَزْعَجَ 的主动分词，此处用来指人；不要读成被动分词 مُزْعَجٌ。",
+      "note": ""
+    },
+    {
+      "key": "comfort",
+      "arabic": "رَاحَةٌ",
+      "meaning": "舒适；休息",
+      "lineIds": [
+        "M12"
+      ],
+      "phrase": {
+        "arabic": "بِالرَّاحَةِ",
+        "chinese": "感到舒服"
+      },
+      "grammar": "本句 مع شَعَرَ بِـ 表示舒适感，不是度假义。",
+      "note": ""
+    },
+    {
+      "key": "town",
+      "arabic": "بَلْدَةٌ",
+      "meaning": "城镇；小镇",
+      "lineIds": [
+        "M13"
+      ],
+      "phrase": {
+        "arabic": "فِي الْبَلْدَةِ",
+        "chinese": "在城里"
+      },
+      "grammar": "بَلْدَةٌ 指城镇，不与表示国家的 بَلَدٌ 在所有场景互换。",
+      "note": "",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "بَلْدَةٌ",
+            "plural": "بَلْدَاتٌ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "dialect",
+      "arabic": "لَهْجَةٌ",
+      "meaning": "口音；方言",
+      "lineIds": [
+        "M15"
+      ],
+      "phrase": {
+        "arabic": "لَهَجَاتُكَ",
+        "chinese": "你的口音／方言"
+      },
+      "grammar": "لَهَجَاتٌ 为规则阴性复数，单数 لَهْجَةٌ。在本句场景下中文字幕以单数自然表达。",
+      "note": "",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "لَهْجَةٌ",
+            "plural": "لَهَجَاتٌ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "fluency",
+      "arabic": "طَلَاقَةٌ",
+      "meaning": "流利；流畅",
+      "lineIds": [
+        "M16"
+      ],
+      "phrase": {
+        "arabic": "بِطَلَاقَةٍ",
+        "chinese": "流利地"
+      },
+      "grammar": "بِطَلَاقَةٍ 是常用状语表达，可搭配 تَحَدَّثَ。",
+      "note": ""
+    },
+    {
+      "key": "self",
+      "arabic": "نَفْسٌ / بِنَفْسِي",
+      "meaning": "自己；我自己亲自",
+      "lineIds": [
+        "M03",
+        "M17"
+      ],
+      "phrase": {
+        "arabic": "بِنَفْسِي",
+        "chinese": "我自己；亲自"
+      },
+      "grammar": "بِنَفْسِي 表示我亲自做；أُجَفِّفُ نَفْسِي 中 نَفْسِي 作宾语，表示擦干我自己。",
+      "note": "",
+      "noun": {
+        "numberPairs": [
+          {
+            "singular": "نَفْسٌ",
+            "plural": "أَنْفُسٌ"
+          },
+          {
+            "singular": "نَفْسٌ",
+            "plural": "نُفُوسٌ"
+          }
+        ]
+      }
+    },
+    {
+      "key": "delicious",
+      "arabic": "لَذِيذٌ",
+      "meaning": "美味的；好吃的",
+      "lineIds": [
+        "M19",
+        "M20"
+      ],
+      "phrase": {
+        "arabic": "يَبْدُو لَذِيذًا",
+        "chinese": "看起来很好吃"
+      },
+      "grammar": "لَذِيذًا 在原句中用宾格形式；不将源句缺失的中文冒充用户原译。",
+      "note": ""
+    },
+    {
+      "key": "return",
+      "arabic": "عَادَ",
+      "meaning": "返回；回去",
+      "lineIds": [
+        "M01",
+        "M02",
+        "M05",
+        "M12"
+      ],
+      "phrase": {
+        "arabic": "عُدْنَا إِلَى الدِّيَارِ",
+        "chinese": "我们回家吧"
+      },
+      "grammar": "复用 عَادَ：عُدْنَا 为我们回去的过去式形式，在 هَلَّا 请求句中表达建议；لَنْ أَعُودَ 为否定将来。",
+      "note": "",
+      "existingId": "spongebob-mystery-customer-01-return"
+    },
+    {
+      "key": "say",
+      "arabic": "قَالَ",
+      "meaning": "对某人说",
+      "lineIds": [
+        "M02"
+      ],
+      "phrase": {
+        "arabic": "قَالَ",
+        "chinese": "他说"
+      },
+      "grammar": "复用 قَالَ，补入蟹老板说话的原字幕。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v009"
+    },
+    {
+      "key": "can",
+      "arabic": "أَمْكَنَ",
+      "meaning": "我可以……",
+      "lineIds": [
+        "M02"
+      ],
+      "phrase": {
+        "arabic": "لَا يُمْكِنُنَا الْعَوْدَةُ",
+        "chinese": "我们不能返回"
+      },
+      "grammar": "复用 أَمْكَنَ：الْعَوْدَةُ 为 مصدر 作主语，نَا 指我们。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v031"
+    },
+    {
+      "key": "forget",
+      "arabic": "نَسِيَ",
+      "meaning": "忘记做……",
+      "lineIds": [
+        "M03"
+      ],
+      "phrase": {
+        "arabic": "نَسِيتُ مِحْفَظَتِي",
+        "chinese": "我忘了带钱包"
+      },
+      "grammar": "复用 نَسِيَ，نَسِيتُ 为第一人称单数过去式。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v028",
+      "cloze": {
+        "lineId": "M03",
+        "answer": "نَسِيتُ"
+      },
+      "excerpt": "نَسِيتُ مِحْفَظَتِي فِي سِرْوَالِي بِالْمَنْزِلِ."
+    },
+    {
+      "key": "want",
+      "arabic": "أَرَادَ",
+      "meaning": "想做／想要……",
+      "lineIds": [
+        "M05",
+        "M19"
+      ],
+      "phrase": {
+        "arabic": "نُرِيدُ أَنْ نَبِيعَ",
+        "chinese": "我们想要卖出"
+      },
+      "grammar": "复用 أَرَادَ，أَرَدْتُ 为我想，نُرِيدُ 为我们想；أَنْ 后的动词用宾格。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v018"
+    },
+    {
+      "key": "catch",
+      "arabic": "أَمْسَكَ",
+      "meaning": "抓住；握住",
+      "lineIds": [
+        "M07",
+        "M10"
+      ],
+      "phrase": {
+        "arabic": "أَمْسَكْتُ",
+        "chinese": "我抓到了"
+      },
+      "grammar": "复用 أَمْسَكَ，أَمْسَكْتُ 是第一人称单数过去式；不再创建第二张抓住词卡。",
+      "note": "",
+      "existingId": "spongebob-mystery-customer-01-catch"
+    },
+    {
+      "key": "learn",
+      "arabic": "تَعَلَّمَ",
+      "meaning": "学会做……",
+      "lineIds": [
+        "M09"
+      ],
+      "phrase": {
+        "arabic": "تَعَلَّمْتُ هَذِهِ الْخُدْعَةَ",
+        "chinese": "我学会了这一招"
+      },
+      "grammar": "复用 تَعَلَّمَ，使用 مِنْ 表示学习的来源。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v045"
+    },
+    {
+      "key": "try",
+      "arabic": "حَاوَلَ",
+      "meaning": "尝试；设法",
+      "lineIds": [
+        "M12"
+      ],
+      "phrase": {
+        "arabic": "سَأُحَاوِلُ أَنْ أَشْعُرَ بِالرَّاحَةِ",
+        "chinese": "我会试着让自己舒服一点"
+      },
+      "grammar": "复用 حَاوَلَ，أَنْ 后接现在式宾格。",
+      "note": "",
+      "existingId": "spongebob-mystery-customer-01-try"
+    },
+    {
+      "key": "escape",
+      "arabic": "هَرَبَ",
+      "meaning": "逃跑；逃开",
+      "lineIds": [
+        "M14"
+      ],
+      "phrase": {
+        "arabic": "تَهْرُبُ بَعِيدًا",
+        "chinese": "你逃得远远的"
+      },
+      "grammar": "复用 هَرَبَ，تَهْرُبُ 在本句对应你；不是新动词。",
+      "note": "",
+      "existingId": "spongebob-mystery-customer-01-escape"
+    },
+    {
+      "key": "speak",
+      "arabic": "تَحَدَّثَ",
+      "meaning": "与……交谈／谈论……",
+      "lineIds": [
+        "M16"
+      ],
+      "phrase": {
+        "arabic": "أَتَحَدَّثُ بِطَلَاقَةٍ",
+        "chinese": "我说得流利"
+      },
+      "grammar": "复用 تَحَدَّثَ，本句直接接语言名称作宾语。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v014"
+    },
+    {
+      "key": "seem",
+      "arabic": "بَدَا",
+      "meaning": "看起来……",
+      "lineIds": [
+        "M20"
+      ],
+      "phrase": {
+        "arabic": "يَبْدُو لَذِيذًا",
+        "chinese": "它看起来很好吃"
+      },
+      "grammar": "复用 بَدَا，补充原字幕及中文补译。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v024"
+    },
+    {
+      "key": "money",
+      "arabic": "نُقُودٌ",
+      "meaning": "钱币、零钱",
+      "lineIds": [
+        "M03",
+        "M04"
+      ],
+      "phrase": {
+        "arabic": "نُقُودُ سَلْطَع",
+        "chinese": "蟹老板代币"
+      },
+      "grammar": "复用 نُقُودٌ。本片是虚构代币，不能据此认为普通现金在现实商店不被接受。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t009"
+    },
+    {
+      "key": "foolish",
+      "arabic": "أَحْمَقُ",
+      "meaning": "傻瓜、笨蛋",
+      "lineIds": [
+        "M03"
+      ],
+      "phrase": {
+        "arabic": "بُرْجَرًا أَحْمَقَ",
+        "chinese": "一个破汉堡（抱怨语气）"
+      },
+      "grammar": "复用 أَحْمَقُ。原字幕中形容汉堡带抱怨色彩，不把它收作日常购买的推荐表达。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t011"
+    },
+    {
+      "key": "mysterious",
+      "arabic": "غَامِضٌ",
+      "meaning": "神秘的；不清楚的",
+      "lineIds": [
+        "M05"
+      ],
+      "phrase": {
+        "arabic": "الْغَرِيبُ الْغَامِضُ",
+        "chinese": "神秘的陌生人"
+      },
+      "grammar": "复用 غَامِضٌ，只增加当前例句。",
+      "note": "",
+      "existingId": "spongebob-mystery-customer-01-mysterious"
+    },
+    {
+      "key": "bikini-bottom",
+      "arabic": "قَاعُ الْمُحِيطِ",
+      "meaning": "海底；本片语境指比奇堡",
+      "lineIds": [
+        "M16"
+      ],
+      "phrase": {
+        "arabic": "لُغَةُ قَاعِ الْمُحِيطِ",
+        "chinese": "比奇堡话"
+      },
+      "grammar": "复用 قَاعُ الْمُحِيطِ，本片为虚构地名语境，不新增地名卡。",
+      "note": "",
+      "existingId": "spongebob-mystery-customer-01-bikini-bottom"
+    },
+    {
+      "key": "request",
+      "arabic": "هَلَّا أَخْبَرْتَنِي",
+      "meaning": "能不能告诉我……",
+      "lineIds": [
+        "M01"
+      ],
+      "phrase": {
+        "arabic": "هَلَّا عُدْنَا إِلَى الدِّيَارِ الْآنَ؟",
+        "chinese": "现在能不能回家了？"
+      },
+      "grammar": "复用 هَلَّا + 过去式的请求句型。这里表示建议回家，不表示过去是否回过家。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t047"
+    },
+    {
+      "key": "no-problem",
+      "arabic": "لَا بَأْسَ",
+      "meaning": "还不错、没关系",
+      "lineIds": [
+        "M06"
+      ],
+      "phrase": {
+        "arabic": "لَا مُشْكِلَةَ",
+        "chinese": "没问题"
+      },
+      "grammar": "与已有 لَا بَأْسَ 在这里表达同意、安慰的功能相关，本次只作为该卡的近义表达补充；不声称所有语境严格等同。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t048"
+    },
+    {
+      "key": "squidward",
+      "arabic": "شَفِيقٌ",
+      "meaning": "章鱼哥（阿语配音角色名）",
+      "lineIds": [
+        "M16"
+      ],
+      "phrase": {
+        "arabic": "يَا شَفِيقُ",
+        "chinese": "章鱼哥！"
+      },
+      "grammar": "复用已有角色名，不重复建立专名卡。",
+      "note": "",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t053"
+    }
+  ]
+}

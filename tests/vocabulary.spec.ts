@@ -52,7 +52,7 @@ test("enriched profiles retain old knowledge, link families, expose tabs and kee
   const before = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(before.knowledge).toHaveLength(333);
+  expect(before.knowledge).toHaveLength(363);
   expect(before.knowledge.some((k: { id: string }) => k.id === "guard")).toBe(
     true,
   );

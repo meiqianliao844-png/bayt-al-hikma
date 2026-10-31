@@ -86,10 +86,12 @@ function App() {
     }
   };
   const [lookup, setLookup] = useState("");
+  const [wordQuery, setWordQuery] = useState("");
   const [wordScope, setWordScope] = useState("all");
   const plan = wordReviewPlan(s);
   const dueWords = plan.filter((p) => p.overdue);
   const openWordReview = () => {
+    setWordQuery("");
     setWordScope("due");
     setPage("words");
   };
@@ -395,6 +397,7 @@ function App() {
             <WordPlanSummary state={s} />
             <WordStudy
               initialScope={wordScope}
+              initialQuery={wordQuery}
               state={s}
               save={commit}
               note={(id, text) => commit(saveAnnotation(s, id, text))}
@@ -527,6 +530,15 @@ function App() {
                     }}
                   >
                     {collection.viewLabel}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setWordQuery(collection.pack.title);
+                      setWordScope("all");
+                      setPage("words");
+                    }}
+                  >
+                    背本专题 · {collection.title}
                   </button>
                   <button
                     className="text-button"

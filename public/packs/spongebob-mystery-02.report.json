@@ -1,0 +1,246 @@
+{
+  "title": "海绵宝宝 · 神秘顾客02",
+  "note": "用户提供的续篇字幕，未提供音视频或发布日期；日期仅作入库日期。原文保留，缺少的中文另标补译。",
+  "counts": {
+    "sourceLines": 21,
+    "newKnowledge": 30,
+    "reusedKnowledge": 18,
+    "questions": 136
+  },
+  "reuse": [
+    {
+      "key": "return",
+      "existingId": "spongebob-mystery-customer-01-return",
+      "arabic": "عَادَ"
+    },
+    {
+      "key": "say",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v009",
+      "arabic": "قَالَ"
+    },
+    {
+      "key": "can",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v031",
+      "arabic": "أَمْكَنَ"
+    },
+    {
+      "key": "forget",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v028",
+      "arabic": "نَسِيَ"
+    },
+    {
+      "key": "want",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v018",
+      "arabic": "أَرَادَ"
+    },
+    {
+      "key": "catch",
+      "existingId": "spongebob-mystery-customer-01-catch",
+      "arabic": "أَمْسَكَ"
+    },
+    {
+      "key": "learn",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v045",
+      "arabic": "تَعَلَّمَ"
+    },
+    {
+      "key": "try",
+      "existingId": "spongebob-mystery-customer-01-try",
+      "arabic": "حَاوَلَ"
+    },
+    {
+      "key": "escape",
+      "existingId": "spongebob-mystery-customer-01-escape",
+      "arabic": "هَرَبَ"
+    },
+    {
+      "key": "speak",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v014",
+      "arabic": "تَحَدَّثَ"
+    },
+    {
+      "key": "seem",
+      "existingId": "animation-20261024-4baaf852-verb-sponge-v024",
+      "arabic": "بَدَا"
+    },
+    {
+      "key": "money",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t009",
+      "arabic": "نُقُودٌ"
+    },
+    {
+      "key": "foolish",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t011",
+      "arabic": "أَحْمَقُ"
+    },
+    {
+      "key": "mysterious",
+      "existingId": "spongebob-mystery-customer-01-mysterious",
+      "arabic": "غَامِضٌ"
+    },
+    {
+      "key": "bikini-bottom",
+      "existingId": "spongebob-mystery-customer-01-bikini-bottom",
+      "arabic": "قَاعُ الْمُحِيطِ"
+    },
+    {
+      "key": "request",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t047",
+      "arabic": "هَلَّا أَخْبَرْتَنِي"
+    },
+    {
+      "key": "no-problem",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t048",
+      "arabic": "لَا بَأْسَ"
+    },
+    {
+      "key": "squidward",
+      "existingId": "animation-20261024-4baaf852-term-sponge-t053",
+      "arabic": "شَفِيقٌ"
+    }
+  ],
+  "corrections": [
+    {
+      "lineId": "M03",
+      "original": "هَلْ أَعِرْنِي النُّقُودَ كَيْ أَشْتَرِيَ الْبُرْجَر، رَجَاءً؟",
+      "arabic": "هَلْ تُعِيرُنِي النُّقُودَ كَيْ أَشْتَرِيَ الْبُرْجَرَ، رَجَاءً؟",
+      "chinese": "请问能借我点钱，让我买这个汉堡吗？",
+      "note": "هل 后不直接接命令式 أَعِرْنِي。规范整理为 هل + 现在式 تُعِيرُنِي；也可直接说 أَعِرْنِي ... رَجَاءً。学习改写，非音频核验结果。"
+    },
+    {
+      "lineId": "M02",
+      "original": "نَبِيعَ وَاحِدًا سَلْطَع بُرْجَر",
+      "arabic": "نَبِيعَ شَطِيرَةً وَاحِدَةً",
+      "chinese": "卖出一个汉堡",
+      "note": "原字幕的数量表达顺序不自然，练习改用规范的名词和数量搭配；品牌名不据此推定。"
+    }
+  ],
+  "transcript": [
+    {
+      "id": "M01",
+      "arabic": "هَلَّا عُدْنَا إِلَى الدِّيَارِ الْآنَ؟",
+      "chinese": "现在可以回家了吗？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M02",
+      "arabic": "مِسْتَر سَلْطَع قَالَ: لَا يُمْكِنُنَا الْعَوْدَةُ قَبْلَ أَنْ نَبِيعَ وَاحِدًا سَلْطَع بُرْجَر.",
+      "chinese": "蟹老板说了，不卖出一个蟹黄堡就不能回去。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M03",
+      "arabic": "حَسَنًا، سَأَشْتَرِي بُرْجَرًا أَحْمَقَ بِنَفْسِي. مَاذَا؟ أَوْ... نَسِيتُ مِحْفَظَتِي فِي سِرْوَالِي بِالْمَنْزِلِ. أُوه، سْبُونْج بُوب، هَلْ أَعِرْنِي النُّقُودَ كَيْ أَشْتَرِيَ الْبُرْجَر، رَجَاءً؟",
+      "chinese": "行，我自己买一个破汉堡总行了吧。什么？哦……钱包落在家里的裤子里了。呃，海绵宝宝，能不能借我点钱买汉堡，拜托了？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M04",
+      "arabic": "أَحْمِلُ نُقُودَ سَلْطَع فَقَطْ.",
+      "chinese": "我只有蟹老板代币。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M05",
+      "arabic": "لَا تُقْبَلُ فِي مُقَرْمَشَاتِ سَلْطَع. إِذَا أَرَدْتُ الْعَوْدَةَ إِلَى مَنْزِلِي، عَلَيَّ بَيْعُ سَلْطَع بُرْجَر إِلَى هَذَا الْغَرِيبِ الْغَامِضِ.",
+      "chinese": "蟹堡王不收这个。想回家，我就得把蟹黄堡卖给这个神秘的陌生人。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M06",
+      "arabic": "لَا مُشْكِلَةَ، سَأَتَعَقَّبُهُ مُسْتَخْدِمًا خِبْرَتِي فِي صَيْدِ الْقَنَادِيلِ.",
+      "chinese": "没问题！我可以用抓水母的经验追踪他。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M07",
+      "arabic": "أَمْسَكْتُ!",
+      "chinese": "抓到了！",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M08",
+      "arabic": "دِمَاغِي!",
+      "chinese": "我的脑袋！",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M09",
+      "arabic": "تَعَلَّمْتُ هَذِهِ الْخُدْعَةَ مِنْ مَجَلَّةِ أَسْمَاكِ الْغَابَةِ.",
+      "chinese": "我从《森林鱼类》杂志上学会了这一招。",
+      "translationOrigin": "assistant"
+    },
+    {
+      "id": "M10",
+      "arabic": "أَمْسَكْتُ الْمُزْعِجَ الصَّغِيرَ!",
+      "chinese": "我抓到这个小讨厌鬼了！",
+      "translationOrigin": "assistant"
+    },
+    {
+      "id": "M11",
+      "arabic": "【صُرَاخ】",
+      "chinese": "【尖叫】",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M12",
+      "arabic": "حَيْثُ إِنَّنِي لَنْ أَعُودَ أَبَدًا، سَأُحَاوِلُ أَنْ أَشْعُرَ بِالرَّاحَةِ.",
+      "chinese": "反正我永远也回不了家了，还是想办法让自己舒服点吧。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M13",
+      "arabic": "هَايْ، أَنْتُمَا اللَّذَانِ تُطَارِدَانِنِي فِي الْبَلْدَةِ؟",
+      "chinese": "嘿，就是你们俩在城里追着我跑？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M14",
+      "arabic": "لِمَاذَا كُنْتَ تُلَوِّحُ لَنَا ثُمَّ تَهْرُبُ بَعِيدًا؟",
+      "chinese": "那你为什么先向我们挥手，又跑得远远的？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M15",
+      "arabic": "هَا؟ أَنَا لَا أَفْهَمُ لَهَجَاتِكَ.",
+      "chinese": "啊？我听不懂你那口音。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M16",
+      "arabic": "سَأَتَوَلَّى الْأَمْرَ يَا شَفِيقُ. أَتَحَدَّثُ لُغَةَ قَاعِ الْمُحِيطِ بِطَلَاقَةٍ. لِمَاذَا كُنْتَ تُلَوِّحُ لَنَا؟",
+      "chinese": "交给我吧，章鱼哥。我比奇堡话说得可流利了。你刚才为什么向我们挥手？",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M17",
+      "arabic": "أَنَا لَمْ أَكُنْ أُلَوِّحُ. أَنَا كُنْتُ أُجَفِّفُ نَفْسِي.",
+      "chinese": "我没在挥手，我是在擦干身体。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M18",
+      "arabic": "آ...",
+      "chinese": "啊……",
+      "translationOrigin": "assistant"
+    },
+    {
+      "id": "M19",
+      "arabic": "نُرِيدُ فَقَطْ أَنْ نَبِيعَ لَكَ سَلْطَع بُرْجَر لَذِيذًا.",
+      "chinese": "我们只是想卖给你一个美味的蟹黄堡。",
+      "translationOrigin": "user"
+    },
+    {
+      "id": "M20",
+      "arabic": "هُوَ يَبْدُو لَذِيذًا.",
+      "chinese": "它看起来挺好吃的。",
+      "translationOrigin": "assistant"
+    },
+    {
+      "id": "M21",
+      "arabic": "سَوْفَ نَبِيعُ وَاحِدًا!",
+      "chinese": "我们要卖出去一个啦！",
+      "translationOrigin": "user"
+    }
+  ]
+}

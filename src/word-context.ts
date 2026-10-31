@@ -1,14 +1,13 @@
 import type { Knowledge } from "./core";
 import { normalize } from "./core";
 /** Only reuse supplied material; never manufacture an article quotation. */
-export function wordContext(k: Knowledge, all: Knowledge[]) {
+export function wordContext(k: Knowledge, all: Knowledge[], query = "") {
   const phrases = (k.vocabulary?.phrases || []).map((p) => ({
     arabic: p.arabic,
     chinese: p.chinese,
-    label:
-      p.note === "台词搭配（整理形式，非逐字引文）"
-        ? "台词搭配（整理形式）"
-        : "原资料搭配",
+    label: p.note?.startsWith("台词搭配（整理形式")
+      ? "台词搭配（整理形式）"
+      : "原资料搭配",
   }));
   for (const p of k.collocations || [])
     if (!phrases.some((x) => normalize(x.arabic) === normalize(p)))
@@ -60,5 +59,20 @@ export function wordContext(k: Knowledge, all: Knowledge[]) {
               label: "相关资料搭配",
             });
     }
-  return { phrases: phrases.slice(0, 2), examples: examples.slice(0, 2) };
+  const tokens = normalize(query).split(" ").filter(Boolean);
+  const preferred = (text: string) =>
+    tokens.length > 0 && tokens.every((t) => normalize(text).includes(t));
+  const prioritized = <T>(items: T[], text: (item: T) => string) => [
+    ...items.filter((item) => preferred(text(item))),
+    ...items.filter((item) => !preferred(text(item))),
+  ];
+  return {
+    phrases: prioritized(phrases, (p) => p.arabic + " " + p.chinese).slice(
+      0,
+      2,
+    ),
+    examples: prioritized(examples, (e) =>
+      [e.context, e.arabic, e.chinese].join(" "),
+    ).slice(0, 2),
+  };
 }
