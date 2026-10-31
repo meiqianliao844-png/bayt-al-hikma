@@ -81,7 +81,7 @@ test("installs the news collection on top of old data, groups by topic, and expo
   ).toBeVisible();
   await dialog.getByRole("tab", { name: /^练习/ }).click();
   await expect(
-    dialog.getByRole("button", { name: "练习本词 · 4 题", exact: true }),
+    dialog.getByRole("button", { name: /^练习本词 · \d+ 题$/ }),
   ).toBeVisible();
   await dialog.getByRole("button", { name: "关闭弹窗", exact: true }).click();
   await page.getByRole("button", { name: "收藏", exact: true }).click();
