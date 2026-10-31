@@ -281,6 +281,7 @@ export const bundledCollections = [
   {
     pack: bundledLiterature,
     title: "阿拉伯文学史第一讲",
+    searchQuery: "阿拉伯文学史第一讲",
     verbs: 63,
     terms: 120,
     viewLabel: "查看文学史第一讲",

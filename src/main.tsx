@@ -522,7 +522,9 @@ function App() {
                   </div>
                   <button
                     onClick={() => {
-                      setSearch(collection.pack.title);
+                      setSearch(
+                        collection.searchQuery || collection.pack.title,
+                      );
                       setCategory("");
                       setDate("");
                       setFav(false);
@@ -533,7 +535,9 @@ function App() {
                   </button>
                   <button
                     onClick={() => {
-                      setWordQuery(collection.pack.title);
+                      setWordQuery(
+                        collection.searchQuery || collection.pack.title,
+                      );
                       setWordScope("all");
                       setPage("words");
                     }}
