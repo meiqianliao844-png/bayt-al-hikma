@@ -1536,3 +1536,14 @@ html[data-wallpaper] select:focus-visible {
   line-height: 1.9;
   overflow-wrap: anywhere;
 }
+.topic-picker {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+.topic-picker select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}

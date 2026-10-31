@@ -1,5 +1,6 @@
 import { AskGPT } from "./AskGPT";
 import { NounNumbers } from "./NounNumbers";
+import { studyTopics, savedStudyTopic, saveStudyTopic } from "./study-topics";
 import { useState } from "react";
 import type { State } from "./core";
 import { today, shuffle } from "./core";
@@ -23,7 +24,15 @@ export function WordStudy({
   note: (id: string, text: string) => boolean;
   star: (id: string) => void;
 }) {
-  const [query, setQuery] = useState(initialQuery);
+  const topics = studyTopics(state.knowledge);
+  const requestedTopic = initialQuery
+    ? topics.find((t) => t.query === initialQuery)
+    : undefined;
+  const [topic, setTopic] = useState(() =>
+    initialQuery ? requestedTopic?.id || "" : savedStudyTopic(topics),
+  );
+  const activeTopic = topics.find((t) => t.id === topic);
+  const [query, setQuery] = useState(requestedTopic ? "" : initialQuery);
   const [category, setCategory] = useState(""),
     [scope, setScope] = useState(initialScope),
     [limit, setLimit] = useState(20),
@@ -34,6 +43,7 @@ export function WordStudy({
     [knownCount, setKnownCount] = useState(0);
   const candidates = state.knowledge.filter(
     (k) =>
+      (!activeTopic || activeTopic.ids.has(k.id)) &&
       matchesKnowledge(k, query, state.annotations?.[k.id]) &&
       (!category || k.category === category) &&
       (scope === "all" ||
@@ -82,6 +92,9 @@ export function WordStudy({
           </span>
           <button onClick={() => setQueue(null)}>结束本轮</button>
         </div>
+        <p className="muted">
+          本轮专题：{activeTopic?.title || "全部专题（混合）"}
+        </p>
         <progress value={index} max={queue.length} />
         <p className="eyebrow">看词 · 回想 · 翻面</p>
         <h2 className="arabic word-front" lang="ar" dir="rtl">
@@ -173,6 +186,31 @@ export function WordStudy({
     <section className="panel">
       <h2>像背单词一样，一张一张过</h2>
       <p>先看阿语回想意思，点击翻面，再标记认识或再学。不需要输入答案。</p>
+      <label className="topic-picker">
+        背词专题
+        <select
+          aria-label="背词专题"
+          value={topic}
+          onChange={(e) => {
+            setTopic(e.target.value);
+            saveStudyTopic(e.target.value);
+            setQuery("");
+            setCategory("");
+          }}
+        >
+          <option value="">全部专题（混合）</option>
+          {topics.map((t) => (
+            <option key={t.id} value={t.id}>
+              {t.title} · {t.ids.size} 张
+            </option>
+          ))}
+        </select>
+      </label>
+      <p className="muted" role="status">
+        {activeTopic
+          ? `只背「${activeTopic.title}」，本轮不会混入其他专题。`
+          : "当前范围：全部专题，可在上方选择只背一个专题。"}
+      </p>
       <div className="toolbar">
         <label className="search">
           <input
@@ -190,7 +228,13 @@ export function WordStudy({
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="">全部分类</option>
-          {[...new Set(state.knowledge.map((k) => k.category))].map((c) => (
+          {[
+            ...new Set(
+              state.knowledge
+                .filter((k) => !activeTopic || activeTopic.ids.has(k.id))
+                .map((k) => k.category),
+            ),
+          ].map((c) => (
             <option key={c}>{c}</option>
           ))}
         </select>
@@ -223,6 +267,7 @@ export function WordStudy({
         className="primary"
         disabled={!candidates.length}
         onClick={() => {
+          saveStudyTopic(topic);
           setQueue(
             shuffle(candidates)
               .slice(0, limit)
