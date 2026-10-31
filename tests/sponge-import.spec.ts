@@ -80,8 +80,8 @@ test("adds animation to a saved news installation, keeps progress and exposes su
   const saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(saved.knowledge).toHaveLength(306);
-  expect(saved.questions).toHaveLength(750);
+  expect(saved.knowledge).toHaveLength(330);
+  expect(saved.questions).toHaveLength(852);
   expect(saved.history).toEqual(old.history);
   expect(saved.progress).toEqual(old.progress);
   expect(saved.favorites).toContain("guard");

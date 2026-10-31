@@ -52,7 +52,7 @@ test("enriched profiles retain old knowledge, link families, expose tabs and kee
   const before = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(before.knowledge).toHaveLength(309);
+  expect(before.knowledge).toHaveLength(333);
   expect(before.knowledge.some((k: { id: string }) => k.id === "guard")).toBe(
     true,
   );
@@ -93,7 +93,7 @@ test("enriched profiles retain old knowledge, link families, expose tabs and kee
   expect(after.questions).toEqual(before.questions);
 });
 
-test("new constrained conjugation grades automatically and the associated profile is reachable", async ({
+test("conjugation grades automatically and the associated profile is reachable", async ({
   page,
 }) => {
   await page.goto("/");
@@ -108,14 +108,27 @@ test("new constrained conjugation grades automatically and the associated profil
     .locator("..")
     .getByRole("button")
     .click();
+  const prompt = await page.locator(".practice h2").innerText();
+  const current = await page.evaluate((prompt) => {
+    const s = JSON.parse(localStorage.getItem("hikma-v1")!);
+    const normalized = (text: string) => text.replace(/\s+/g, " ").trim();
+    const q = s.questions.find(
+      (q: { prompt: string }) => normalized(q.prompt) === normalized(prompt),
+    );
+    return {
+      answer: q.answer,
+      meaning: s.knowledge.find((k: { id: string }) => k.id === q.knowledgeId)
+        .meaning,
+    };
+  }, prompt);
   await page
     .locator(".answers")
-    .getByRole("button", { name: "كَتَبَتْ", exact: true })
+    .getByRole("button", { name: current.answer, exact: true })
     .click();
   await page.getByRole("button", { name: "提交答案", exact: true }).click();
   await expect(page.getByText("✓ 已掌握", { exact: true })).toBeVisible();
   await page
-    .getByRole("button", { name: "关联知识：写；书写", exact: true })
+    .getByRole("button", { name: `关联知识：${current.meaning}`, exact: true })
     .click();
   await expect(
     page

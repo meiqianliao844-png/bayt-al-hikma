@@ -5,7 +5,10 @@ export function wordContext(k: Knowledge, all: Knowledge[]) {
   const phrases = (k.vocabulary?.phrases || []).map((p) => ({
     arabic: p.arabic,
     chinese: p.chinese,
-    label: "原资料搭配",
+    label:
+      p.note === "台词搭配（整理形式，非逐字引文）"
+        ? "台词搭配（整理形式）"
+        : "原资料搭配",
   }));
   for (const p of k.collocations || [])
     if (!phrases.some((x) => normalize(x.arabic) === normalize(p)))

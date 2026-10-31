@@ -5,6 +5,7 @@ import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
 import newsPack from "./data/azerbaijan-school-uniform.json";
 import sharedFuturePack from "./data/shared-future.json";
+import mysteryPack from "./data/spongebob-mystery-01.json";
 import spongePack from "./data/spongebob-01.json";
 import spongeReport from "./data/spongebob-01.report.json";
 import { isPortableNews, convertPortableNews } from "./portable-news.mjs";
@@ -267,6 +268,7 @@ export function checkAnswer(q: Question, answer: string): boolean {
 export const bundledNews = parsePack(newsPack);
 export const bundledSponge = parsePack(spongePack);
 export const bundledSharedFuture = parsePack(sharedFuturePack);
+export const bundledMystery = parsePack(mysteryPack);
 export const bundledCollections = [
   {
     pack: bundledNews,
@@ -296,6 +298,16 @@ export const bundledCollections = [
     viewLabel: "查看人类命运共同体",
     download: "shared-future",
     note: "中阿语料表共85条，已补充学习标符。文档未附文章全文；第73条笔误已校订并保留原文说明。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
+  {
+    pack: bundledMystery,
+    title: "海绵宝宝 · 神秘顾客01",
+    verbs: 11,
+    terms: 13,
+    viewLabel: "查看神秘顾客01",
+    download: "spongebob-mystery-01",
+    note: "12项重点与12项补充词汇；字幕资料日期为2026-10-03。例句保留用户提供字幕，尚未据音频核对。",
     reviewNotes: [] as { source: string; note: string }[],
   },
 ];

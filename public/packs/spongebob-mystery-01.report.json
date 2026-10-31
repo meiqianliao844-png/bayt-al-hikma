@@ -1,0 +1,216 @@
+{
+  "sourceTitle": "海绵宝宝 · 神秘顾客01",
+  "sourceDate": "2026-10-03",
+  "importedDate": "2026-10-31",
+  "counts": {
+    "sourceLines": 23,
+    "focus": 12,
+    "supplementary": 12,
+    "verbs": 11,
+    "knowledge": 24,
+    "questions": 102
+  },
+  "notes": [
+    "用户在对话中提供的中阿字幕；没有音频或视频，未核音。原中文和阿语只统一空格，品牌名按原写法保留。播放器1.0x及时间显示不作为台词。",
+    "字幕与学习词形分开保存；不适用或存疑的动词形式留空并注明。",
+    "原12个重点的具体清单未提供，本包选择12项作为重点，并补充12项场景词汇。"
+  ],
+  "verbCoverage": [
+    {
+      "id": "spongebob-mystery-customer-01-remember",
+      "arabic": "تَذَكَّرَ",
+      "lineIds": [
+        "L02"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-find",
+      "arabic": "وَجَدَ / يُوجَدُ",
+      "lineIds": [
+        "L02",
+        "L03"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-go",
+      "arabic": "ذَهَبَ",
+      "lineIds": [
+        "L06",
+        "L18"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-still",
+      "arabic": "لَا يَزَالُ",
+      "lineIds": [
+        "L09"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-not-be",
+      "arabic": "لَيْسَ",
+      "lineIds": [
+        "L11"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-try",
+      "arabic": "حَاوَلَ",
+      "lineIds": [
+        "L12"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-return",
+      "arabic": "عَادَ",
+      "lineIds": [
+        "L12"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-come",
+      "arabic": "تَعَالَ",
+      "lineIds": [
+        "L14"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-enjoy",
+      "arabic": "اِسْتَمْتَعَ",
+      "lineIds": [
+        "L14"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-catch",
+      "arabic": "أَمْسَكَ",
+      "lineIds": [
+        "L20"
+      ]
+    },
+    {
+      "id": "spongebob-mystery-customer-01-escape",
+      "arabic": "هَرَبَ",
+      "lineIds": [
+        "L22"
+      ]
+    }
+  ],
+  "transcript": [
+    {
+      "id": "L01",
+      "arabic": "هَذَا الْمَكَانُ مَهْجُورٌ.",
+      "chinese": "这地方空无一人。"
+    },
+    {
+      "id": "L02",
+      "arabic": "عَلَى مَا أَتَذَكَّرُ، نَجِدُ سُكَّانَ قَاعِ الْمُحِيطِ اللُّطَفَاءَ عِنْدَ مَوْقِفِ الْحَافِلَةِ.",
+      "chinese": "我记得，在公交车站能找到那些友善的比奇堡居民。"
+    },
+    {
+      "id": "L03",
+      "arabic": "يَا لَهَا مِنْ فِكْرَةٍ رَائِعَةٍ، يَا سْبُونْج بُوب! يُوجَدُ هُنَاكَ الْكَثِيرُ مِنَ الْعُمَلَاءِ.",
+      "chinese": "真是个好主意啊，海绵宝宝！这里可真是顾客成群呢。"
+    },
+    {
+      "id": "L04",
+      "arabic": "رُبَّمَا هُمْ فِي مَرْكَزِ التَّسَوُّقِ.",
+      "chinese": "说不定他们在购物中心。"
+    },
+    {
+      "id": "L05",
+      "arabic": "آه، مَرْكَزُ التَّسَوُّقِ.",
+      "chinese": "哦，购物中心。"
+    },
+    {
+      "id": "L06",
+      "arabic": "أَيْنَ ذَهَبَ الْجَمِيعُ؟",
+      "chinese": "大家都去哪儿了？"
+    },
+    {
+      "id": "L07",
+      "arabic": "السِّيرْكُ مَكَانٌ رَائِعٌ لِلتَّجَمُّعَاتِ.",
+      "chinese": "马戏团可是个聚会的好地方。"
+    },
+    {
+      "id": "L08",
+      "arabic": "رُبَّمَا هُوَ سِيرْكُ الْبَرَاغِيثِ.",
+      "chinese": "没准是个跳蚤马戏团呢。"
+    },
+    {
+      "id": "L09",
+      "arabic": "لَا يَزَالُ دَافِئًا.",
+      "chinese": "还热乎着呢。"
+    },
+    {
+      "id": "L10",
+      "arabic": "الْمَدَافِنُ خَالِيَةٌ أَيْضًا.",
+      "chinese": "连墓地都空无一人。"
+    },
+    {
+      "id": "L11",
+      "arabic": "هَذِهِ لَيْسَتْ مَدِينَةَ أَشْبَاحٍ حَتَّى.",
+      "chinese": "这里连鬼城都算不上。"
+    },
+    {
+      "id": "L12",
+      "arabic": "حَاوَلْنَا، هَيَّا لِنَعُدْ.",
+      "chinese": "反正我们也试过了，走吧，回去。"
+    },
+    {
+      "id": "L13",
+      "arabic": "هُنَاكَ عَمِيلٌ!",
+      "chinese": "那儿有个顾客！"
+    },
+    {
+      "id": "L14",
+      "arabic": "تَعَالَ إِلَيْنَا وَاسْتَمْتِعْ بِسَلْطَع بُرْجَر اللَّذِيذِ!",
+      "chinese": "快过来，尝尝美味的蟹黄堡吧！"
+    },
+    {
+      "id": "L15",
+      "arabic": "سَلْطَع بُرْجَر!",
+      "chinese": "蟹黄堡！"
+    },
+    {
+      "id": "L16",
+      "arabic": "هَا هُوَ!",
+      "chinese": "他在那儿！"
+    },
+    {
+      "id": "L17",
+      "arabic": "آ...",
+      "chinese": "啊——"
+    },
+    {
+      "id": "L18",
+      "arabic": "إِلَى أَيْنَ ذَهَبَ؟",
+      "chinese": "他跑哪儿去了？"
+    },
+    {
+      "id": "L19",
+      "arabic": "إِلَى الْأَعْلَى!",
+      "chinese": "上面！"
+    },
+    {
+      "id": "L20",
+      "arabic": "سَأُمْسِكُ بِهِ هَذِهِ الْمَرَّةَ!",
+      "chinese": "这次我一定要抓住他！"
+    },
+    {
+      "id": "L21",
+      "arabic": "أُو...",
+      "chinese": "呜——"
+    },
+    {
+      "id": "L22",
+      "arabic": "أُوه، هَرَبَ مِنَّا.",
+      "chinese": "哎呀，他又跑掉了。"
+    },
+    {
+      "id": "L23",
+      "arabic": "هَا!",
+      "chinese": "啊！"
+    }
+  ]
+}
