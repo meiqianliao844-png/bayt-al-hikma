@@ -1,3 +1,4 @@
+import { AskGPT } from "./AskGPT";
 import { NounNumbers } from "./NounNumbers";
 import { useState } from "react";
 import type { State } from "./core";
@@ -87,6 +88,7 @@ export function WordStudy({
           {k.arabic}
         </h2>
         <AudioTools text={k.arabic} url={k.audioUrl} />
+        <AskGPT key={k.id} k={k} />
         {!revealed ? (
           <button
             className="primary reveal-word"
@@ -128,6 +130,17 @@ export function WordStudy({
                 </p>
               )}
             </section>
+            {k.grammar && (
+              <details
+                className="word-breakdown"
+                open={k.category.includes("词组与长句")}
+              >
+                <summary>拆解与用法</summary>
+                <p dir="auto" style={{ whiteSpace: "pre-line" }}>
+                  {k.grammar}
+                </p>
+              </details>
+            )}
             {k.verb && (
               <details>
                 <summary>词形提示</summary>

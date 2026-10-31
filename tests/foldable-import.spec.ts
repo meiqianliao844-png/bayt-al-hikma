@@ -7,7 +7,10 @@ test("technology focus topic separates source excerpts and teaching examples and
   await page
     .getByRole("button", { name: "查看折叠手机专题", exact: true })
     .click();
-  await expect(page.getByText("共 26 个知识点", { exact: true })).toBeVisible();
+  await expect(page.getByText("共 56 个知识点", { exact: true })).toBeVisible();
+  await page
+    .getByLabel("分类筛选", { exact: true })
+    .selectOption("折叠手机 · 26个重点词");
   await page
     .getByLabel("搜索知识", { exact: true })
     .fill("科技新闻 折叠手机 投诉");

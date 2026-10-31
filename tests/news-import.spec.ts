@@ -88,8 +88,8 @@ test("installs the news collection on top of old data, groups by topic, and expo
   const saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(saved.knowledge).toHaveLength(567);
-  expect(saved.questions).toHaveLength(1422);
+  expect(saved.knowledge).toHaveLength(597);
+  expect(saved.questions).toHaveLength(1512);
   expect(saved.favorites).toContain("guard");
   expect(saved.favorites).toContain(news.knowledge[0].id);
   expect(saved.history).toEqual(old.history);
@@ -120,6 +120,6 @@ test("accepts the original portable file through explicit conversion and repeate
   const saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(saved.knowledge).toHaveLength(567);
-  expect(saved.questions).toHaveLength(1422);
+  expect(saved.knowledge).toHaveLength(597);
+  expect(saved.questions).toHaveLength(1512);
 });

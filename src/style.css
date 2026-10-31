@@ -1498,3 +1498,41 @@ html[data-wallpaper] select:focus-visible {
   contain: paint;
   overscroll-behavior: contain;
 }
+.ask-gpt {
+  margin: 12px 0;
+  min-width: 0;
+}
+.gpt-panel {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  text-align: left;
+}
+.gpt-panel textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 8px 0;
+  resize: vertical;
+}
+.gpt-panel .button-row {
+  flex-wrap: wrap;
+}
+.gpt-open {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  color: var(--green);
+  text-decoration: none;
+}
+.word-breakdown {
+  margin: 16px 0;
+  text-align: left;
+}
+.word-breakdown p {
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}

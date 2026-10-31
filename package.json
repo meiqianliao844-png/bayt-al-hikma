@@ -9,7 +9,7 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "sync:assets": "npm run convert:news && npm run convert:sponge && npm run convert:corpus && npm run convert:mystery && npm run convert:mystery02 && npm run convert:foldable && npm run convert:literature && node scripts/sync-assets.mjs",
+    "sync:assets": "npm run convert:news && npm run convert:sponge && npm run convert:corpus && npm run convert:mystery && npm run convert:mystery02 && npm run convert:foldable && npm run convert:literature && npm run convert:expressions && node scripts/sync-assets.mjs",
     "predev": "npm run sync:assets",
     "prebuild": "npm run sync:assets",
     "format": "prettier --write src tests scripts *.ts *.json *.md docs .github",
@@ -19,7 +19,8 @@
     "convert:mystery": "node scripts/convert-mystery.mjs",
     "convert:mystery02": "node scripts/convert-mystery02.mjs",
     "convert:foldable": "node scripts/convert-foldable.mjs",
-    "convert:literature": "node scripts/import-literature.mjs"
+    "convert:literature": "node scripts/import-literature.mjs",
+    "convert:expressions": "node scripts/convert-foldable-expressions.mjs"
   },
   "dependencies": {
     "@fontsource/amiri": "^5.3.0",

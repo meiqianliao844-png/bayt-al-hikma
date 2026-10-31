@@ -11,7 +11,7 @@ describe("choice-only practice and word study", () => {
     const s = initialState(),
       before = structuredClone(s);
     const qs = choiceOnly(s.questions, s.knowledge);
-    expect(qs).toHaveLength(1422);
+    expect(qs).toHaveLength(1512);
     for (const q of qs) {
       expect(q.grading).toBe("choice");
       expect(q.options!.length).toBeGreaterThanOrEqual(2);

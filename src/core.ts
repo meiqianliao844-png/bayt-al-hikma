@@ -7,6 +7,7 @@ import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
 import newsPack from "./data/azerbaijan-school-uniform.json";
 import sharedFuturePack from "./data/shared-future.json";
+import expressionsPack from "./data/foldable-expressions.json";
 import literaturePack from "./data/arabic-literature-lesson-01.json";
 import foldablePack from "./data/foldable-tech.json";
 import mystery02Pack from "./data/spongebob-mystery-02.json";
@@ -277,7 +278,18 @@ export const bundledMystery = parsePack(mysteryPack);
 export const bundledMystery02 = parsePack(mystery02Pack);
 export const bundledFoldable = parsePack(foldablePack);
 export const bundledLiterature = parsePack(literaturePack);
+export const bundledExpressions = parsePack(expressionsPack);
 export const bundledCollections = [
+  {
+    pack: bundledExpressions,
+    title: "科技手机 · 词组与长句精读",
+    verbs: 0,
+    terms: 30,
+    viewLabel: "查看科技词组与长句",
+    download: "foldable-expressions",
+    note: "20组词组句型、10组原文长句精读，附逐项拆解和90道选择题。保留原有26项重点及学习记录；报道事实未核实。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
   {
     pack: bundledLiterature,
     title: "阿拉伯文学史第一讲",
