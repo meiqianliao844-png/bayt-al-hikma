@@ -16,6 +16,7 @@ test("daily journal retains mood, weather and text on reload and complete backup
   ).toContainText("小记已保存");
   await page.reload();
   await page.getByRole("button", { name: "每日小记", exact: true }).click();
+  await page.getByLabel("小记日期", { exact: true }).fill("2026-10-25");
   await expect(page.getByLabel("学习心情与感受", { exact: true })).toHaveValue(
     "今天多记住了一些词！",
   );
