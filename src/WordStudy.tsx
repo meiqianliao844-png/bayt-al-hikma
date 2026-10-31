@@ -1,3 +1,4 @@
+import { NounNumbers } from "./NounNumbers";
 import { useState } from "react";
 import type { State } from "./core";
 import { today, shuffle } from "./core";
@@ -9,17 +10,19 @@ import { wordContext } from "./word-context";
 export function WordStudy({
   state,
   initialScope = "all",
+  initialQuery = "",
   save,
   note,
   star,
 }: {
   state: State;
   initialScope?: string;
+  initialQuery?: string;
   save: (s: State) => boolean;
   note: (id: string, text: string) => boolean;
   star: (id: string) => void;
 }) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [category, setCategory] = useState(""),
     [scope, setScope] = useState(initialScope),
     [limit, setLimit] = useState(20),
@@ -41,7 +44,7 @@ export function WordStudy({
   const k = queue
     ? state.knowledge.find((k) => k.id === queue[index])
     : undefined;
-  const context = k ? wordContext(k, state.knowledge) : null;
+  const context = k ? wordContext(k, state.knowledge, query) : null;
   function rate(known: boolean) {
     if (!k || !queue) return;
     if (!save(recordWord(state, k.id, known))) return;
@@ -94,6 +97,7 @@ export function WordStudy({
         ) : (
           <div className="word-back">
             <h2>{k.meaning}</h2>
+            <NounNumbers k={k} />
             <section className="word-context" aria-label="搭配与语境">
               <h3>放回语境里记</h3>
               {context?.phrases.map((p, i) => (

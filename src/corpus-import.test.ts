@@ -63,8 +63,8 @@ describe("shared future Word corpus", () => {
     const before = structuredClone(old),
       next = installBundledPacks(old);
     expect(old).toEqual(before);
-    expect(next.knowledge).toHaveLength(330);
-    expect(next.questions).toHaveLength(852);
+    expect(next.knowledge).toHaveLength(360);
+    expect(next.questions).toHaveLength(988);
     expect(next.wordProgress).toEqual(old.wordProgress);
     expect(next.annotations).toEqual(old.annotations);
     expect(next.history).toEqual(old.history);

@@ -29,7 +29,14 @@ export type VerbForms = {
     note?: string;
   }[];
 };
+export type NounNumberPair = {
+  singular: string;
+  plural: string;
+  chinese?: string;
+  note?: string;
+};
 export type NounForms = {
+  numberPairs?: NounNumberPair[];
   applicable?: boolean;
   note?: string;
   singular?: string;

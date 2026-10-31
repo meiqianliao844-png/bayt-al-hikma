@@ -1457,3 +1457,25 @@ html[data-wallpaper] textarea:focus-visible,
 html[data-wallpaper] select:focus-visible {
   outline-color: var(--green);
 }
+.noun-numbers {
+  margin: 18px 0;
+  text-align: start;
+}
+.noun-numbers h3 {
+  font-size: 15px;
+}
+.number-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.number-pair [lang="ar"] {
+  font-size: 24px;
+  overflow-wrap: anywhere;
+}
+.number-pair small {
+  width: 100%;
+}

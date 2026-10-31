@@ -1,10 +1,13 @@
 import Ajv from "ajv";
+import { completeNounNumbers } from "./noun-numbers.mjs";
+import { installSupplement } from "./supplement";
 import type { WordProgress } from "./study";
 import type { Vocabulary, VerbForms } from "./vocabulary";
 import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
 import newsPack from "./data/azerbaijan-school-uniform.json";
 import sharedFuturePack from "./data/shared-future.json";
+import mystery02Pack from "./data/spongebob-mystery-02.json";
 import mysteryPack from "./data/spongebob-mystery-01.json";
 import spongePack from "./data/spongebob-01.json";
 import spongeReport from "./data/spongebob-01.report.json";
@@ -234,7 +237,7 @@ export function mergePack(state: State, pack: Pack, update: boolean): State {
     if (update || !questions.has(q.id)) questions.set(q.id, q);
   return {
     ...state,
-    knowledge: [...knowledge.values()],
+    knowledge: completeNounNumbers([...knowledge.values()]),
     questions: [...questions.values()],
   };
 }
@@ -269,6 +272,7 @@ export const bundledNews = parsePack(newsPack);
 export const bundledSponge = parsePack(spongePack);
 export const bundledSharedFuture = parsePack(sharedFuturePack);
 export const bundledMystery = parsePack(mysteryPack);
+export const bundledMystery02 = parsePack(mystery02Pack);
 export const bundledCollections = [
   {
     pack: bundledNews,
@@ -310,16 +314,34 @@ export const bundledCollections = [
     note: "12项重点与12项补充词汇；字幕资料日期为2026-10-03。例句保留用户提供字幕，尚未据音频核对。",
     reviewNotes: [] as { source: string; note: string }[],
   },
+  {
+    pack: bundledMystery02,
+    title: "海绵宝宝 · 神秘顾客02",
+    verbs: 25,
+    terms: 23,
+    viewLabel: "查看神秘顾客02",
+    download: "spongebob-mystery-02",
+    supplementExisting: true,
+    note: "30项新增，18项复用已有卡片并补充台词；未提供音频，疑似语法问题保留原文并另列规范表达。复数均列单数或词组内的单复数关系。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
 ];
 /** Install each collection once without replacing user edits or losing old schedules. */
 export function installBundledPacks(state: State): State {
-  return bundledCollections.reduce((current, { pack }) => {
+  const installed = bundledCollections.reduce((current, collection) => {
+    const { pack } = collection;
     if (current.installedPacks?.includes(pack.id)) return current;
     return {
-      ...mergePack(current, pack, false),
+      ...("supplementExisting" in collection && collection.supplementExisting
+        ? installSupplement(current, pack)
+        : mergePack(current, pack, false)),
       installedPacks: [...(current.installedPacks || []), pack.id],
     };
   }, state);
+  const knowledge = completeNounNumbers(installed.knowledge);
+  return knowledge === installed.knowledge
+    ? installed
+    : { ...installed, knowledge };
 }
 /** Mark installation once, retaining both users' records and intentional deletions.
  * No save during load: a quota error must never replace the user's stored state. */
