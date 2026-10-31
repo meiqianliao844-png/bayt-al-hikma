@@ -7,6 +7,7 @@ import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
 import newsPack from "./data/azerbaijan-school-uniform.json";
 import sharedFuturePack from "./data/shared-future.json";
+import foldablePack from "./data/foldable-tech.json";
 import mystery02Pack from "./data/spongebob-mystery-02.json";
 import mysteryPack from "./data/spongebob-mystery-01.json";
 import spongePack from "./data/spongebob-01.json";
@@ -273,6 +274,7 @@ export const bundledSponge = parsePack(spongePack);
 export const bundledSharedFuture = parsePack(sharedFuturePack);
 export const bundledMystery = parsePack(mysteryPack);
 export const bundledMystery02 = parsePack(mystery02Pack);
+export const bundledFoldable = parsePack(foldablePack);
 export const bundledCollections = [
   {
     pack: bundledNews,
@@ -323,6 +325,17 @@ export const bundledCollections = [
     download: "spongebob-mystery-02",
     supplementExisting: true,
     note: "30项新增，18项复用已有卡片并补充台词；未提供音频，疑似语法问题保留原文并另列规范表达。复数均列单数或词组内的单复数关系。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
+  {
+    pack: bundledFoldable,
+    title: "科技新闻 · 折叠手机",
+    verbs: 16,
+    terms: 10,
+    viewLabel: "查看折叠手机专题",
+    download: "foldable-tech",
+    supplementExisting: true,
+    note: "附件26个重点：24项新增、2项复用。产品名称、报道与价格未核实；原文、教学例句和方言评论分别标注。",
     reviewNotes: [] as { source: string; note: string }[],
   },
 ];

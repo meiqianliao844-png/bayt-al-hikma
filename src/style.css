@@ -1479,3 +1479,22 @@ html[data-wallpaper] select:focus-visible {
 .number-pair small {
   width: 100%;
 }
+/* Download collections must wrap instead of creating narrow, oversized columns. */
+.links {
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.links a {
+  flex: 1 1 180px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.two-cols > .panel {
+  min-width: 0;
+}
+.preview-list {
+  position: relative;
+  isolation: isolate;
+  contain: paint;
+  overscroll-behavior: contain;
+}
