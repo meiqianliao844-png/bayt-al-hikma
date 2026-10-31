@@ -1,0 +1,197 @@
+{
+  "title": "科技新闻 · 折叠手机 · 词组与长句",
+  "counts": {
+    "phrases": 20,
+    "readingPassages": 10,
+    "questions": 90
+  },
+  "note": "用户提供的折叠手机学习素材；产品名称、报道、日期及价格未核实。学习句型不表示确认新闻事实。",
+  "sourceMap": [
+    {
+      "id": "tech-foldable-expressions-v2-link",
+      "lines": [
+        "T01"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-push",
+      "lines": [
+        "T02"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-keen",
+      "lines": [
+        "T03"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-expectations",
+      "lines": [
+        "T04"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-foldable",
+      "lines": [
+        "T05"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-combine",
+      "lines": [
+        "T06"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-less-than",
+      "lines": [
+        "T09",
+        "T15"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-start",
+      "lines": [
+        "T10"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-designed",
+      "lines": [
+        "T18"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-capacity",
+      "lines": [
+        "T19"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-until",
+      "lines": [
+        "T21"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-accidental",
+      "lines": [
+        "T26"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-price",
+      "lines": [
+        "T30"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-manage",
+      "lines": [
+        "T35"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-preserve",
+      "lines": [
+        "T35"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-admit",
+      "lines": [
+        "T36"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-contact",
+      "lines": [
+        "T38"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-obtain",
+      "lines": [
+        "T38"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-relieve",
+      "lines": [
+        "T43"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-reduce-to",
+      "lines": [
+        "T44"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-what-if",
+      "lines": [
+        "T04"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-launch",
+      "lines": [
+        "T08",
+        "T09",
+        "T10"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-watch",
+      "lines": [
+        "T11"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-different-test",
+      "lines": [
+        "T16",
+        "T17"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-machine",
+      "lines": [
+        "T18",
+        "T19"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-opinion",
+      "lines": [
+        "T22"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-solve",
+      "lines": [
+        "T35"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-not-only",
+      "lines": [
+        "T39"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-dialect",
+      "lines": [
+        "T33"
+      ]
+    },
+    {
+      "id": "tech-foldable-expressions-v2-repair-service",
+      "lines": [
+        "T43",
+        "T44"
+      ]
+    }
+  ]
+}

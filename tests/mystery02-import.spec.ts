@@ -27,8 +27,8 @@ test("continuation reuses existing cards, shows noun singulars and studies the c
       exact: true,
     })
     .click();
-  await expect(page.getByLabel("搜索背词词库", { exact: true })).toHaveValue(
-    "海绵宝宝 · 神秘顾客02",
+  await expect(page.getByLabel("背词专题", { exact: true })).toHaveValue(
+    "spongebob-mystery-customer-02",
   );
   await page
     .getByLabel("搜索背词词库", { exact: true })
@@ -45,8 +45,8 @@ test("continuation reuses existing cards, shows noun singulars and studies the c
   const state = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(state.knowledge).toHaveLength(384);
-  expect(state.questions).toHaveLength(1084);
+  expect(state.knowledge).toHaveLength(597);
+  expect(state.questions).toHaveLength(1512);
   expect(
     state.wordProgress["spongebob-mystery-customer-01-catch"],
   ).toBeDefined();

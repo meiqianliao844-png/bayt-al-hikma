@@ -67,8 +67,8 @@ describe("deduplicated continuation and noun number pairs", () => {
     const old = structuredClone(s);
     const next = installBundledPacks(s);
     expect(s).toEqual(old);
-    expect(next.knowledge).toHaveLength(384);
-    expect(next.questions).toHaveLength(1084);
+    expect(next.knowledge).toHaveLength(597);
+    expect(next.questions).toHaveLength(1512);
     const k = next.knowledge.find((k) => k.id === id)!;
     expect(k.meaning).toBe("我的抓住笔记");
     expect(k.examples?.some((e) => e.arabic === "أَمْسَكْتُ!")).toBe(true);

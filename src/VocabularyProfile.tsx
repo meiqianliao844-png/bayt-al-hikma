@@ -1,3 +1,4 @@
+import { AskGPT } from "./AskGPT";
 import { NounNumbers } from "./NounNumbers";
 import { useState } from "react";
 import { AudioTools } from "./Audio";
@@ -112,6 +113,7 @@ export function VocabularyProfile({
   }
   return (
     <section className="vocabulary-profile">
+      <AskGPT key={k.id} k={k} />
       <div className="profile-tabs" role="tablist" aria-label="词汇档案">
         {tabs.map((name, i) => (
           <button

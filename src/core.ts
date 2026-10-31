@@ -7,6 +7,8 @@ import schema from "./knowledge-pack.schema.json";
 import seed from "./seed.json";
 import newsPack from "./data/azerbaijan-school-uniform.json";
 import sharedFuturePack from "./data/shared-future.json";
+import expressionsPack from "./data/foldable-expressions.json";
+import literaturePack from "./data/arabic-literature-lesson-01.json";
 import foldablePack from "./data/foldable-tech.json";
 import mystery02Pack from "./data/spongebob-mystery-02.json";
 import mysteryPack from "./data/spongebob-mystery-01.json";
@@ -275,7 +277,30 @@ export const bundledSharedFuture = parsePack(sharedFuturePack);
 export const bundledMystery = parsePack(mysteryPack);
 export const bundledMystery02 = parsePack(mystery02Pack);
 export const bundledFoldable = parsePack(foldablePack);
+export const bundledLiterature = parsePack(literaturePack);
+export const bundledExpressions = parsePack(expressionsPack);
 export const bundledCollections = [
+  {
+    pack: bundledExpressions,
+    title: "科技手机 · 词组与长句精读",
+    verbs: 0,
+    terms: 30,
+    viewLabel: "查看科技词组与长句",
+    download: "foldable-expressions",
+    note: "20组词组句型、10组原文长句精读，附逐项拆解和90道选择题。保留原有26项重点及学习记录；报道事实未核实。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
+  {
+    pack: bundledLiterature,
+    title: "阿拉伯文学史第一讲",
+    searchQuery: "阿拉伯文学史第一讲",
+    verbs: 63,
+    terms: 120,
+    viewLabel: "查看文学史第一讲",
+    download: "arabic-literature-lesson-01",
+    note: "183张知识卡、338道选择题：文学概念、蒙昧诗歌、悬诗、诗人、动词与固定搭配。原包仅5张卡附例句；未补造教材原句。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
   {
     pack: bundledNews,
     title: "阿塞拜疆校服新闻",
