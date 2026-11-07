@@ -1,3 +1,4 @@
+import literatureOriginalContext from "./data/literature-original-context.json";
 import poetryExplanations from "./data/jahili-poetry-explanations.json";
 import populationPack from "./data/population-20261107.json";
 import Ajv from "ajv";
@@ -281,6 +282,10 @@ export const bundledMystery02 = parsePack(mystery02Pack);
 export const bundledFoldable = parsePack(foldablePack);
 export const bundledLiterature = parsePack(literaturePack);
 const bundledPoetryExplanations = parsePack(poetryExplanations);
+const bundledLiteratureOriginalContext = parsePack(literatureOriginalContext);
+const retiredPopulationDialectIds = new Set(
+  Array.from({ length: 10 }, (_, i) => `population-20261107-${48 + i}`),
+);
 export const bundledExpressions = parsePack(expressionsPack);
 export const bundledPopulation = parsePack(populationPack);
 export const bundledCollections = [
@@ -288,10 +293,10 @@ export const bundledCollections = [
     pack: bundledPopulation,
     title: bundledPopulation.title,
     verbs: 10,
-    terms: 47,
+    terms: 37,
     viewLabel: "查看人口预测与末日传闻",
     download: "population-20261107",
-    note: "35个重点词、6个补充动词、6组新闻句型和10张完整埃及口语卡。节目内容作为语言学习素材。",
+    note: "35个重点词、6个补充动词和6组新闻句型。节目内容作为语言学习素材。",
     reviewNotes: [] as { source: string; note: string }[],
   },
   {
@@ -380,6 +385,9 @@ export const bundledCollections = [
 ];
 /** Install each collection once without replacing user edits or losing old schedules. */
 export function installBundledPacks(state: State): State {
+  const available = state.knowledge
+    .filter((k) => retiredPopulationDialectIds.has(k.id))
+    .reduce((current, k) => removeKnowledge(current, k.id), state);
   const installed = bundledCollections.reduce((current, collection) => {
     const { pack } = collection;
     if (current.installedPacks?.includes(pack.id)) return current;
@@ -389,20 +397,21 @@ export function installBundledPacks(state: State): State {
         : mergePack(current, pack, false)),
       installedPacks: [...(current.installedPacks || []), pack.id],
     };
-  }, state);
-  const poetry = installed.installedPacks?.includes(
-    bundledPoetryExplanations.id,
-  )
-    ? installed
-    : {
-        ...installSupplement(installed, bundledPoetryExplanations),
-        installedPacks: [
-          ...(installed.installedPacks || []),
-          bundledPoetryExplanations.id,
-        ],
-      };
-  const knowledge = completeNounNumbers(poetry.knowledge);
-  return knowledge === poetry.knowledge ? poetry : { ...poetry, knowledge };
+  }, available);
+  const enriched = [
+    bundledPoetryExplanations,
+    bundledLiteratureOriginalContext,
+  ].reduce((current, pack) => {
+    if (current.installedPacks?.includes(pack.id)) return current;
+    return {
+      ...installSupplement(current, pack),
+      installedPacks: [...(current.installedPacks || []), pack.id],
+    };
+  }, installed);
+  const knowledge = completeNounNumbers(enriched.knowledge);
+  return knowledge === enriched.knowledge
+    ? enriched
+    : { ...enriched, knowledge };
 }
 /** Mark installation once, retaining both users' records and intentional deletions.
  * No save during load: a quota error must never replace the user's stored state. */
