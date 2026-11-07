@@ -1,3 +1,5 @@
+import diplomacyPack from "./data/china-diplomacy-20261107.json";
+import briTranslationPack from "./data/bri-translation-20261107.json";
 import literatureOriginalContext from "./data/literature-original-context.json";
 import poetryExplanations from "./data/jahili-poetry-explanations.json";
 import populationPack from "./data/population-20261107.json";
@@ -288,6 +290,8 @@ const retiredPopulationDialectIds = new Set(
 );
 export const bundledExpressions = parsePack(expressionsPack);
 export const bundledPopulation = parsePack(populationPack);
+const bundledBriTranslation = parsePack(briTranslationPack);
+const bundledDiplomacy = parsePack(diplomacyPack);
 export const bundledCollections = [
   {
     pack: bundledPopulation,
@@ -348,6 +352,28 @@ export const bundledCollections = [
     viewLabel: "查看人类命运共同体",
     download: "shared-future",
     note: "中阿语料表共85条，已补充学习标符。文档未附文章全文；第73条笔误已校订并保留原文说明。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
+  {
+    pack: bundledDiplomacy,
+    title: bundledDiplomacy.title,
+    verbs: 0,
+    terms: 312,
+    viewLabel: "查看中国特色大国外交",
+    download: "china-diplomacy-20261107",
+    supplementExisting: true,
+    note: "保留文档原编号和历史核验等级，附文档可定位的来源网址。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
+  {
+    pack: bundledBriTranslation,
+    title: bundledBriTranslation.title,
+    verbs: 0,
+    terms: 98,
+    viewLabel: "查看一带一路翻译搭配",
+    download: "bri-translation-20261107",
+    supplementExisting: true,
+    note: "收录术语附录、动词搭配与校准表达，带疑点的条目只作看卡复习。",
     reviewNotes: [] as { source: string; note: string }[],
   },
   {
