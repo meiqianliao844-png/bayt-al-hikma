@@ -31,7 +31,7 @@ test("studies only a selected topic and remembers it across reloads", async ({
   ).toBeDisabled();
   await page.getByLabel("背词范围").selectOption("all");
   await page.getByLabel("背词专题", { exact: true }).selectOption("");
-  await expect(page.getByText(/符合条件 597 张/)).toBeVisible();
+  await expect(page.getByText(/符合条件 654 张/)).toBeVisible();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,

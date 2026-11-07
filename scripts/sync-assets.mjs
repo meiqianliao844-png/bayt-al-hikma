@@ -15,6 +15,7 @@ copyFileSync(
 
 mkdirSync(new URL("../public/packs/", import.meta.url), { recursive: true });
 for (const name of [
+  "population-20261107.json",
   "azerbaijan-school-uniform.json",
   "azerbaijan-school-uniform.report.json",
   "shared-future.json",

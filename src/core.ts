@@ -1,3 +1,4 @@
+import populationPack from "./data/population-20261107.json";
 import Ajv from "ajv";
 import { completeNounNumbers } from "./noun-numbers.mjs";
 import { installSupplement } from "./supplement";
@@ -279,7 +280,18 @@ export const bundledMystery02 = parsePack(mystery02Pack);
 export const bundledFoldable = parsePack(foldablePack);
 export const bundledLiterature = parsePack(literaturePack);
 export const bundledExpressions = parsePack(expressionsPack);
+export const bundledPopulation = parsePack(populationPack);
 export const bundledCollections = [
+  {
+    pack: bundledPopulation,
+    title: bundledPopulation.title,
+    verbs: 10,
+    terms: 47,
+    viewLabel: "查看人口预测与末日传闻",
+    download: "population-20261107",
+    note: "35个重点词、6个补充动词、6组新闻句型和10张完整埃及口语卡。节目内容作为语言学习素材。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
   {
     pack: bundledExpressions,
     title: "科技手机 · 词组与长句精读",
