@@ -292,6 +292,17 @@ export const bundledExpressions = parsePack(expressionsPack);
 export const bundledPopulation = parsePack(populationPack);
 const bundledBriTranslation = parsePack(briTranslationPack);
 const bundledDiplomacy = parsePack(diplomacyPack);
+const diplomacyUpdateId = "china-diplomacy-update-20261108";
+const diplomacyUpdate = {
+  ...bundledDiplomacy,
+  id: diplomacyUpdateId,
+  knowledge: bundledDiplomacy.knowledge.filter((k) =>
+    k.id.startsWith(diplomacyUpdateId + "-"),
+  ),
+  questions: bundledDiplomacy.questions.filter((q) =>
+    q.knowledgeId.startsWith(diplomacyUpdateId + "-"),
+  ),
+};
 export const bundledCollections = [
   {
     pack: bundledPopulation,
@@ -358,7 +369,7 @@ export const bundledCollections = [
     pack: bundledDiplomacy,
     title: bundledDiplomacy.title,
     verbs: 0,
-    terms: 312,
+    terms: bundledDiplomacy.knowledge.length,
     viewLabel: "查看中国特色大国外交",
     download: "china-diplomacy-20261107",
     supplementExisting: true,
@@ -427,6 +438,7 @@ export function installBundledPacks(state: State): State {
   const enriched = [
     bundledPoetryExplanations,
     bundledLiteratureOriginalContext,
+    diplomacyUpdate,
   ].reduce((current, pack) => {
     if (current.installedPacks?.includes(pack.id)) return current;
     return {
