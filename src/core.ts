@@ -1,3 +1,4 @@
+import poetryExplanations from "./data/jahili-poetry-explanations.json";
 import populationPack from "./data/population-20261107.json";
 import Ajv from "ajv";
 import { completeNounNumbers } from "./noun-numbers.mjs";
@@ -279,6 +280,7 @@ export const bundledMystery = parsePack(mysteryPack);
 export const bundledMystery02 = parsePack(mystery02Pack);
 export const bundledFoldable = parsePack(foldablePack);
 export const bundledLiterature = parsePack(literaturePack);
+const bundledPoetryExplanations = parsePack(poetryExplanations);
 export const bundledExpressions = parsePack(expressionsPack);
 export const bundledPopulation = parsePack(populationPack);
 export const bundledCollections = [
@@ -388,10 +390,19 @@ export function installBundledPacks(state: State): State {
       installedPacks: [...(current.installedPacks || []), pack.id],
     };
   }, state);
-  const knowledge = completeNounNumbers(installed.knowledge);
-  return knowledge === installed.knowledge
+  const poetry = installed.installedPacks?.includes(
+    bundledPoetryExplanations.id,
+  )
     ? installed
-    : { ...installed, knowledge };
+    : {
+        ...installSupplement(installed, bundledPoetryExplanations),
+        installedPacks: [
+          ...(installed.installedPacks || []),
+          bundledPoetryExplanations.id,
+        ],
+      };
+  const knowledge = completeNounNumbers(poetry.knowledge);
+  return knowledge === poetry.knowledge ? poetry : { ...poetry, knowledge };
 }
 /** Mark installation once, retaining both users' records and intentional deletions.
  * No save during load: a quota error must never replace the user's stored state. */
