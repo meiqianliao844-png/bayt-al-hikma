@@ -40,8 +40,8 @@ describe("uploaded literature lesson", () => {
       [id]: { stage: 2, due: "2026-11-07", seen: 3, lastKnown: true },
     };
     const n = installBundledPacks(old);
-    expect(n.knowledge).toHaveLength(1051);
-    expect(n.questions).toHaveLength(1917);
+    expect(n.knowledge).toHaveLength(1082);
+    expect(n.questions).toHaveLength(1947);
     expect(n.knowledge.find((k) => k.id === id)?.meaning).toBe("我的释义");
     for (const key of [
       "favorites",
