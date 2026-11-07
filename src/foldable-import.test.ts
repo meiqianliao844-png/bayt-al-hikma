@@ -68,8 +68,8 @@ describe("foldable technology learning text", () => {
     );
     s.annotations = { [id]: "旧批注" };
     const n = installBundledPacks(s);
-    expect(n.knowledge).toHaveLength(644);
-    expect(n.questions).toHaveLength(1559);
+    expect(n.knowledge).toHaveLength(1051);
+    expect(n.questions).toHaveLength(1917);
     expect(n.knowledge.find((k) => k.id === id)?.meaning).toBe(
       "我自己的批准释义",
     );

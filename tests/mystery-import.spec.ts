@@ -48,8 +48,8 @@ test("mystery customer topic exposes source subtitles, tricky forms and choice-o
   const s = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("hikma-v1")!),
   );
-  expect(s.knowledge).toHaveLength(644);
-  expect(s.questions).toHaveLength(1559);
+  expect(s.knowledge).toHaveLength(1051);
+  expect(s.questions).toHaveLength(1917);
   expect(Object.keys(s.wordProgress)).toHaveLength(1);
   expect(
     await page.evaluate(

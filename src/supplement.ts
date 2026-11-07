@@ -51,15 +51,22 @@ export function installSupplement(state: State, pack: Pack): State {
   const items = new Map(state.knowledge.map((k) => [k.id, k]));
   const aliases = new Map<string, string>();
   const signature = (k: Knowledge) => `${norm(k.arabic)}|${norm(k.meaning)}`;
+  const signatures = new Map<string, string>();
+  for (const card of state.knowledge) {
+    const key = signature(card);
+    if (!signatures.has(key)) signatures.set(key, card.id);
+  }
   for (const incoming of pack.knowledge) {
     let old = items.get(incoming.id);
     if (!old && !incoming.id.startsWith(pack.id + "-")) continue; // Respect previously deleted canonical cards.
-    if (!old)
-      old = [...items.values()].find(
-        (k) => signature(k) === signature(incoming),
-      );
+    const key = signature(incoming);
+    if (!old) {
+      const match = signatures.get(key);
+      if (match) old = items.get(match);
+    }
     const canonical = old?.id || incoming.id;
     aliases.set(incoming.id, canonical);
+    if (!old) signatures.set(key, canonical);
     items.set(
       canonical,
       old ? (supplementMissing(old, incoming) as Knowledge) : incoming,
