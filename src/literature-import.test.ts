@@ -40,8 +40,8 @@ describe("uploaded literature lesson", () => {
       [id]: { stage: 2, due: "2026-11-07", seen: 3, lastKnown: true },
     };
     const n = installBundledPacks(old);
-    expect(n.knowledge).toHaveLength(654);
-    expect(n.questions).toHaveLength(1569);
+    expect(n.knowledge).toHaveLength(644);
+    expect(n.questions).toHaveLength(1559);
     expect(n.knowledge.find((k) => k.id === id)?.meaning).toBe("我的释义");
     for (const key of [
       "favorites",
@@ -68,4 +68,40 @@ describe("uploaded literature lesson", () => {
     expect(n.knowledge.filter((k) => k.id === id)).toHaveLength(1);
     expect(n.knowledge.find((k) => k.id === id)?.meaning).toBe("个人笔记释义");
   });
+});
+
+it("adds textbook excerpts to an installed lesson without replacing edits", () => {
+  const state = initialState();
+  const id = "lit1-k-5c23608f557c";
+  const original = bundledLiterature.knowledge.find((card) => card.id === id)!;
+  state.knowledge = state.knowledge.map((card) =>
+    card.id === id ? { ...original, meaning: "我的爱情诗释义" } : card,
+  );
+  state.installedPacks = state.installedPacks?.filter(
+    (id) => id !== "lit1-original-context-v1",
+  );
+  const next = installBundledPacks(state);
+  const card = next.knowledge.find((card) => card.id === id);
+  expect(card?.meaning).toBe("我的爱情诗释义");
+  expect(card?.examples?.[0].context).toContain("教材第 4 页");
+  expect(installBundledPacks(next)).toBe(next);
+});
+
+it("removes retired dialect cards and their questions from old installations", () => {
+  const state = initialState();
+  const id = "population-20261107-48";
+  const question = state.questions[0];
+  const retired = state.knowledge[0];
+  const next = installBundledPacks({
+    ...state,
+    knowledge: [...state.knowledge, { ...retired, id }],
+    questions: [
+      ...state.questions,
+      { ...question, id: id + "-meaning", knowledgeId: id },
+    ],
+    favorites: [...state.favorites, id],
+  });
+  expect(next.knowledge).toEqual(state.knowledge);
+  expect(next.questions).toEqual(state.questions);
+  expect(next.favorites).toEqual(state.favorites);
 });
