@@ -2,6 +2,7 @@ import diplomacyPack from "./data/china-diplomacy-20261107.json";
 import briTranslationPack from "./data/bri-translation-20261107.json";
 import literatureOriginalContext from "./data/literature-original-context.json";
 import poetryExplanations from "./data/jahili-poetry-explanations.json";
+import poetryThreePages from "./data/lit-poetry-pages-20261109.json";
 import populationPack from "./data/population-20261107.json";
 import Ajv from "ajv";
 import { completeNounNumbers } from "./noun-numbers.mjs";
@@ -284,6 +285,7 @@ export const bundledMystery02 = parsePack(mystery02Pack);
 export const bundledFoldable = parsePack(foldablePack);
 export const bundledLiterature = parsePack(literaturePack);
 const bundledPoetryExplanations = parsePack(poetryExplanations);
+const bundledPoetryThreePages = parsePack(poetryThreePages);
 const bundledLiteratureOriginalContext = parsePack(literatureOriginalContext);
 const retiredPopulationDialectIds = new Set(
   Array.from({ length: 10 }, (_, i) => `population-20261107-${48 + i}`),
@@ -329,10 +331,10 @@ export const bundledCollections = [
     title: "阿拉伯文学史第一讲",
     searchQuery: "阿拉伯文学史第一讲",
     verbs: 63,
-    terms: 120,
+    terms: bundledLiterature.knowledge.length,
     viewLabel: "查看文学史第一讲",
     download: "arabic-literature-lesson-01",
-    note: "183张知识卡、338道选择题：文学概念、蒙昧诗歌、悬诗、诗人、动词与固定搭配。原包仅5张卡附例句；未补造教材原句。",
+    note: `${bundledLiterature.knowledge.length}张知识卡、${bundledLiterature.questions.length}道选择题：文学概念、蒙昧诗歌、悬诗、诗人、诗歌三页词语精读及固定搭配。新增诗意语境为教学改写，非教材逐字原文。`,
     reviewNotes: [] as { source: string; note: string }[],
   },
   {
@@ -437,6 +439,7 @@ export function installBundledPacks(state: State): State {
   }, available);
   const enriched = [
     bundledPoetryExplanations,
+    bundledPoetryThreePages,
     bundledLiteratureOriginalContext,
     diplomacyUpdate,
   ].reduce((current, pack) => {
