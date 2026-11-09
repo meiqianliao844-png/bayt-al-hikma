@@ -36,8 +36,8 @@ it("installs the expansion over an already installed technology pack once withou
   };
   s.annotations = { [id]: "科技旧批注" };
   const n = installBundledPacks(s);
-  expect(n.knowledge).toHaveLength(1082);
-  expect(n.questions).toHaveLength(1947);
+  expect(n.knowledge).toHaveLength(1440);
+  expect(n.questions).toHaveLength(2314);
   expect(n.wordProgress).toEqual(s.wordProgress);
   expect(n.annotations).toEqual(s.annotations);
   expect(installBundledPacks(n)).toBe(n);
