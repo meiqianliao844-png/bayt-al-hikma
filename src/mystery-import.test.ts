@@ -99,8 +99,8 @@ describe("mystery customer subtitle import", () => {
     const before = structuredClone(s),
       next = installBundledPacks(s);
     expect(s).toEqual(before);
-    expect(next.knowledge).toHaveLength(1082);
-    expect(next.questions).toHaveLength(1947);
+    expect(next.knowledge).toHaveLength(1440);
+    expect(next.questions).toHaveLength(2314);
     for (const key of [
       "history",
       "progress",
