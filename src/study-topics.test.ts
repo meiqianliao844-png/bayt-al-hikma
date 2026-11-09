@@ -10,7 +10,7 @@ it("limits topics by explicit membership and keeps reused cards in all relevant 
   const s = initialState(),
     topics = studyTopics(s.knowledge),
     lit = topics.find((t) => t.id === bundledLiterature.id)!;
-  expect(lit.ids.size).toBe(183);
+  expect(lit.ids.size).toBe(541);
   expect(
     [...lit.ids].every((id) =>
       s.knowledge
