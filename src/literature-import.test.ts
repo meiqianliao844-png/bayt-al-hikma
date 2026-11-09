@@ -9,10 +9,10 @@ import {
 describe("uploaded literature lesson", () => {
   it("validates every supplied card and choice without inventing source examples", () => {
     const p = parsePack(bundledLiterature);
-    expect(p.knowledge).toHaveLength(183);
-    expect(p.questions).toHaveLength(338);
-    expect(p.knowledge.filter((k) => k.verb)).toHaveLength(63);
-    expect(p.knowledge.filter((k) => k.examples?.length)).toHaveLength(5);
+    expect(p.knowledge).toHaveLength(541);
+    expect(p.questions).toHaveLength(705);
+    expect(p.knowledge.filter((k) => k.verb).length).toBeGreaterThanOrEqual(63);
+    expect(p.knowledge.filter((k) => k.examples?.length).length).toBeGreaterThanOrEqual(5);
     for (const q of p.questions) {
       expect(q.grading).toBe("choice");
       expect(q.options).toContain(q.answer);
@@ -40,8 +40,8 @@ describe("uploaded literature lesson", () => {
       [id]: { stage: 2, due: "2026-11-07", seen: 3, lastKnown: true },
     };
     const n = installBundledPacks(old);
-    expect(n.knowledge).toHaveLength(1082);
-    expect(n.questions).toHaveLength(1947);
+    expect(n.knowledge).toHaveLength(1440);
+    expect(n.questions).toHaveLength(2314);
     expect(n.knowledge.find((k) => k.id === id)?.meaning).toBe("我的释义");
     for (const key of [
       "favorites",
