@@ -16,6 +16,7 @@ import newsPack from "./data/azerbaijan-school-uniform.json";
 import sharedFuturePack from "./data/shared-future.json";
 import expressionsPack from "./data/foldable-expressions.json";
 import literaturePack from "./data/arabic-literature-lesson-01.json";
+import quranSelectedVersesPack from "./data/quran-selected-verses-35-20261123.json";
 import foldablePack from "./data/foldable-tech.json";
 import mystery02Pack from "./data/spongebob-mystery-02.json";
 import mysteryPack from "./data/spongebob-mystery-01.json";
@@ -308,6 +309,17 @@ const diplomacyUpdate = {
   ),
 };
 export const bundledCollections = [
+  {
+    pack: quranSelectedVersesPack as Pack,
+    title: "古兰经选读35节 · 中阿对照背诵",
+    searchQuery: "阿拉伯文学课｜古兰经选读",
+    verbs: 0,
+    terms: 35,
+    viewLabel: "查看古兰经选读",
+    download: "quran-selected-verses-35-20261123",
+    note: "35节经文整句中阿对照，开端章7节全文背诵，35道选择题；中文译文来源为中国伊斯兰教协会《古兰经节选简注》。",
+    reviewNotes: [] as { source: string; note: string }[],
+  },
   {
     pack: bundledPopulation,
     title: bundledPopulation.title,
