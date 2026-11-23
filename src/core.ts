@@ -1,3 +1,4 @@
+import type { CustomPhrase } from "./PhraseEditor";
 import diplomacyPack from "./data/china-diplomacy-20261107.json";
 import briTranslationPack from "./data/bri-translation-20261107.json";
 import literatureOriginalContext from "./data/literature-original-context.json";
@@ -79,6 +80,7 @@ export type State = {
   installedPacks?: string[];
   wordProgress?: Record<string, WordProgress>;
   annotations?: Record<string, string>;
+  customPhrases?: Record<string, CustomPhrase[]>;
   knowledge: Knowledge[];
   questions: Question[];
   favorites: string[];
@@ -478,6 +480,13 @@ export function removeKnowledge(s: State, id: string): State {
           ),
         }
       : {}),
+    ...(s.customPhrases
+      ? {
+          customPhrases: Object.fromEntries(
+            Object.entries(s.customPhrases).filter(([key]) => key !== id),
+          ),
+        }
+      : {}),
     ...(s.annotations
       ? {
           annotations: Object.fromEntries(
@@ -522,6 +531,7 @@ export function parseBackup(data: unknown): State {
   for (const [field, values] of [
     ["wordProgress", s.wordProgress],
     ["annotations", s.annotations],
+    ["customPhrases", s.customPhrases],
     ["journal", s.journal],
   ] as const) {
     if (
@@ -550,6 +560,22 @@ export function parseBackup(data: unknown): State {
       note.length > 20000
     )
       throw Error("批注数据无效");
+  for (const [id, phrases] of Object.entries(s.customPhrases || {}))
+    if (
+      !s.knowledge.some((k) => k.id === id) ||
+      !Array.isArray(phrases) ||
+      phrases.length > 100 ||
+      phrases.some(
+        (p) =>
+          !p ||
+          typeof p.arabic !== "string" ||
+          !p.arabic.trim() ||
+          p.arabic.length > 10000 ||
+          typeof p.chinese !== "string" ||
+          p.chinese.length > 10000,
+      )
+    )
+      throw Error("自定义搭配数据无效");
   for (const [date, entry] of Object.entries(s.journal || {}))
     if (!validDate(date) || !validJournalEntry(entry))
       throw Error("每日小记数据无效");

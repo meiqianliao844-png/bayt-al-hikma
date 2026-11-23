@@ -111,7 +111,12 @@ function App() {
   }).length;
   const filtered = s.knowledge.filter(
     (k) =>
-      matchesKnowledge(k, search, s.annotations?.[k.id]) &&
+      matchesKnowledge(
+        k,
+        search,
+        s.annotations?.[k.id],
+        s.customPhrases?.[k.id],
+      ) &&
       (!category || k.category === category) &&
       (!date || k.date === date) &&
       (!fav || s.favorites.includes(k.id)),

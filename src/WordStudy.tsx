@@ -1,3 +1,4 @@
+import { PhraseEditor, saveCustomPhrases } from "./PhraseEditor";
 import { AskGPT } from "./AskGPT";
 import { NounNumbers } from "./NounNumbers";
 import { studyTopics, savedStudyTopic, saveStudyTopic } from "./study-topics";
@@ -44,7 +45,12 @@ export function WordStudy({
   const candidates = state.knowledge.filter(
     (k) =>
       (!activeTopic || activeTopic.ids.has(k.id)) &&
-      matchesKnowledge(k, query, state.annotations?.[k.id]) &&
+      matchesKnowledge(
+        k,
+        query,
+        state.annotations?.[k.id],
+        state.customPhrases?.[k.id],
+      ) &&
       (!category || k.category === category) &&
       (scope === "all" ||
         (scope === "favorites" && state.favorites.includes(k.id)) ||
@@ -56,6 +62,10 @@ export function WordStudy({
     ? state.knowledge.find((k) => k.id === queue[index])
     : undefined;
   const context = k ? wordContext(k, state.knowledge, query) : null;
+  const customPhrases = k ? state.customPhrases?.[k.id] : undefined;
+  const phrases = customPhrases
+    ? customPhrases.map((p) => ({ ...p, label: "我的搭配" }))
+    : context?.phrases || [];
   function rate(known: boolean) {
     if (!k || !queue) return;
     if (!save(recordWord(state, k.id, known))) return;
@@ -115,7 +125,7 @@ export function WordStudy({
             <NounNumbers k={k} />
             <section className="word-context" aria-label="搭配与语境">
               <h3>放回语境里记</h3>
-              {context?.phrases.map((p, i) => (
+              {phrases.map((p, i) => (
                 <div className="example" key={`phrase-${i}`}>
                   <span className="tag">{p.label}</span>
                   <p className="arabic" lang="ar" dir="rtl">
@@ -125,6 +135,15 @@ export function WordStudy({
                   <AudioTools text={p.arabic} />
                 </div>
               ))}
+              <PhraseEditor
+                key={k.id}
+                customized={customPhrases !== undefined}
+                phrases={
+                  customPhrases ??
+                  wordContext(k, state.knowledge, "", true).phrases
+                }
+                save={(value) => save(saveCustomPhrases(state, k.id, value))}
+              />
               {context?.examples.map((e, i) => (
                 <div className="example" key={`example-${i}`}>
                   <span className="tag">
@@ -137,9 +156,9 @@ export function WordStudy({
                   <AudioTools text={e.arabic} url={e.audioUrl} />
                 </div>
               ))}
-              {!context?.phrases.length && !context?.examples.length && (
+              {!phrases.length && !context?.examples.length && (
                 <p className="muted">
-                  原资料暂未收录这条词汇的搭配或原句，可在下方批注中补充。
+                  原资料暂未收录这条词汇的搭配或原句，可点击上方按钮添加自定义搭配。
                 </p>
               )}
             </section>

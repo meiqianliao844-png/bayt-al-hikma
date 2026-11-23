@@ -1,7 +1,12 @@
 import type { Knowledge } from "./core";
 import { normalize } from "./core";
 /** Only reuse supplied material; never manufacture an article quotation. */
-export function wordContext(k: Knowledge, all: Knowledge[], query = "") {
+export function wordContext(
+  k: Knowledge,
+  all: Knowledge[],
+  query = "",
+  showAll = false,
+) {
   const phrases = (k.vocabulary?.phrases || []).map((p) => ({
     arabic: p.arabic,
     chinese: p.chinese,
@@ -69,10 +74,10 @@ export function wordContext(k: Knowledge, all: Knowledge[], query = "") {
   return {
     phrases: prioritized(phrases, (p) => p.arabic + " " + p.chinese).slice(
       0,
-      2,
+      showAll ? undefined : 2,
     ),
     examples: prioritized(examples, (e) =>
       [e.context, e.arabic, e.chinese].join(" "),
-    ).slice(0, 2),
+    ).slice(0, showAll ? undefined : 2),
   };
 }

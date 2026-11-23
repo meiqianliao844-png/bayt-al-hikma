@@ -23,6 +23,7 @@ export function matchesKnowledge(
   k: Knowledge,
   query: string,
   annotation = "",
+  customPhrases: { arabic: string; chinese: string }[] = [],
 ): boolean {
   const tokens = searchText(query).split(" ").filter(Boolean);
   if (!tokens.length) return true;
@@ -42,6 +43,7 @@ export function matchesKnowledge(
       k.confusion,
       k.scenario,
       annotation,
+      customPhrases,
     ]).join(" "),
   );
   return tokens.every((token) => text.includes(token));
