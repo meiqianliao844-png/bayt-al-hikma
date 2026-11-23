@@ -8,7 +8,7 @@ test("literature lesson is grouped, reviewable, annotated and choice-only", asyn
     .getByRole("button", { name: "查看文学史第一讲", exact: true })
     .click();
   await expect(
-    page.getByText("共 183 个知识点", { exact: true }),
+    page.getByText("共 541 个知识点", { exact: true }),
   ).toBeVisible();
   await page.getByLabel("搜索知识", { exact: true }).fill("文学批评");
   await page

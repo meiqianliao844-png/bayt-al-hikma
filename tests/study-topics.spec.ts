@@ -6,7 +6,7 @@ test("studies only a selected topic and remembers it across reloads", async ({
   await page.getByRole("button", { name: "背单词", exact: true }).click();
   const select = page.getByLabel("背词专题", { exact: true });
   await select.selectOption("arabic-literature-lesson-01-2026-10-31-v1");
-  await expect(page.getByText(/符合条件 183 张/)).toBeVisible();
+  await expect(page.getByText(/符合条件 541 张/)).toBeVisible();
   await expect(page.getByText(/本轮不会混入其他专题/)).toBeVisible();
   await page.getByRole("button", { name: "开始背单词", exact: true }).click();
   for (let i = 0; i < 3; i++) {
@@ -23,7 +23,7 @@ test("studies only a selected topic and remembers it across reloads", async ({
   await expect(page.getByLabel("背词专题", { exact: true })).toHaveValue(
     "arabic-literature-lesson-01-2026-10-31-v1",
   );
-  await expect(page.getByText(/符合条件 183 张/)).toBeVisible();
+  await expect(page.getByText(/符合条件 541 张/)).toBeVisible();
   await page.getByLabel("背词范围").selectOption("due");
   await expect(page.getByText(/符合条件 0 张/)).toBeVisible();
   await expect(
@@ -31,7 +31,7 @@ test("studies only a selected topic and remembers it across reloads", async ({
   ).toBeDisabled();
   await page.getByLabel("背词范围").selectOption("all");
   await page.getByLabel("背词专题", { exact: true }).selectOption("");
-  await expect(page.getByText(/符合条件 1082 张/)).toBeVisible();
+  await expect(page.getByText(/符合条件 1440 张/)).toBeVisible();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,

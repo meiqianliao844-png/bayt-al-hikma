@@ -4,7 +4,7 @@ test("edits original phrases, reloads, clears and restores them", async ({
 }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "背单词", exact: true }).click();
-  await page.getByLabel("搜索背词词库").fill("批准、通过");
+  await page.getByLabel("搜索背词词库").fill("世俗主义者");
   await page.getByRole("button", { name: "开始背单词", exact: true }).click();
   await page.getByRole("button", { name: "显示释义", exact: true }).click();
   await page

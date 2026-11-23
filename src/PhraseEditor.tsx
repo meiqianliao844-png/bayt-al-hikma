@@ -75,6 +75,7 @@ export function PhraseEditor({
               <label className="field">
                 阿语搭配 {index + 1}
                 <textarea
+                  aria-label={`阿语搭配 ${index + 1}`}
                   lang="ar"
                   dir="rtl"
                   className="arabic"
@@ -93,6 +94,7 @@ export function PhraseEditor({
               <label className="field">
                 中文解释 {index + 1}
                 <textarea
+                  aria-label={`中文解释 ${index + 1}`}
                   rows={2}
                   maxLength={10000}
                   value={phrase.chinese}
