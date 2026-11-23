@@ -119,8 +119,8 @@ describe("multi-collection data retention", () => {
     const before = structuredClone(old),
       next = installBundledPacks(old);
     expect(old).toEqual(before);
-    expect(next.knowledge).toHaveLength(1440);
-    expect(next.questions).toHaveLength(2314);
+    expect(next.knowledge).toHaveLength(1475);
+    expect(next.questions).toHaveLength(2349);
     expect(
       next.knowledge.find((k) => k.id === bundledSponge.knowledge[0].id)
         ?.meaning,
@@ -134,8 +134,8 @@ describe("multi-collection data retention", () => {
   });
   it("keeps explicit deletions deleted and includes both collections in fresh state", () => {
     const s = initialState();
-    expect(s.knowledge).toHaveLength(1440);
-    expect(s.questions).toHaveLength(2314);
+    expect(s.knowledge).toHaveLength(1475);
+    expect(s.questions).toHaveLength(2349);
     const n = removeKnowledge(s, bundledSponge.knowledge[0].id);
     expect(installBundledPacks(n)).toBe(n);
     expect(n.installedPacks).toContain(bundledNews.id);
