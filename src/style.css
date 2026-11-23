@@ -1547,3 +1547,20 @@ html[data-wallpaper] select:focus-visible {
   min-width: 0;
   max-width: 100%;
 }
+
+.phrase-editor {
+  margin: 16px 0;
+}
+.phrase-editor-row {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.phrase-editor textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.phrase-editor .button-row {
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
