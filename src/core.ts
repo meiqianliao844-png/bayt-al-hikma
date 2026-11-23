@@ -311,11 +311,11 @@ const diplomacyUpdate = {
 export const bundledCollections = [
   {
     pack: quranSelectedVersesPack as Pack,
-    title: "古兰经选读35节 · 中阿对照背诵",
-    searchQuery: "阿拉伯文学课｜古兰经选读",
+    title: "《古兰经》",
+    searchQuery: "《古兰经》",
     verbs: 0,
     terms: 35,
-    viewLabel: "查看古兰经选读",
+    viewLabel: "查看《古兰经》专题",
     download: "quran-selected-verses-35-20261123",
     note: "35节经文整句中阿对照，开端章7节全文背诵，35道选择题；中文译文来源为中国伊斯兰教协会《古兰经节选简注》。",
     reviewNotes: [] as { source: string; note: string }[],
