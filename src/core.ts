@@ -443,14 +443,25 @@ export function installBundledPacks(state: State): State {
     .reduce((current, k) => removeKnowledge(current, k.id), state);
   // Migrate Quran cards already installed under the literature category without
   // replacing user edits, review history, or other fields.
-  const quranCategoryMigrated = {
-    ...available,
-    knowledge: available.knowledge.map((k) =>
-      k.id.startsWith("quran-text-") && k.category.startsWith("阿拉伯文学课｜古兰经选读")
-        ? { ...k, category: k.category.replace("阿拉伯文学课｜古兰经选读", "《古兰经》") }
-        : k,
-    ),
-  };
+  const hasLegacyQuranCategories = available.knowledge.some(
+    (k) =>
+      k.id.startsWith("quran-text-") &&
+      k.category.startsWith("阿拉伯文学课｜古兰经选读"),
+  );
+  const quranCategoryMigrated = hasLegacyQuranCategories
+    ? {
+        ...available,
+        knowledge: available.knowledge.map((k) =>
+          k.id.startsWith("quran-text-") &&
+          k.category.startsWith("阿拉伯文学课｜古兰经选读")
+            ? {
+                ...k,
+                category: k.category.replace("阿拉伯文学课｜古兰经选读", "《古兰经》"),
+              }
+            : k,
+        ),
+      }
+    : available;
   const installed = bundledCollections.reduce((current, collection) => {
     const { pack } = collection;
     if (current.installedPacks?.includes(pack.id)) return current;
